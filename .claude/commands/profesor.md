@@ -25,7 +25,28 @@ En materias de proceso (framework/practica/caso entre los tipos activos), el def
 - **No ser complaciente.** Una respuesta parcialmente correcta se marca `PARCIAL` y se dice
   exactamente qué falta. Prohibido "¡bien! aunque también…". Si está mal, es `MAL`.
 - **Una pregunta por mensaje.** Esperá la respuesta antes de seguir.
+- **Pedí la confianza 1-5 después de la respuesta del estudiante y ANTES de corregir.**
+  Preguntada después no mide nada: ya sabe si acertó. Es lo que alimenta `calibracion.md`.
 - Si el estudiante pide la respuesta, primero dale una pista; recién a la segunda, la respuesta.
+
+## 2b. Niveles de Bloom
+
+Etiquetá cada pregunta con su nivel: `recordar | comprender | aplicar | analizar | evaluar |
+crear`. Es un **framework para generar preguntas, no un hallazgo empírico**: la jerarquía
+estricta está discutida (`global/metodo/evidencia.md`, nivel B). Se usa para no quedarse
+preguntando definiciones cuando el parcial pide construir.
+
+**Escalá**: no pases al nivel siguiente hasta ≥80% de aciertos en el actual. Si bajás de 80%,
+volvé un nivel.
+
+| Materia | Techo razonable |
+|---|---|
+| Teoría de la computación, algoritmos | `crear` — construir una máquina, diseñar una reducción nueva |
+| Seguridad, redes, arquitectura | `evaluar` — justificar una mitigación frente a alternativas |
+| Materias de proceso (ing. de software, gestión) | `evaluar` sobre casos, que es lo que toman |
+
+Si hay `wiki/examenes/patron.md`, el techo lo fijan **los verbos reales de las consignas**,
+no esta tabla. Evidencia le gana a heurística.
 
 ## 3. Modos
 
@@ -76,12 +97,17 @@ Siempre, aunque la sesión se corte a la mitad:
    `| U3 · lenguajes regulares | 3 | 2026-08-15 |`.
    Subí como máximo 1 punto por sesión; bajá lo que haga falta.
    El dominio es del tema, no del ánimo: 5 es "lo explicás sin mirar".
-3. **`estado/errores.md`** — anexá los errores **recurrentes** (los que ya aparecieron antes),
+3. **`estado/calibracion.md`** — confianza media declarada contra acierto real del tema, y la
+   brecha. Marcá `sobreconfianza` si confianza ≥4 con acierto <60%, `subconfianza` si
+   confianza ≤2 con acierto >80%.
+4. **`estado/historial.md`** — una línea con fecha, tema, modo y resultado.
+5. **`estado/errores.md`** — anexá los errores **recurrentes** (los que ya aparecieron antes),
    con el enlace a la página y qué hay que releer.
-4. Actualizá el campo `dominio:` del frontmatter de las páginas evaluadas.
-5. Commit: `profesor(<materia>): <tema> <modo> · <bien>/<total>`.
+6. Actualizá el campo `dominio:` del frontmatter de las páginas evaluadas.
+7. Commit: `profesor(<materia>): <tema> <modo> · <bien>/<total>`.
 
 ## Al terminar, decí exactamente
 
-Puntaje, los 2-3 huecos concretos detectados con su enlace, qué cambió en `dominio.md`, y una
-sola recomendación para la próxima sesión.
+Puntaje por nivel de Bloom, los 2-3 huecos concretos detectados con su enlace, la brecha de
+calibración si la hubo (sobre o subconfianza, con los números), qué cambió en `dominio.md`, y
+una sola recomendación para la próxima sesión.

@@ -22,7 +22,7 @@ Capa de estudio — `BOOTSTRAP-APRENDIZAJE.md`:
 | 9 | `global/metodo/evidencia.md` + principios de estudio en el `CLAUDE.md` raíz | OK |
 | 10 | `/cards`: tarjetas de recuperación, sin motor de agendamiento | OK |
 | 11 | `/repasar`: recuperación a demanda | OK |
-| 12 | Calibración, niveles de Bloom en `/profesor`, `/pre-test` | PENDIENTE |
+| 12 | Calibración, niveles de Bloom en `/profesor`, `/pre-test` | OK |
 | 13 | `/plan` y `/estado` v2 (sugerencia, nunca cola) | PENDIENTE |
 | 14 | `/resumen`: perfiles `esqueleto` y `anotado` + `/resumen-ciego` | PENDIENTE |
 | 15 | Exámenes de práctica como fuente privilegiada + `/simulacro` | PENDIENTE |
@@ -164,6 +164,21 @@ Capa de estudio — `BOOTSTRAP-APRENDIZAJE.md`:
   reemplaza a la explicación. Es lo que mantiene el presupuesto de tokens (1-3 archivos de
   `cards/` por sesión) y lo que hace que sea recuperación y no clase.
 - **Fase 11** — `estado/historial.md` agregado a `materias/_plantilla/`.
+
+- **Fase 12** — `/profesor` modificado (fase anterior, cambio pedido por el addendum): pide
+  confianza 1-5 antes de corregir, etiqueta cada pregunta con su nivel de Bloom, escala al
+  80% y ahora escribe también `calibracion.md` e `historial.md`.
+- **Fase 12** — Precisión sobre el momento de la confianza en `/profesor`: va después de que
+  el estudiante responde pero **antes de la corrección**. En `/repasar` va antes de revelar
+  la respuesta. En ambos casos, antes de saber si acertó.
+- **Fase 12** — Regla agregada: si existe `wiki/examenes/patron.md`, los verbos reales de las
+  consignas fijan el techo de Bloom por encima de la tabla heurística por tipo de materia.
+  Evidencia le gana a heurística; queda enganchado con la Fase 15.
+- **Fase 12** — `/pre-test` no toca `dominio.md`, `errores.md` ni `calibracion.md`: solo
+  anexa una línea a `historial.md`. Y no lee el wiki aunque el tema ya esté ingerido, porque
+  leerlo haría preguntar lo que el wiki sabe en vez de lo que el usuario no sabe.
+- **Fase 12** — `estado/calibracion.md` agregado a la plantilla con la fórmula de brecha y
+  los dos umbrales.
 
 ## Deuda
 

@@ -56,6 +56,16 @@ Prohibido agregarle advertencias, banners de "esto no es estudiar", o métricas 
 su uso. Lo único que corresponde es **ofrecer** perfiles adicionales que lleven hacia la
 columna de arriba (`esqueleto`, `ciego`, `anotado`), como opciones, no como reproches.
 
+### Nota sobre el uso de Bloom en `/profesor`
+
+`/profesor` etiqueta cada pregunta con un nivel y no sube hasta ≥80% de aciertos en el
+actual. **Eso es una regla de producto apoyada en un framework de diseño, no la aplicación de
+un hallazgo empírico.** La taxonomía revisada (Anderson & Krathwohl, 2001) organiza la
+generación de preguntas para que el interrogatorio no se quede en definiciones cuando el
+parcial pide construir; la evidencia sobre que los niveles formen una jerarquía estricta de
+adquisición está discutida. Cuando hay `wiki/examenes/patron.md`, los verbos reales de las
+consignas mandan sobre cualquier heurística de niveles.
+
 ## Nivel C — metáfora pedagógica, NO implementar como mecanismo
 
 - **Modo enfocado vs. modo difuso** (Oakley) y las analogías de "grosor sináptico" o "el
