@@ -10,7 +10,7 @@ Fuente de verdad: `BOOTSTRAP.md`.
 | 2 | Scripts: `pdf_texto.py`, `pdf_render.py`, `pdf_figs.py`, `build_pdf.py` | OK |
 | 3 | Catálogo de 15 tipos de página + plantillas | OK |
 | 4 | Comandos núcleo: `/nueva-materia`, `/ingest`, `/loop` | OK |
-| 5 | Comandos de salida: `/resumen`, `/machete`, `/profesor` | PENDIENTE |
+| 5 | Comandos de salida: `/resumen`, `/machete`, `/profesor` | OK |
 | 6 | Comandos de mantenimiento: `/lint`, `/estado`, `/puentes`, `/reperfilar`, `/archivar` | PENDIENTE |
 | 7 | Capa `global/`, `materias/_plantilla/` completa, `README.md` | PENDIENTE |
 | 8 | Autoprueba end-to-end con fixture + saldar deuda | PENDIENTE |
@@ -67,6 +67,16 @@ Fuente de verdad: `BOOTSTRAP.md`.
 - **Fase 4** — Documentos >60 páginas: un `/ingest` por tramo, una línea de manifiesto por
   tramo con el mismo hash. Así el reingreso por hash sigue funcionando.
 
+- **Fase 5** — Los tres comandos declaran explícitamente de dónde leen (siempre vía
+  `mapa.md`), qué escriben en `out/` y qué archivos de `estado/` tocan. `/resumen` y
+  `/machete` no tocan `estado/`: el dominio solo lo mueve `/profesor`.
+- **Fase 5** — Regla agregada: al machete no entra nada marcado `🧠`. En un parcial no
+  querés copiarte de una inferencia del sistema.
+- **Fase 5** — `/machete` tiene tope duro medible (~9000 caracteres = 2 páginas A4 a 9pt en
+  dos columnas) y una prioridad de tipos para recortar. Sin tope, "machete" degrada a resumen.
+- **Fase 5** — `/profesor` sube el dominio como máximo 1 punto por sesión y lo baja sin
+  límite: evita que una sesión afortunada marque un tema como sabido.
+
 ## Deuda
 
 - **Fase 2** — El camino Typst no está probado: no hay binario `typst` en esta máquina.
@@ -75,3 +85,6 @@ Fuente de verdad: `BOOTSTRAP.md`.
   harness (el que agenda prompts). El spec fija ese nombre, así que quedó como está y el
   archivo aclara la diferencia en la primera línea. Si molesta en la práctica, renombrar a
   `/vaciar-cola` es un cambio de una línea.
+- **Fase 5** — `estado/quiz-log.md` lo escribe `/profesor` pero no está en la lista de
+  archivos que inicializa `/nueva-materia` (paso 8) ni en `materias/_plantilla/`. Agregarlo
+  en la Fase 7 y sumar el nombre al `ls` de `nueva-materia.md`.
