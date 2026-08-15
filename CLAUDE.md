@@ -101,6 +101,18 @@ actualizado: 2026-08-15
 - Migraciones de esquema: commit aislado, `schema_version` +1 en el CLAUDE.md de la materia.
 - Nunca mezcles ingesta con cambios de sistema en un mismo commit.
 
+## Principios de estudio
+
+- Dos vías igual de válidas: leer/reelaborar (resúmenes) y recuperar (tarjetas, profesor).
+- `/resumen` es función central. Nunca advertir contra su uso ni penalizarlo.
+- Tarjetas y preguntas **solo** desde contenido `✅`. El material `🧠` nunca se evalúa.
+- Sin scheduler: no hay colas, vencimientos, rachas ni deuda. El usuario elige qué y cuándo.
+- El sistema informa ("hace 9 días que no tocás X") y sugiere. Nunca presiona.
+- Intercalar solo ítems confundibles entre sí, nunca temas no relacionados.
+- Pedir la confianza **antes** de revelar la respuesta, nunca después.
+- Nunca afirmar mecanismos neurobiológicos. Solo conducta y retención medida.
+- Detalle y citas: `global/metodo/evidencia.md`.
+
 ## Prohibido
 
 - **Inventar contenido de materias.** Sin fuente no hay página.

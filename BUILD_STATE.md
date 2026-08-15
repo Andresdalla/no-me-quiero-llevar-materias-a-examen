@@ -15,6 +15,18 @@ Fuente de verdad: `BOOTSTRAP.md`.
 | 7 | Capa `global/`, `materias/_plantilla/` completa, `README.md` | OK |
 | 8 | Autoprueba end-to-end con fixture + saldar deuda | OK |
 
+Capa de estudio — `BOOTSTRAP-APRENDIZAJE.md`:
+
+| Fase | Qué construye | Estado |
+|---|---|---|
+| 9 | `global/metodo/evidencia.md` + principios de estudio en el `CLAUDE.md` raíz | OK |
+| 10 | `/cards`: tarjetas de recuperación, sin motor de agendamiento | PENDIENTE |
+| 11 | `/repasar`: recuperación a demanda | PENDIENTE |
+| 12 | Calibración, niveles de Bloom en `/profesor`, `/pre-test` | PENDIENTE |
+| 13 | `/plan` y `/estado` v2 (sugerencia, nunca cola) | PENDIENTE |
+| 14 | `/resumen`: perfiles `esqueleto` y `anotado` + `/resumen-ciego` | PENDIENTE |
+| 15 | Exámenes de práctica como fuente privilegiada + `/simulacro` | PENDIENTE |
+
 ## Decisiones
 
 - **Fase 0** — El `.gitignore` del spec usa `materias/*/*/<dir>/*`, que cubre
@@ -118,6 +130,18 @@ Fuente de verdad: `BOOTSTRAP.md`.
   `.md` con las marcas preservadas (6 ✅, 1 🧠, 2 ⚠️) y el diagrama Mermaid en SVG.
 - **Fase 8** — Materia de prueba borrada y entrada quitada de `global/indice.md`: el repo
   queda vacío de contenido, como pide la misión.
+
+- **Fase 9** — `global/metodo/evidencia.md`: la sección 1 completa del addendum con los tres
+  niveles, las citas completas y la subsección sobre el resumen. Se agregó al final la
+  sección "Dos decisiones de producto", que aclara que no salen de la literatura: son
+  decisiones y no se revierten sin pedido del usuario.
+- **Fase 9** — El bloque en el `CLAUDE.md` raíz tiene 10 líneas de contenido (tope 15).
+  Se le sumó una línea que el addendum pone como antipatrón pero no en el bloque: pedir la
+  confianza antes de revelar. Es la que más fácil se implementa mal.
+- **Fase 9** — Efecto colateral aceptado: el `CLAUDE.md` raíz pasa de 111 a 122 líneas,
+  4 por encima del tope de 120 que fijó la Fase 1. El addendum ordena agregar el bloque de
+  forma explícita, así que gana el addendum. Si molesta, la tabla de comandos admite
+  compresión.
 
 ## Deuda
 
