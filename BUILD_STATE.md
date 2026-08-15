@@ -24,7 +24,7 @@ Capa de estudio — `BOOTSTRAP-APRENDIZAJE.md`:
 | 11 | `/repasar`: recuperación a demanda | OK |
 | 12 | Calibración, niveles de Bloom en `/profesor`, `/pre-test` | OK |
 | 13 | `/plan` y `/estado` v2 (sugerencia, nunca cola) | OK |
-| 14 | `/resumen`: perfiles `esqueleto` y `anotado` + `/resumen-ciego` | PENDIENTE |
+| 14 | `/resumen`: perfiles `esqueleto` y `anotado` + `/resumen-ciego` | OK |
 | 15 | Exámenes de práctica como fuente privilegiada + `/simulacro` | PENDIENTE |
 
 ## Decisiones
@@ -190,6 +190,20 @@ Capa de estudio — `BOOTSTRAP-APRENDIZAJE.md`:
   que elija el usuario. Se agregó la regla de omitir la línea de calibración cuando no hay
   mediciones, en vez de mostrar una brecha de 0 inventada.
 - **Fase 13** — `estado/plan.md` agregado a la plantilla, con el aviso de que es propuesta.
+
+- **Fase 14** — `/resumen` y `/machete` quedaron sin una sola advertencia sobre su propia
+  eficacia (verificado por grep). Solo se agregaron los dos perfiles nuevos a la tabla.
+- **Fase 14** — `esqueleto` conserva los **nombres** de teoremas y definiciones pero vacía
+  sus enunciados: la estructura es el andamiaje, el contenido es lo que se recupera. Los
+  huecos llevan una línea `> ` para escribir encima.
+- **Fase 14** — `/resumen-ciego` tiene dos invocaciones separadas (abrir y `--corregir`)
+  porque el comando **no puede leer las páginas del wiki antes** de que el usuario escriba:
+  si las lee, la corrección queda contaminada. La fase 1 frena explícitamente.
+- **Fase 14** — Regla agregada a la tercera lista: no confundir "no está en el wiki" con "es
+  incorrecto". El wiki puede tener huecos, y eso es un hallazgo para `/lint`, no un error
+  del usuario.
+- **Fase 14** — Las preguntas del perfil `anotado` van en cita y **nunca marcadas `✅`**:
+  son del sistema, no de la fuente. Y no se responden solas.
 
 ## Deuda
 

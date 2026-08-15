@@ -35,11 +35,50 @@ frená.
 | `breve` | 1-2 páginas | enunciados y definiciones nada más, sin demostraciones ni ejemplos |
 | `completo` | sin tope | todo el tema, con diagramas Mermaid y ejemplos resueltos |
 | `guia-parcial` | 3-6 páginas | ordenado por probabilidad de que lo tomen |
+| `esqueleto` | igual que `completo` | la estructura, con el contenido vacío para que lo completes vos |
+| `anotado` | igual que `completo` | el resumen entero + preguntas al margen |
 
 Para `guia-parcial`, la probabilidad sale de los parciales viejos ingeridos: buscá en
 `manifest.jsonl` las fuentes cuyo `fuente_id` empiece con `parcial-` o `final-`, y ordená los
 temas por cuántas veces aparecen. Encabezá cada sección con `tomado N veces ✅ [parcial-… p.N]`.
 Si no hay parciales ingeridos, decilo en la primera línea del resumen y ordená por unidad.
+Si existe `wiki/examenes/patron.md`, el orden sale de ahí: es la misma cuenta, ya hecha.
+
+### `esqueleto`
+
+Escribí el resumen `completo` y después **vaciá el contenido**, dejando en pie:
+
+- Todos los títulos y subtítulos, en su orden.
+- Los **nombres** de teoremas, definiciones y construcciones, sin su enunciado.
+- Los encabezados de cada tabla, con las filas vacías.
+- Las etiquetas de las secciones obligatorias del tipo (`Hipótesis`, `Contraejemplo`,
+  `Cuándo NO aplica`), sin su contenido.
+- Los bloques de diagrama como `<!-- diagrama: qué relaciona -->`, sin el Mermaid.
+
+Debajo de cada hueco, dejá una línea `> ` para escribir. El archivo sale a
+`out/resumen-<tema>-esqueleto.md` y **se completa a mano, con el wiki cerrado**.
+
+Cuando el usuario lo termine y lo pida, corregilo contra las páginas del wiki con el mismo
+formato de tres listas de `/resumen-ciego`.
+
+### `anotado`
+
+El resumen `completo`, con preguntas intercaladas después de cada bloque, en cita:
+
+```markdown
+✅ [sipser-cap1 p.77] Si A es regular, existe p tal que toda s ∈ A con |s| ≥ p…
+
+> **¿Por qué vale?** ¿Qué propiedad del autómata obliga a que exista ese p?
+> **¿Y si sacamos una hipótesis?** ¿Qué pasa con el enunciado si |s| < p?
+```
+
+Reglas de las preguntas:
+
+- **Sobre el porqué y las consecuencias**, no sobre el dato. "¿Cómo se llama el lema?" no
+  sirve; "¿por qué la partición la elige el adversario?" sí.
+- Una o dos por bloque, no más. Un resumen con más preguntas que contenido no se lee.
+- **No las respondas.** Si el usuario quiere la respuesta, pregunta.
+- Las preguntas son tuyas, no de la fuente: van en cita, nunca marcadas `✅`.
 
 ## 4. Reglas de escritura
 
