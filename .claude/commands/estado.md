@@ -70,7 +70,7 @@ Reglas del tablero:
 - Las barras son de 12 caracteres, proporcionales.
 - `Rojo` lista **solo** los temas con dominio ≤2, con su valor.
 - Si hay un `⚠️` sin resolver en `dudas.md`, agregá una línea `Dudas N abiertas`.
-- Si `manifest.jsonl` está vacío: decí que la materia no tiene material y recomendá `/loop`.
+- Si `manifest.jsonl` está vacío: decí que la materia no tiene material y recomendá `/vaciar-cola`.
 - **`Sin tocar` es información, no reproche.** Sin emojis de alarma, sin "hace 14 días ya!",
   sin contar días perdidos ni sesiones que no hiciste. Solo el dato.
 - **Nunca uses lenguaje de caducidad ni de deuda**: nada que se venza, nada que se acumule,
@@ -82,7 +82,7 @@ Reglas del tablero:
 
 **Una sola línea.** Prioridad, de mayor a menor:
 
-1. Falta ≤7 días para un parcial y hay unidades `sin-material` → `/loop` (ingerir ya).
+1. Falta ≤7 días para un parcial y hay unidades `sin-material` → `/vaciar-cola` (ingerir ya).
 2. Sobreconfianza detectada en una unidad que entra en el próximo parcial → ese tema.
 3. Hay temas con dominio ≤2 en unidades del próximo parcial → ese tema.
 4. Pasaron ≥5 ingestas desde el último `/lint` → `/lint $1`.

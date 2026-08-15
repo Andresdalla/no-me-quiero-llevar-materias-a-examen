@@ -5,7 +5,7 @@ argument-hint: [archivo] [--tipo examen] [--materia <slug>]
 
 # /ingest $ARGUMENTS
 
-Procesa **un solo** archivo. Un archivo, un commit. Si querés vaciar la cola entera, usá `/loop`.
+Procesa **un solo** archivo. Un archivo, un commit. Si querés vaciar la cola entera, usá `/vaciar-cola`.
 
 **Si el archivo es un parcial, final o recuperatorio viejo, usá `--tipo examen`**: tiene su
 propio pipeline (paso 13) y no escribe páginas de concepto. Si detectás que un archivo sin

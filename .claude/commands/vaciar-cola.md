@@ -3,10 +3,10 @@ description: Vacía la cola ingest/ ejecutando /ingest archivo por archivo, un c
 argument-hint: [--materia <slug>]
 ---
 
-# /loop $ARGUMENTS
+# /vaciar-cola $ARGUMENTS
 
-Vacía la cola de una materia. **No es el `/loop` del harness** (ese agenda prompts
-recurrentes): este vacía `ingest/`. Si hay ambigüedad al invocarlo, elegí el del proyecto.
+Vacía la cola `ingest/` de una materia: ejecuta `/ingest` archivo por archivo hasta que no
+quede ninguno, con un commit por archivo.
 
 ## 1. Listar la cola
 

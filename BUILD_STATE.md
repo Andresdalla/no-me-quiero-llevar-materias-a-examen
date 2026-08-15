@@ -246,9 +246,11 @@ Capa de estudio — `BOOTSTRAP-APRENDIZAJE.md`:
 - (saldada) ~~Fase 2 · camino Typst sin probar~~ → reclasificada abajo como limitación
   conocida: Typst es dependencia opcional por diseño y no se instala nada en la máquina del
   usuario sin pedirlo.
-- (saldada) ~~Fase 4 · colisión de nombre `/loop`~~ → decisión tomada: se respeta el nombre
-  del spec, el archivo aclara la diferencia en su primera línea. Renombrar a `/vaciar-cola`
-  sigue siendo un cambio de una línea si molesta en la práctica.
+- (saldada) ~~Fase 4 · colisión de nombre `/loop`~~ → **renombrado a `/vaciar-cola`** a
+  pedido del usuario (2026-08-15). El nombre del spec chocaba con el `/loop` del harness.
+  Se actualizaron las 13 referencias en `CLAUDE.md`, `README.md`, la plantilla y 7 comandos.
+  Los `BOOTSTRAP*.md` conservan el nombre original: son la especificación recibida, no
+  documentación del sistema.
 
 ## Limitaciones conocidas
 

@@ -84,7 +84,7 @@ actualizado: 2026-08-15
 |---|---|
 | `/nueva-materia <slug>` | Crea la materia desde `_plantilla`, perfila tipos y genera `programa.md`. |
 | `/ingest [archivo]` | Procesa **un** archivo de `ingest/` y lo vuelca al wiki. |
-| `/loop` | Vacía la cola: `/ingest` en bucle, un commit por archivo. |
+| `/vaciar-cola` | Vacía la cola: `/ingest` en bucle, un commit por archivo. |
 | `/resumen <tema\|todo> [--perfil]` | Resumen por tema, preservando marcas, + PDF. |
 | `/machete [tema]` | Una hoja, dos columnas, sin prosa. |
 | `/profesor [tema] [modo]` | Te interroga (socratico/parcial/feynman/hueco/caso) y actualiza `estado/`. |

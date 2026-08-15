@@ -16,7 +16,7 @@ uses de correlativa, dentro de dos años, sin acordarte de nada.
 ls materias/activas/$1/ingest/ | grep -v '^_' | wc -l   # tiene que dar 0
 ```
 
-- Si queda material en la cola: avisá y ofrecé correr `/loop` antes de congelar.
+- Si queda material en la cola: avisá y ofrecé correr `/vaciar-cola` antes de congelar.
 - Corré `/lint $1` y mostrá el resultado. Archivar con 6 páginas sin `✅` congela el error
   para siempre. Preguntá si quiere arreglarlo antes.
 - Preguntá la **nota final** y si la materia quedó aprobada, para registrarla en el índice.

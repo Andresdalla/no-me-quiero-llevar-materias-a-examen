@@ -50,11 +50,11 @@ Nada se instala globalmente: Mermaid se ejecuta con `npx -y @mermaid-js/mermaid-
 ## Flujo
 
 ```
-1. /nueva-materia teoria-computacion    # datos de cursada + temario → perfila los tipos
+1. /nueva-materia teoria-computacion   # datos de cursada + temario → perfila los tipos
 2. copiá los PDFs a materias/activas/teoria-computacion/ingest/
-3. /loop                                 # vacía la cola, un commit por archivo
-4. /resumen U3 --perfil guia-parcial     # resumen + PDF
-5. /profesor U3 parcial                  # simulacro y registro de dominio
+3. /vaciar-cola                        # vacía la cola, un commit por archivo
+4. /resumen U3 --perfil guia-parcial   # resumen + PDF
+5. /profesor U3 parcial                # simulacro y registro de dominio
 ```
 
 Entre el 3 y el 4, cuando quieras: `/estado` te dice qué hacer hoy.
@@ -65,7 +65,7 @@ Entre el 3 y el 4, cuando quieras: `/estado` te dice qué hacer hoy.
 |---|---|
 | `/nueva-materia <slug>` | Crea la materia, la perfila con parciales viejos y genera el programa |
 | `/ingest [archivo]` | Procesa **un** archivo de la cola y lo vuelca al wiki |
-| `/loop` | Vacía `ingest/` entero, un commit por archivo |
+| `/vaciar-cola` | Vacía `ingest/` entero, un commit por archivo |
 | `/resumen <tema\|todo> [--perfil]` | Resumen `breve`, `completo` o `guia-parcial`, + PDF |
 | `/machete [tema]` | Una hoja, dos columnas, sin prosa |
 | `/profesor [tema] [modo]` | Te interroga: `socratico`, `parcial`, `feynman`, `hueco`, `caso` |

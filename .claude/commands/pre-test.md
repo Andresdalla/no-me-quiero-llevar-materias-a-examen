@@ -62,4 +62,4 @@ Sin corregir con dureza y sin puntaje. No hubo nada que aprobar.
 
 Qué conceptos aparecieron que el usuario ya intuía y cuáles le resultaron completamente
 nuevos —esa distinción es útil para saber por dónde empezar— y el comando para estudiar el
-tema: `/resumen <tema>` o `/loop` si la unidad todavía no tiene material.
+tema: `/resumen <tema>` o `/vaciar-cola` si la unidad todavía no tiene material.

@@ -137,4 +137,4 @@ git add -A && git commit -m "materia($1): alta · <N> tipos activos · <M> unida
 ## Al terminar, decí exactamente
 
 Qué tipos quedaron activos, cuántas unidades tiene el programa (todas en `sin-material`) y
-que el próximo paso es copiar apuntes a `ingest/` y correr `/loop`.
+que el próximo paso es copiar apuntes a `ingest/` y correr `/vaciar-cola`.
