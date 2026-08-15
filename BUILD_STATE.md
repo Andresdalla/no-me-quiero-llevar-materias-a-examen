@@ -13,7 +13,7 @@ Fuente de verdad: `BOOTSTRAP.md`.
 | 5 | Comandos de salida: `/resumen`, `/machete`, `/profesor` | OK |
 | 6 | Comandos de mantenimiento: `/lint`, `/estado`, `/puentes`, `/reperfilar`, `/archivar` | OK |
 | 7 | Capa `global/`, `materias/_plantilla/` completa, `README.md` | OK |
-| 8 | Autoprueba end-to-end con fixture + saldar deuda | PENDIENTE |
+| 8 | Autoprueba end-to-end con fixture + saldar deuda | OK |
 
 ## Decisiones
 
@@ -102,13 +102,41 @@ Fuente de verdad: `BOOTSTRAP.md`.
 - **Fase 7** — `estado/quiz-log.md` agregado a la plantilla (resuelve la mitad de la deuda
   de la Fase 5).
 
+- **Fase 8** — Fixture reproducible: `tests/fixtures/gen_fixture.py` genera
+  `fixture-tc.pdf` (3 páginas: definición, teorema, diagrama vectorial). El generador queda
+  versionado para poder regenerar el PDF si cambia el extractor.
+- **Fase 8** — Autoprueba corrida de punta a punta. Los 6 chequeos del punto 2 pasan:
+  frontmatter 7/7 y namespace correcto en las 2 páginas · 7 marcas `✅` con cita verificada
+  por grep contra `texto.md` (3/3 en la pasada de verificación, y las páginas citadas
+  coinciden: p.1, p.2, p.2) · `mapa.md` con 2 filas · archivo en `raw/` + 1 línea de
+  manifiesto · `.cache/` vacío · reingesta detectada por hash.
+- **Fase 8** — El fixture disparó un hallazgo real: el epígrafe de la Figura 2.3 no coincide
+  con el autómata dibujado. Se marcó `⚠️` y quedó en `dudas.md`, que es exactamente el camino
+  que el sistema debe seguir ante una contradicción. `/lint` lo confirmó.
+- **Fase 8** — `/lint` (7 de 10 chequeos aplicables con una sola ingesta) y `/estado`
+  corrieron sobre la materia de prueba y dieron salida correcta. `/resumen todo` generó el
+  `.md` con las marcas preservadas (6 ✅, 1 🧠, 2 ⚠️) y el diagrama Mermaid en SVG.
+- **Fase 8** — Materia de prueba borrada y entrada quitada de `global/indice.md`: el repo
+  queda vacío de contenido, como pide la misión.
+
 ## Deuda
 
-- **Fase 2** — El camino Typst no está probado: no hay binario `typst` en esta máquina.
-  El fallback (dejar el `.md` + avisar) sí quedó verificado. Revisar en Fase 8.
-- **Fase 4** — `.claude/commands/loop.md` colisiona de nombre con el skill `/loop` del
-  harness (el que agenda prompts). El spec fija ese nombre, así que quedó como está y el
-  archivo aclara la diferencia en la primera línea. Si molesta en la práctica, renombrar a
-  `/vaciar-cola` es un cambio de una línea.
-- **Fase 5** — `estado/quiz-log.md` ya está en `materias/_plantilla/`, pero falta sumarlo al
-  `ls` del paso 8 de `.claude/commands/nueva-materia.md`.
+- (saldada) ~~Fase 2 · camino Typst sin probar~~ → reclasificada abajo como limitación
+  conocida: Typst es dependencia opcional por diseño y no se instala nada en la máquina del
+  usuario sin pedirlo.
+- (saldada) ~~Fase 4 · colisión de nombre `/loop`~~ → decisión tomada: se respeta el nombre
+  del spec, el archivo aclara la diferencia en su primera línea. Renombrar a `/vaciar-cola`
+  sigue siendo un cambio de una línea si molesta en la práctica.
+
+## Limitaciones conocidas
+
+- **Typst sin verificar.** No hay binario `typst` ni `pandoc` en esta máquina, así que el
+  camino de compilación a PDF no se ejecutó nunca. Sí está verificado el fallback: `/resumen`
+  escribe el `.md`, avisa y sale con 0. Para probarlo: `brew install typst` y volver a correr
+  `scripts/build_pdf.py` sobre cualquier `.md`.
+- **El conversor md→Typst es parcial.** Cubre títulos, listas, tablas, código, enlaces,
+  imágenes, citas y ~50 comandos LaTeX de matemática. Un comando no reconocido pierde la
+  barra y se emite como identificador: se ve, no rompe la compilación.
+- **Sin OCR.** Un PDF escaneado se detecta (`probable_escaneado`) y se rechaza; no hay
+  camino para procesarlo.
+- (saldada) ~~Fase 5 · `quiz-log.md` faltaba en el paso 8 de `/nueva-materia`~~ → agregado.

@@ -113,7 +113,7 @@ Verificá que existan y tengan encabezado (vienen de la plantilla; completá los
 
 ```bash
 ls materias/activas/$1/wiki/{index.md,mapa.md,log.md,dudas.md,programa.md} \
-   materias/activas/$1/estado/{dominio.md,errores.md,repaso.md} \
+   materias/activas/$1/estado/{dominio.md,errores.md,repaso.md,quiz-log.md} \
    materias/activas/$1/manifest.jsonl
 ```
 
