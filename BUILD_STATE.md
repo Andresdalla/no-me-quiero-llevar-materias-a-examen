@@ -20,7 +20,7 @@ Capa de estudio — `BOOTSTRAP-APRENDIZAJE.md`:
 | Fase | Qué construye | Estado |
 |---|---|---|
 | 9 | `global/metodo/evidencia.md` + principios de estudio en el `CLAUDE.md` raíz | OK |
-| 10 | `/cards`: tarjetas de recuperación, sin motor de agendamiento | PENDIENTE |
+| 10 | `/cards`: tarjetas de recuperación, sin motor de agendamiento | OK |
 | 11 | `/repasar`: recuperación a demanda | PENDIENTE |
 | 12 | Calibración, niveles de Bloom en `/profesor`, `/pre-test` | PENDIENTE |
 | 13 | `/plan` y `/estado` v2 (sugerencia, nunca cola) | PENDIENTE |
@@ -142,6 +142,18 @@ Capa de estudio — `BOOTSTRAP-APRENDIZAJE.md`:
   4 por encima del tope de 120 que fijó la Fase 1. El addendum ordena agregar el bloque de
   forma explícita, así que gana el addendum. Si molesta, la tabla de comandos admite
   compresión.
+
+- **Fase 10** — `/cards` con los 4 tipos, la regla de solo-`✅`, el tope de 12 por página y
+  el poblado simétrico de `Confundible_con`. Se agregó `cards/` a `materias/_plantilla/` con
+  un README que deja explícito que `Visto` es historial, no agenda.
+- **Fase 10** — Regla agregada: al regenerar, `/cards` conserva el `Visto` de las tarjetas
+  existentes y solo agrega las nuevas. Sin esto, correr `/cards` dos veces borraría el
+  historial de repaso, que es justo lo único que no se puede reconstruir.
+- **Fase 10** — Los ids `c-<tema>-<NNN>` no se reusan nunca: un id liberado que vuelve
+  apuntaría al `Visto` de otra tarjeta.
+- **Fase 10** — Verificado por grep en `.claude/`, `plantillas/`, `materias/_plantilla/` y
+  `global/`: cero apariciones de vencimiento, racha, scheduler, Leitner, SM-2 o FSRS fuera
+  de las negaciones explícitas.
 
 ## Deuda
 
