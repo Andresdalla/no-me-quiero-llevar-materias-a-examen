@@ -9,7 +9,7 @@ Fuente de verdad: `BOOTSTRAP.md`.
 | 1 | `CLAUDE.md` raíz (contrato del sistema, ≤120 líneas) | OK |
 | 2 | Scripts: `pdf_texto.py`, `pdf_render.py`, `pdf_figs.py`, `build_pdf.py` | OK |
 | 3 | Catálogo de 15 tipos de página + plantillas | OK |
-| 4 | Comandos núcleo: `/nueva-materia`, `/ingest`, `/loop` | PENDIENTE |
+| 4 | Comandos núcleo: `/nueva-materia`, `/ingest`, `/loop` | OK |
 | 5 | Comandos de salida: `/resumen`, `/machete`, `/profesor` | PENDIENTE |
 | 6 | Comandos de mantenimiento: `/lint`, `/estado`, `/puentes`, `/reperfilar`, `/archivar` | PENDIENTE |
 | 7 | Capa `global/`, `materias/_plantilla/` completa, `README.md` | PENDIENTE |
@@ -57,7 +57,21 @@ Fuente de verdad: `BOOTSTRAP.md`.
 - **Fase 3** — Sección `## Relacionado` obligatoria en los 15 tipos: es lo que evita que
   `/lint` reporte huérfanas por diseño.
 
+- **Fase 4** — `/nueva-materia` (10 pasos), `/ingest` (12 pasos), `/loop` (5 pasos). Todos
+  con comandos shell concretos; cero frases del tipo "analizá en profundidad" (verificado
+  por grep).
+- **Fase 4** — Los comandos usan `PY = .venv/bin/python si existe, si no python3`, para no
+  depender de qué Python tenga activo el usuario.
+- **Fase 4** — `fuente_id` se deriva del contenido, no del nombre del archivo: es lo que
+  aparece en cada cita y tiene que sobrevivir a que renombren el PDF.
+- **Fase 4** — Documentos >60 páginas: un `/ingest` por tramo, una línea de manifiesto por
+  tramo con el mismo hash. Así el reingreso por hash sigue funcionando.
+
 ## Deuda
 
 - **Fase 2** — El camino Typst no está probado: no hay binario `typst` en esta máquina.
   El fallback (dejar el `.md` + avisar) sí quedó verificado. Revisar en Fase 8.
+- **Fase 4** — `.claude/commands/loop.md` colisiona de nombre con el skill `/loop` del
+  harness (el que agenda prompts). El spec fija ese nombre, así que quedó como está y el
+  archivo aclara la diferencia en la primera línea. Si molesta en la práctica, renombrar a
+  `/vaciar-cola` es un cambio de una línea.
