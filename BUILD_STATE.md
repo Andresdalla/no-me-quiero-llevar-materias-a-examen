@@ -8,7 +8,7 @@ Fuente de verdad: `BOOTSTRAP.md`.
 | 0 | Esqueleto de directorios, `.gitignore`, este archivo | OK |
 | 1 | `CLAUDE.md` raíz (contrato del sistema, ≤120 líneas) | OK |
 | 2 | Scripts: `pdf_texto.py`, `pdf_render.py`, `pdf_figs.py`, `build_pdf.py` | OK |
-| 3 | Catálogo de 15 tipos de página + plantillas | PENDIENTE |
+| 3 | Catálogo de 15 tipos de página + plantillas | OK |
 | 4 | Comandos núcleo: `/nueva-materia`, `/ingest`, `/loop` | PENDIENTE |
 | 5 | Comandos de salida: `/resumen`, `/machete`, `/profesor` | PENDIENTE |
 | 6 | Comandos de mantenimiento: `/lint`, `/estado`, `/puentes`, `/reperfilar`, `/archivar` | PENDIENTE |
@@ -45,6 +45,17 @@ Fuente de verdad: `BOOTSTRAP.md`.
 - **Fase 2** — Verificado a mano: extracción de texto con marcadores `<!-- p.N -->`,
   detección de diagrama (confianza 0.8), recorte por bbox a 300 dpi, `--paginas`
   obligatorio en render, y degradación sin motor de PDF (exit 0 + aviso).
+
+- **Fase 3** — `plantillas/catalogo.md` (457 líneas): 15 tipos, cada uno con cuándo usarlo,
+  campos obligatorios, regla de verificación para `/lint` y ejemplo de 5-8 líneas.
+- **Fase 3** — Agregado al spec: tabla tipo→carpeta en plural (`definicion` →
+  `definiciones/`) y una tabla "elegir tipo" por lo que presenta la fuente. Sin la primera,
+  cada ingesta inventa su propio plural y los ids dejan de ser predecibles.
+- **Fase 3** — Las 15 plantillas de `plantillas/paginas/` se generaron desde una tabla
+  única, así que frontmatter y orden de secciones son idénticos entre tipos. Cada sección
+  vacía lleva un comentario HTML con la regla que le toca.
+- **Fase 3** — Sección `## Relacionado` obligatoria en los 15 tipos: es lo que evita que
+  `/lint` reporte huérfanas por diseño.
 
 ## Deuda
 
