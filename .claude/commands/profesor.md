@@ -62,8 +62,10 @@ Simulacro cronometrado. Antes de empezar:
 grep -l "parcial\|final" materias/activas/<materia>/manifest.jsonl
 ```
 
-- **Con parciales viejos ingeridos**: imitá su formato, cantidad de ejercicios, distribución
-  de puntaje y estilo de consigna. Citá cuál estás imitando.
+- **Con `wiki/examenes/patron.md`**: imitá la distribución de puntaje por unidad, la cantidad
+  de ejercicios y **los verbos reales** de las consignas. Corregí en la escala de la cátedra.
+  Citá qué examen estás imitando.
+- **Con exámenes ingeridos pero sin `patron.md`**: imitá el formato del más reciente.
 - **Sin parciales viejos**: decilo en la primera línea — "simulacro genérico, no calibrado
   contra la cátedra" — y usá la modalidad declarada en el `CLAUDE.md` de la materia.
 

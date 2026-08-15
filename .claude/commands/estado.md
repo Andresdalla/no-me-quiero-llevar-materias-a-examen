@@ -40,6 +40,15 @@ grep -h "^\*\*Visto:\*\*" $M/cards/*.md | grep -c ":fallo" # último intento fal
 La brecha de calibración sale de `estado/calibracion.md`. El tiempo sin tocar cada tema sale
 de la fecha más reciente en `historial.md` y en el `Visto` de las tarjetas del tema.
 
+Si existe `wiki/examenes/patron.md`, agregá una línea de **cobertura ponderada**: qué
+porcentaje del puntaje histórico del examen está cubierto por unidades con material, en vez
+de contar unidades a secas. Tener 5 de 8 unidades cubiertas no dice nada si las 3 que faltan
+valen el 60% del parcial.
+
+```
+Cobertura     5/8 unidades · pero solo 55% del puntaje histórico (falta U3, vale 25%)
+```
+
 ## Formato de salida
 
 ```

@@ -59,7 +59,9 @@ En este orden:
 2. **Unidades con `cobertura: sin-material`** que entran en la evaluación. Sin material no hay
    nada que estudiar: ese bloque es `/loop`, no `/repasar`.
 3. **Puntaje en riesgo**, si hay `patron.md`: `(% que vale la unidad) × (1 − dominio/5)`.
-   Un tema que vale 30% con dominio 2 va antes que uno que vale 5% con dominio 1.
+   Un tema que vale 30% con dominio 2 (riesgo 18) va antes que uno que vale 5% con dominio 1
+   (riesgo 4). El porcentaje sale de la tabla "Puntaje por unidad" de `patron.md`, promediado
+   sobre todos los exámenes procesados.
 4. **Tiempo sin tocar el tema**, según el `Visto` de sus tarjetas y `historial.md`.
 
 Distribuí **sin acumular**: los temas de mayor prioridad primero y repartidos, no todos el

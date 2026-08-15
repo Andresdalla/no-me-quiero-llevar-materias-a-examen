@@ -30,7 +30,7 @@ tarjetas quedan ahí, no vencen, no te reclaman nada. `/repasar` las usa cuando 
 | Tipo | Qué pregunta | De qué páginas sale |
 |---|---|---|
 | `concepto` | definición o enunciado, recuperación literal | `definicion`, `teorema`, `numeros` |
-| `aplicacion` | usar el concepto en un caso concreto | `construccion`, `reduccion`, `caso`, consignas de examen |
+| `aplicacion` | usar el concepto en un caso concreto | `construccion`, `reduccion`, `caso`, consignas de `wiki/examenes/` |
 | `discriminacion` | distinguir dos cosas parecidas: "¿por qué esto NO es X sino Y?" | `comparativa` y todo par ligado por `Confundible_con` |
 | `cloze` | huecos en un enunciado formal o un procedimiento | `teorema`, `protocolo`, `mecanismo` |
 
@@ -62,6 +62,26 @@ fuente_paginas: [teoremas/bombeo-regulares, definiciones/lenguaje-regular]
   Arranca vacío. **No existe ningún campo de fecha futura en todo el sistema.**
 - `Bloom` etiqueta el nivel de la pregunta: `recordar | comprender | aplicar | analizar |
   evaluar | crear`. Es un framework de generación, no un hallazgo (`global/metodo/evidencia.md`).
+
+## 4b. Tarjetas desde consignas reales
+
+Si existe `wiki/examenes/<id>.md`, generá tarjetas `aplicacion` **desde las consignas ya
+tomadas**, con el campo extra `**Origen:** examen`:
+
+```markdown
+## c-U3-012 · aplicacion
+**P:** Probá que {a^n b^n} no es regular. (consigna real, parcial 2024-1, 20 pts)
+**R:** Aplicar el lema de bombeo: dado p, tomar s = a^p b^p …
+**Fuente:** ✅ [parcial-2024-1 p.2]
+**Bloom:** aplicar
+**Origen:** examen
+```
+
+- La consigna se copia **literal** del archivo de examen, no se reformula.
+- Si la resolución del examen está marcada `inferida`, la tarjeta lleva `🧠` en la respuesta
+  y **no se usa para evaluar**: sirve para practicar el procedimiento, no para verificar.
+- `/repasar` les da prioridad alta: son literalmente lo que te van a tomar.
+- **Nunca desde el examen reservado.** Ese no se abrió.
 
 ## 5. `Confundible_con` — lo que hace útil el intercalado
 

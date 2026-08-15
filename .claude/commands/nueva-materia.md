@@ -55,7 +55,7 @@ Elegí **como máximo 8** tipos, con esta prioridad de evidencia:
 
 | Evidencia | Peso | Qué mirar |
 |---|---|---|
-| Parciales viejos | ★★★★★ | qué forma tienen las consignas: ¿demostrar? ¿construir? ¿comparar? ¿decidir un caso? |
+| Parciales viejos (`/ingest --tipo examen`) | ★★★★★ | qué forma tienen las consignas: ¿demostrar? ¿construir? ¿comparar? ¿decidir un caso? Con `patron.md` generado, los verbos ya están contados |
 | Guías de ejercicios | ★★★★ | qué se practica repetidamente |
 | Índice de bibliografía | ★★★ | cómo organiza el contenido el libro de cátedra |
 | Temario | ★★★ | qué temas entran |
@@ -64,8 +64,12 @@ Reglas:
 - Un tipo entra si esperás **≥3 instancias** en la materia. Si no, no entra.
 - Podés renombrar un tipo al vocabulario de la cátedra manteniendo su regla de verificación.
   Registrá el alias como `alias → tipo-base`.
+- **Con ≥2 exámenes ingeridos**, el perfilado es `definitivo`: hay evidencia real de cómo
+  evalúa la cátedra. Uno solo no alcanza para distinguir el patrón del año particular.
 - **Si no hay parciales viejos**: escribí `perfilado: provisional` en el CLAUDE.md de la
   materia y programá `/reperfilar` a las **8 ingestas** (en vez de 20).
+- Recordale al usuario que **el examen más reciente se reserva sin abrir** para el simulacro
+  previo al parcial (ver `/ingest --tipo examen`).
 
 Mostrá la selección con una línea de justificación por tipo y esperá el OK antes de seguir.
 

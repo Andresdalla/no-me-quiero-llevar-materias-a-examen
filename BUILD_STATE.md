@@ -25,7 +25,7 @@ Capa de estudio — `BOOTSTRAP-APRENDIZAJE.md`:
 | 12 | Calibración, niveles de Bloom en `/profesor`, `/pre-test` | OK |
 | 13 | `/plan` y `/estado` v2 (sugerencia, nunca cola) | OK |
 | 14 | `/resumen`: perfiles `esqueleto` y `anotado` + `/resumen-ciego` | OK |
-| 15 | Exámenes de práctica como fuente privilegiada + `/simulacro` | PENDIENTE |
+| 15 | Exámenes de práctica como fuente privilegiada + `/simulacro` | OK |
 
 ## Decisiones
 
@@ -204,6 +204,24 @@ Capa de estudio — `BOOTSTRAP-APRENDIZAJE.md`:
   del usuario.
 - **Fase 14** — Las preguntas del perfil `anotado` van en cita y **nunca marcadas `✅`**:
   son del sistema, no de la fuente. Y no se responden solas.
+
+- **Fase 15** — `/ingest --tipo examen` como paso 13, que reemplaza los pasos 6-11: los
+  exámenes van a `raw/examenes/` y a `wiki/examenes/<id>.md`, nunca a páginas de concepto.
+- **Fase 15** — La reserva ciega es lo **primero** que evalúa el pipeline (paso 13.1), antes
+  de extraer texto. Si se extrae primero, el examen ya entró en el contexto y la reserva deja
+  de ser ciega aunque el archivo se mueva después.
+- **Fase 15** — Regla de rotación agregada: si ya hay uno reservado y llega otro más reciente,
+  se ofrece rotar (el viejo se procesa, el nuevo se reserva). Sin esto la reserva envejece y
+  el simulacro mide contra un examen de hace tres años.
+- **Fase 15** — Las tarjetas desde consignas con `Resolución: inferida` llevan `🧠` y **no se
+  usan para evaluar**: sirven para practicar el procedimiento. Es la aplicación de la regla de
+  fidelidad al caso de exámenes sin solución oficial.
+- **Fase 15** — `/estado` suma cobertura **ponderada por puntaje**: 5 de 8 unidades cubiertas
+  no dice nada si las 3 que faltan valen el 60% del parcial.
+- **Fase 15** — `/simulacro` puede mover el dominio hasta 2 puntos (un repaso, 1) y su brecha
+  de calibración pisa a la de los repasos: es la medición más cercana a la condición real.
+- **Fase 15** — 17 comandos en total. `wiki/examenes/patron.md` y `estado/simulacros.md`
+  agregados a la plantilla.
 
 ## Deuda
 

@@ -79,7 +79,29 @@ Toda página necesita `id`, `tipo`, `tema`, `fuentes`, `estado`, `dominio`, `act
 El `id` tiene que empezar con `$1/` (namespace correcto) y el `tipo` tiene que estar entre
 los tipos activos del `CLAUDE.md` de la materia.
 
-### 10. Reglas de verificación por tipo
+### 10. Consignas de examen sin cubrir — **prioridad máxima**
+
+```bash
+grep -l "Estado_wiki: HUECO" $M/wiki/examenes/*.md 2>/dev/null
+grep -c "Estado_wiki: HUECO" $M/wiki/examenes/*.md 2>/dev/null
+```
+
+Cada `HUECO` es una consigna que **ya tomaron** y que el wiki no puede responder. No es un
+agujero hipotético como una unidad sin cobertura: es uno comprobado. Van primero en el
+reporte, antes que cualquier otro hallazgo.
+
+### 11. Reserva ciega
+
+```bash
+ls $M/raw/examenes/ 2>/dev/null | grep -v '^_' | wc -l
+ls $M/raw/examenes/_reservado/ 2>/dev/null | wc -l
+```
+
+Si hay **2 o más exámenes procesados y la reserva está vacía**, reportalo: el próximo
+simulacro no va a medir nada porque ya viste todas las consignas. Sugerí reservar el más
+reciente.
+
+### 12. Reglas de verificación por tipo
 Para cada tipo activo, aplicá su regla de `plantillas/catalogo.md`. Las más rendidoras:
 - `comparativa` sin tabla markdown.
 - `practica` con `## Cuándo NO aplica` vacía.
@@ -92,6 +114,7 @@ Para cada tipo activo, aplicá su regla de `plantillas/catalogo.md`. Las más re
 Una tabla, ordenada por severidad:
 
 ```
+🔴 CRÍTICO  2 consignas ya tomadas sin cubrir     → e2024p1-q5 (U6), e2023p2-q1 (U7)
 🔴 CRÍTICO  4 páginas sin ninguna marca ✅        → conceptos/…, teoremas/…
 🔴 CRÍTICO  U5 sin material · parcial en 6 días
 🟡 REVISAR  3 enlaces rotos                       → [[teoremas/rice]]

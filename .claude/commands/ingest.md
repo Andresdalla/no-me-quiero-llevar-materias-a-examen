@@ -1,11 +1,16 @@
 ---
 description: Procesa UN archivo de la cola ingest/ y lo vuelca al wiki de la materia
-argument-hint: [archivo] [--materia <slug>]
+argument-hint: [archivo] [--tipo examen] [--materia <slug>]
 ---
 
 # /ingest $ARGUMENTS
 
 Procesa **un solo** archivo. Un archivo, un commit. Si querés vaciar la cola entera, usá `/loop`.
+
+**Si el archivo es un parcial, final o recuperatorio viejo, usá `--tipo examen`**: tiene su
+propio pipeline (paso 13) y no escribe páginas de concepto. Si detectás que un archivo sin
+`--tipo` es un examen (consignas numeradas, puntajes, "duración: 2 horas"), preguntá antes de
+seguir.
 
 `PY` = `.venv/bin/python` si existe, si no `python3`.
 
@@ -147,7 +152,102 @@ rm -rf .cache/<hash8>/
 git add -A && git commit -m "ingest(<materia>): <fuente_id> · <N> páginas"
 ```
 
+## 13. Pipeline `--tipo examen`
+
+Reemplaza los pasos 6-11. Un enunciado de parcial **no es una definición**: no escribe ni
+toca ninguna página de concepto.
+
+### 13.1 ¿Va a la reserva ciega?
+
+```bash
+ls materias/activas/<materia>/raw/examenes/ 2>/dev/null | wc -l
+ls materias/activas/<materia>/raw/examenes/_reservado/ 2>/dev/null | wc -l
+```
+
+**El examen más reciente de la materia se reserva sin abrir.** Si el que estás por procesar
+es más nuevo que todos los de `raw/examenes/`, y la reserva está vacía:
+
+```bash
+mkdir -p materias/activas/<materia>/raw/examenes/_reservado
+mv <archivo> materias/activas/<materia>/raw/examenes/_reservado/
+```
+
+**No lo extraigas, no lo leas, no lo transcribas.** Anotalo en `manifest.jsonl` con
+`"reservado": true` y terminá. Sin reserva ciega, el simulacro previo al parcial no mide
+nada: ya viste todo. Si el usuario insiste en procesarlo, avisá qué pierde y pedí confirmación
+explícita.
+
+Si ya hay uno reservado y el nuevo es más reciente, ofrecé rotar: el reservado pasa a
+procesarse y el nuevo ocupa su lugar.
+
+### 13.2 Transcribir consignas
+
+Una entrada por consigna en `wiki/examenes/<fuente_id>.md`:
+
+```markdown
+## e2024p1-q3
+**Consigna:** [transcripción literal] ✅ [parcial-2024-1 p.2]
+**Unidad:** U3          **Puntaje:** 20/100
+**Tipo:** demostrar     **Verbo:** "probar que ... no es regular"
+**Bloom:** aplicar
+**Resolución:** inferida    # oficial | catedra | inferida
+**Cubierto_por:** [teoremas/bombeo-regulares]
+**Estado_wiki:** cubierto   # cubierto | parcial | HUECO
+```
+
+- La consigna se transcribe **literal**, palabra por palabra. Es lo único que dice cómo
+  escriben las preguntas.
+- `Resolución: oficial` solo si el PDF trae la solución de la cátedra. Si la resolvés vos,
+  es `inferida` y va marcada `🧠`. **Nunca presentes una resolución inferida como verificada**:
+  estudiar una solución equivocada es peor que no tener ninguna.
+- `Estado_wiki` sale de contrastar contra `mapa.md`: `HUECO` si el wiki no tiene con qué
+  responderla. Cada `HUECO` genera una entrada en `wiki/dudas.md`.
+
+### 13.3 Regenerar `wiki/examenes/patron.md`
+
+Con **todos** los exámenes procesados (nunca el reservado):
+
+```markdown
+# Patrón de evaluación · 3 exámenes
+
+## Puntaje por unidad
+| Unidad | 2023-1 | 2024-1 | 2024-2 | Promedio |
+|---|---|---|---|---|
+| U3 | 20 | 30 | 25 | 25% |
+
+## Verbos recurrentes
+| Verbo | Veces | Nivel |
+|---|---|---|
+| "probar que… no es regular" | 3/3 | aplicar |
+| "construir un autómata que…" | 2/3 | crear |
+
+## Constantes, ausencias y novedades
+- **Siempre**: U3 (3/3), bombeo (3/3)
+- **Nunca**, aunque está en el programa: U7
+- **Nuevo en el último**: reducciones entre problemas
+
+## Huecos
+| Consigna | Unidad | Por qué no se puede responder |
+|---|---|---|
+| e2024p1-q5 | U6 | sin material ingerido de la unidad |
+```
+
+Los verbos son lo que fija a qué nivel de Bloom hay que llegar en cada unidad: **evidencia,
+no heurística**.
+
+### 13.4 Cerrar
+
+```bash
+mkdir -p materias/activas/<materia>/raw/examenes
+mv <archivo> materias/activas/<materia>/raw/examenes/
+```
+
+Manifiesto con `"tipo": "examen"`. Commit: `ingest(<materia>): <fuente_id> · examen · N consignas`.
+
 ## Al terminar, decí exactamente
 
 `<fuente_id>`: N páginas nuevas, M actualizadas, verificación N/3, unidades que cambiaron de
 cobertura, y qué quedó en `dudas.md`. Nada más.
+
+Con `--tipo examen`: N consignas transcriptas, cuántas quedaron `HUECO`, qué cambió en
+`patron.md`, y si el archivo fue a la reserva ciega.
