@@ -10,7 +10,8 @@ Recuperación a demanda. **Lo iniciás vos, sobre el tema que elegís vos.**
 Si no se indicó tema: listá los temas que tienen tarjetas y **frená**. No elijas por el
 usuario, no arranques con "el que más falta hace". El sistema no decide qué estudiás.
 
-Nunca uses las palabras *vencido*, *atrasado*, *pendiente* ni *racha*. No existen acá.
+**Nunca uses lenguaje de caducidad ni de deuda**: acá nada se vence, nada se acumula y
+nadie lleva la cuenta de los días que pasaron.
 
 ## 1. Cargar solo las tarjetas
 

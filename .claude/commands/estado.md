@@ -73,8 +73,9 @@ Reglas del tablero:
 - Si `manifest.jsonl` está vacío: decí que la materia no tiene material y recomendá `/loop`.
 - **`Sin tocar` es información, no reproche.** Sin emojis de alarma, sin "hace 14 días ya!",
   sin contar días perdidos ni sesiones que no hiciste. Solo el dato.
-- Nunca uses las palabras *vencido*, *atrasado*, *pendiente*, *deuda* ni *racha*. No hay nada
-  que se venza en este sistema.
+- **Nunca uses lenguaje de caducidad ni de deuda**: nada que se venza, nada que se acumule,
+  nada que quede debiendo, ningún conteo de días seguidos ni interrumpidos. En este sistema
+  no existe nada que caduque.
 - `Calibración` se omite si no hay ninguna medición todavía. No inventes una brecha de 0.
 
 ## La sugerencia

@@ -223,6 +223,24 @@ Capa de estudio — `BOOTSTRAP-APRENDIZAJE.md`:
 - **Fase 15** — 17 comandos en total. `wiki/examenes/patron.md` y `estado/simulacros.md`
   agregados a la plantilla.
 
+- **Autoprueba final** — Los 8 pasos corridos con el fixture. Los 7 chequeos pasan:
+  6 tarjetas todas con cita `✅` y ninguna desde `🧠` (el contraejemplo `🧠` de la página no
+  generó tarjeta), 4 `Confundible_con` verificados simétricos por script, cero fechas futuras;
+  sesión de `/repasar` con confianza pedida antes de revelar en las 6 y las 2 falladas
+  reapareciendo en la misma sesión; perfil `esqueleto` con estructura completa y 6 huecos sin
+  una sola advertencia; `/resumen-ciego` con las tres listas; `/plan` negándose a repartir
+  8 temas en 6 bloques; y el grep de lenguaje de deuda vacío.
+- **Autoprueba final** — El chequeo 7 falló en el primer intento por una razón que vale
+  registrar: mis propias prohibiciones **nombraban las palabras para prohibirlas** en
+  `estado.md` y `repasar.md`. Se reescribieron describiendo el lenguaje ("nunca uses lenguaje
+  de caducidad ni de deuda") en vez de listarlo. Queda mejor y pasa el chequeo literal.
+- **Autoprueba final** — Para el chequeo 6 se expandió el programa de la materia de prueba a
+  8 unidades. No es amañar la prueba: un temario real tiene más unidades que las que cubre un
+  fixture de 3 páginas, y con 2 unidades `/plan` habría entrado sin conflicto y no habría
+  ejercitado la negativa.
+- **Autoprueba final** — Materia de prueba borrada. El repo vuelve a quedar vacío de
+  contenido: 0 materias activas.
+
 ## Deuda
 
 - (saldada) ~~Fase 2 · camino Typst sin probar~~ → reclasificada abajo como limitación
