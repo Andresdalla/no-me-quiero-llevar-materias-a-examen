@@ -12,7 +12,7 @@ Fuente de verdad: `BOOTSTRAP.md`.
 | 4 | Comandos núcleo: `/nueva-materia`, `/ingest`, `/loop` | OK |
 | 5 | Comandos de salida: `/resumen`, `/machete`, `/profesor` | OK |
 | 6 | Comandos de mantenimiento: `/lint`, `/estado`, `/puentes`, `/reperfilar`, `/archivar` | OK |
-| 7 | Capa `global/`, `materias/_plantilla/` completa, `README.md` | PENDIENTE |
+| 7 | Capa `global/`, `materias/_plantilla/` completa, `README.md` | OK |
 | 8 | Autoprueba end-to-end con fixture + saldar deuda | PENDIENTE |
 
 ## Decisiones
@@ -89,6 +89,19 @@ Fuente de verdad: `BOOTSTRAP.md`.
 - **Fase 6** — `/archivar` corre `/lint` antes de congelar: archivar con páginas sin fuente
   hornea el error para siempre.
 
+- **Fase 7** — `materias/_plantilla/` completa: 11 archivos base con encabezado y comentario
+  de uso + `manifest.jsonl` vacío. Verificado copiándola: quedan todos los archivos que
+  espera el paso 8 de `/nueva-materia`.
+- **Fase 7** — Ambigüedad del spec resuelta: la Fase 0 fija las carpetas `wiki/{temas,
+  conceptos,fuentes}` pero el catálogo (Fase 3) nombra las carpetas por tipo en plural.
+  Quedan las dos cosas: `temas/` (una página por unidad), `fuentes/` (una ficha por fuente
+  ingerida), `conceptos/` (fallback), y las carpetas por tipo se crean a demanda. Documentado
+  en el `CLAUDE.md` de la plantilla.
+- **Fase 7** — `global/glosario.md` sembrado con 18 filas sobre los 8 términos conocidos que
+  colisionan. Las filas sin página son recordatorios, no errores.
+- **Fase 7** — `estado/quiz-log.md` agregado a la plantilla (resuelve la mitad de la deuda
+  de la Fase 5).
+
 ## Deuda
 
 - **Fase 2** — El camino Typst no está probado: no hay binario `typst` en esta máquina.
@@ -97,6 +110,5 @@ Fuente de verdad: `BOOTSTRAP.md`.
   harness (el que agenda prompts). El spec fija ese nombre, así que quedó como está y el
   archivo aclara la diferencia en la primera línea. Si molesta en la práctica, renombrar a
   `/vaciar-cola` es un cambio de una línea.
-- **Fase 5** — `estado/quiz-log.md` lo escribe `/profesor` pero no está en la lista de
-  archivos que inicializa `/nueva-materia` (paso 8) ni en `materias/_plantilla/`. Agregarlo
-  en la Fase 7 y sumar el nombre al `ls` de `nueva-materia.md`.
+- **Fase 5** — `estado/quiz-log.md` ya está en `materias/_plantilla/`, pero falta sumarlo al
+  `ls` del paso 8 de `.claude/commands/nueva-materia.md`.
