@@ -11,7 +11,7 @@ Fuente de verdad: `BOOTSTRAP.md`.
 | 3 | Catálogo de 15 tipos de página + plantillas | OK |
 | 4 | Comandos núcleo: `/nueva-materia`, `/ingest`, `/loop` | OK |
 | 5 | Comandos de salida: `/resumen`, `/machete`, `/profesor` | OK |
-| 6 | Comandos de mantenimiento: `/lint`, `/estado`, `/puentes`, `/reperfilar`, `/archivar` | PENDIENTE |
+| 6 | Comandos de mantenimiento: `/lint`, `/estado`, `/puentes`, `/reperfilar`, `/archivar` | OK |
 | 7 | Capa `global/`, `materias/_plantilla/` completa, `README.md` | PENDIENTE |
 | 8 | Autoprueba end-to-end con fixture + saldar deuda | PENDIENTE |
 
@@ -76,6 +76,18 @@ Fuente de verdad: `BOOTSTRAP.md`.
   dos columnas) y una prioridad de tipos para recortar. Sin tope, "machete" degrada a resumen.
 - **Fase 5** — `/profesor` sube el dominio como máximo 1 punto por sesión y lo baja sin
   límite: evita que una sesión afortunada marque un tema como sabido.
+
+- **Fase 6** — Los 10 chequeos de `/lint` vienen con el comando shell que los ejecuta, no
+  con una descripción. El más importante (páginas sin `✅`) es un `grep -rL`.
+- **Fase 6** — `/puentes` declara la regla de lectura en su segunda sección, con el motivo
+  económico, y deja una única excepción acotada: para confirmar una tensión puede abrir
+  como máximo una página por materia.
+- **Fase 6** — `/estado` es de solo lectura, no commitea, y da **una** recomendación con
+  prioridad explícita de 5 niveles (parcial cerca + sin material gana a todo).
+- **Fase 6** — `/reperfilar` mide el costo de migración con `grep | wc -l` (archivos y
+  enlaces), no lo estima. Y exige commit aislado para que `git revert` funcione.
+- **Fase 6** — `/archivar` corre `/lint` antes de congelar: archivar con páginas sin fuente
+  hornea el error para siempre.
 
 ## Deuda
 
