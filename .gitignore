@@ -1,0 +1,13 @@
+# Material de cátedra: nunca se commitea (copyright + peso)
+materias/*/*/ingest/*
+materias/*/*/raw/*
+materias/*/*/assets/*
+materias/*/*/out/*
+materias/_plantilla/ingest/*
+materias/_plantilla/raw/*
+materias/_plantilla/assets/*
+materias/_plantilla/out/*
+.cache/
+__pycache__/
+.venv/
+!**/.gitkeep
