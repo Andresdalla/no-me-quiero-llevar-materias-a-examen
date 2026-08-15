@@ -21,7 +21,7 @@ Capa de estudio — `BOOTSTRAP-APRENDIZAJE.md`:
 |---|---|---|
 | 9 | `global/metodo/evidencia.md` + principios de estudio en el `CLAUDE.md` raíz | OK |
 | 10 | `/cards`: tarjetas de recuperación, sin motor de agendamiento | OK |
-| 11 | `/repasar`: recuperación a demanda | PENDIENTE |
+| 11 | `/repasar`: recuperación a demanda | OK |
 | 12 | Calibración, niveles de Bloom en `/profesor`, `/pre-test` | PENDIENTE |
 | 13 | `/plan` y `/estado` v2 (sugerencia, nunca cola) | PENDIENTE |
 | 14 | `/resumen`: perfiles `esqueleto` y `anotado` + `/resumen-ciego` | PENDIENTE |
@@ -154,6 +154,16 @@ Capa de estudio — `BOOTSTRAP-APRENDIZAJE.md`:
 - **Fase 10** — Verificado por grep en `.claude/`, `plantillas/`, `materias/_plantilla/` y
   `global/`: cero apariciones de vencimiento, racha, scheduler, Leitner, SM-2 o FSRS fuera
   de las negaciones explícitas.
+
+- **Fase 11** — `/repasar` exige tema explícito: sin argumento lista los temas con tarjetas y
+  frena. No elige por el usuario ni arranca con "el que más falta hace".
+- **Fase 11** — Tope agregado al criterio de recuperación dentro de la sesión: una tarjeta
+  reaparece como máximo 3 veces. Más allá de eso el problema no es la tarjeta sino que falta
+  estudiar el tema, y repetirla 8 veces solo desmoraliza.
+- **Fase 11** — Regla explícita de no explicar durante el repaso: el enlace a la página
+  reemplaza a la explicación. Es lo que mantiene el presupuesto de tokens (1-3 archivos de
+  `cards/` por sesión) y lo que hace que sea recuperación y no clase.
+- **Fase 11** — `estado/historial.md` agregado a `materias/_plantilla/`.
 
 ## Deuda
 
