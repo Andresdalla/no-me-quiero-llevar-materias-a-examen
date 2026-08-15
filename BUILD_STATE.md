@@ -23,7 +23,7 @@ Capa de estudio — `BOOTSTRAP-APRENDIZAJE.md`:
 | 10 | `/cards`: tarjetas de recuperación, sin motor de agendamiento | OK |
 | 11 | `/repasar`: recuperación a demanda | OK |
 | 12 | Calibración, niveles de Bloom en `/profesor`, `/pre-test` | OK |
-| 13 | `/plan` y `/estado` v2 (sugerencia, nunca cola) | PENDIENTE |
+| 13 | `/plan` y `/estado` v2 (sugerencia, nunca cola) | OK |
 | 14 | `/resumen`: perfiles `esqueleto` y `anotado` + `/resumen-ciego` | PENDIENTE |
 | 15 | Exámenes de práctica como fuente privilegiada + `/simulacro` | PENDIENTE |
 
@@ -179,6 +179,17 @@ Capa de estudio — `BOOTSTRAP-APRENDIZAJE.md`:
   leerlo haría preguntar lo que el wiki sabe en vez de lo que el usuario no sabe.
 - **Fase 12** — `estado/calibracion.md` agregado a la plantilla con la fórmula de brecha y
   los dos umbrales.
+
+- **Fase 13** — `/plan` compara temas contra bloques **antes** de escribir nada y, si no
+  entran, muestra qué entra, qué queda afuera y cuál duele más dejar, con el número de
+  puntaje en riesgo. Un calendario que finge que entra todo es peor que no tener plan.
+- **Fase 13** — `/plan` regenera desde cero: no arrastra lo no hecho del plan anterior. Es
+  lo que impide que se convierta en un motor de deuda por la puerta de atrás.
+- **Fase 13** — `/estado` v2 suma tarjetas, brecha de calibración y "Sin tocar", y cambió
+  "recomendación" por **sugerencia** que ofrece las dos vías (recuperar o reelaborar) para
+  que elija el usuario. Se agregó la regla de omitir la línea de calibración cuando no hay
+  mediciones, en vez de mostrar una brecha de 0 inventada.
+- **Fase 13** — `estado/plan.md` agregado a la plantilla, con el aviso de que es propuesta.
 
 ## Deuda
 
