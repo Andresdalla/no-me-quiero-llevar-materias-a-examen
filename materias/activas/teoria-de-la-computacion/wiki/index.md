@@ -3,6 +3,10 @@
 <!-- Puerta de entrada humana. Una sección por unidad, enlaces a las páginas.
      Para rutear el LLM se usa mapa.md, no este archivo. -->
 
+## Transversal
+
+- [[fuentes/tc-temario]] — ficha del temario oficial: alcance, vigencia y límites
+
 ## U1 · Modelos de la noción de función computable
 
 ## U2 · Modelos imperativos

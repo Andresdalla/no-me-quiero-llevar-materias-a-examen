@@ -12,3 +12,4 @@
 | `construcciones/funciones-sobre-listas` | construccion | U10 | data lista, length resuelta, map filter zip pendientes |
 | `construcciones/funciones-sobre-arboles` | construccion | U10 | data Arb, cantNodos resuelta, recursión con dos ramas |
 | `fuentes/repaso-haskell` | fuente | U10 | Ficha del repartido de repaso: qué cubre, confiabilidad |
+| `fuentes/tc-temario` | fuente | todas | Ficha del temario oficial: alcance, vigencia, límites |
