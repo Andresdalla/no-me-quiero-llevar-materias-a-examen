@@ -86,9 +86,9 @@ conjunto de entrada de `f` determinado por aquellos elementos donde `f` está de
 Simétricamente, llamaremos **recorrido** de `f` al subconjunto del conjunto de salida
 determinado por aquellos elementos que son valores de algún elemento del dominio."
 
-⚠️ **Cuidado con "dominio".** Acá el *conjunto de entrada* es `A` y el *dominio* es solo la
-parte donde `f` está definida: para una parcial, dominio ⊊ entrada. `revision-conjuntos` p.4
-en cambio llama "dominio" al `A` entero. Son dos usos distintos de la misma palabra.
+⚠️ **Cuidado con "dominio".** Acá el *conjunto de entrada* es `A` y el *dominio* es solo donde
+`f` está definida (para una parcial, dominio ⊊ entrada); `revision-conjuntos` p.4 llama
+"dominio" al `A` entero. Dos usos distintos de la misma palabra.
 
 🧠 Con este vocabulario las definiciones quedan más limpias:
 ✅ [numerabilidad-diag p.3] **Def. 1.5** "Una función es inyectiva si a elementos diferentes del
@@ -97,8 +97,7 @@ recorrido coincide con su conjunto de salida." · ✅ [p.4] **Def. 1.7** "Una fu
 biyectiva si es inyectiva y sobreyectiva."
 
 ✅ [numerabilidad-diag p.4] "Cuando existe una biyección entre dos conjuntos se dice que éstos
-son **coordinables**." — sinónimo de *equipolentes*; ver
-[[definiciones/comparacion-de-cardinalidades]].
+son **coordinables**." — sinónimo de *equipolentes*; ver [[definiciones/comparacion-de-cardinalidades]].
 
 🧠 ✅ [notas-conjuntos p.2] La lectura computacional que agrega esa otra fuente: "las funciones
 parciales modelan programas que **pueden no terminar**, mientras que las funciones totales

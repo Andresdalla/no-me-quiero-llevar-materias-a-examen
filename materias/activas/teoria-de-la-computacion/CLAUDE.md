@@ -5,56 +5,56 @@
 - evaluación: **mixta** (escrito con material + oral + proyecto) · 100 puntos
 - parcial: **7/12, 9.00** · 3 horas · **con material** · 60 pts
 - defensas de práctico (oral): 15/9 · 29/9 · 27/10 · 7/11 · 7 pts c/u, cuentan **las 3 mejores** · 21 pts
-- tarea final: entrega el último día de clases (lectura a definir) · 14 pts
-- actuación en clase: 5 pts
-- correlativas: previas `Fundamentos de la Computación` (🧠 inferida, sin confirmar) · posteriores `sin datos`
+- tarea final: entrega el último día de clases (lectura a definir) · 14 pts · actuación en clase: 5 pts
+- correlativas: previas `Fundamentos de la Computación` (🧠 inferida) · posteriores `sin datos`
 
 ## Tipos activos
 
-Máximo 8. Hay **7**: el slot libre lo decide `/reperfilar` cuando exista evidencia real de
-evaluación. Cada uno hereda su regla de verificación de `plantillas/catalogo.md`.
+7 de 8. El slot libre lo decide `/reperfilar`. Reglas de verificación en `plantillas/catalogo.md`.
 
-| Tipo | Alias de cátedra | Por qué está |
-|---|---|---|
-| `definicion` | — | El apunte de conjuntos es pared a pared: relación, función parcial/total, inyección, sobreyección, biyección, numerabilidad. |
-| `teorema` | — | Temario: "demostrar que ciertos conjuntos no son numerables", Tesis de Church, teorema de Rice. |
-| `demostracion` | — | Temario lista "Métodos de demostración: compilación e interpretación · Demostraciones" como ítem propio. |
-| `construccion` | — | MT universal, auto-intérpretes, intérpretes embebidos, eliminación de recursión, cada función del repartido. |
-| `reduccion` | — | Temario la nombra dos veces: "Reducción de problemas" (U7) y "Reducción polinomial" (U8). |
-| `modelo` | — | "Modelos de la noción de función computable" titula el programa: MT, lenguaje con asignación e iteración, λ puro, λ extendido. |
-| `comparativa` | — | Equivalencia imperativo/funcional, P vs NP, numerable vs no numerable, sintaxis abstracta vs concreta, paso corto vs paso largo. |
+| Tipo | Por qué está |
+|---|---|
+| `definicion` | Los tres apuntes de conjuntos son pared a pared definiciones numeradas. |
+| `teorema` | Numerabilidad de `Z`, `Σ*`, `P(N)`; Rice; Tesis de Church. |
+| `demostracion` | El temario lista "Métodos de demostración · Demostraciones" como ítem propio. |
+| `construccion` | MT universal, auto-intérpretes, emparejamiento de Cantor, funciones Haskell. |
+| `reduccion` | El temario la nombra dos veces: "Reducción de problemas" (U7) y "polinomial" (U8). |
+| `modelo` | "Modelos de la noción de función computable" titula el programa. |
+| `comparativa` | Función vs algoritmo, P vs NP, numerable vs contable, paso corto vs largo. |
 
-`/reperfilar` programado a las **8 ingestas** (no 20): sin parciales viejos el perfilado no
-tiene evidencia de evaluación.
+`/reperfilar` a las **8 ingestas** (van 5).
+
+## Evidencia de evaluación
+
+13 consignas reales de 4 fechas (feb 2026, set/jul/may 2025), en `wiki/examenes/patron.md`.
+**Sirven para los verbos, no para ponderar**: salen de un apunte sobre conjuntos, así que el
+100% en U6 es sesgo de la fuente. 11 de 13 son de respuesta cerrada (múltiple opción o V/F).
+Reserva ciega **vacía**: no hay ningún examen sin abrir.
 
 ## Vocabulario y notación de la cátedra
 
-- `repartido` = guía de ejercicios · `defensa de práctico` = evaluación oral del práctico
-- `λ-notation y case` = definición por expresión lambda con análisis de casos
-- `Pattern-Matching y guardas` = definición por ecuaciones con patrones
-- Declaración de tipos: la cátedra **migró** de la forma de Fundamentos
-  `data Bool where {False :: Bool; True :: Bool}` a `data Bool = False | True`.
-  Usá la segunda; mencioná la primera solo al conectar con Fundamentos.
-- `paso corto` = reducción (semántica operacional) · `paso largo` = evaluación
+⚠️ **Tres apuntes, tres notaciones.** Antes de responder, mirá de qué fuente viene la consigna.
+
+| Concepto | `revision-conjuntos` | `notas-conjuntos` (Acuña) | `numerabilidad-diag` (Copello) |
+|---|---|---|---|
+| función parcial | `f : A ⇸ B` | `f : A ↬ B` | `f : A ↬ B` |
+| `A ∼ B` | — | existe biyección total | `A ⪯ B` y `B ⪯ A` |
+| Cantor | — | `(i+j)(i+j+1)/2 + j` | `(Σ[k=0..i+j] k) + i` |
+| "función" a secas | sin convención | sin convención | significa **parcial** |
+| "dominio" | el conjunto de entrada | — | solo donde `f` está definida |
+
+- `repartido` = guía · `defensa de práctico` = evaluación oral · `coordinables` = equipolentes
+- `algoritmo` = pieza de código (Copello **reserva** "función" para el objeto matemático)
+- `Z`, `S n` = cero y sucesor · `λ-notation y case` vs `Pattern-Matching y guardas`
+- `paso corto` = reducción · `paso largo` = evaluación
 
 ## Reglas propias
 
-- **El parcial es con material.** No optimices para recitar: las páginas y los machetes se
-  juzgan por si te dejan *construir* y *demostrar* en el momento, no por ser memorizables.
-  `/profesor` y `/machete` priorizan aplicar y crear sobre recordar.
-- **Cada función del repartido se pide en las dos formas** (λ+case y pattern-matching). Una
-  página `construccion` muestra **ambas**, no una.
-- **La cursada no sigue el orden del temario.** Empieza por U6 (cardinalidad). La numeración
-  de `programa.md` es del programa, no del calendario.
-- **Los repartidos no traen soluciones oficiales.** Toda resolución es `🧠` inferida y va
-  marcada como tal. Nunca la presentes como verificada.
-- **No hay exámenes viejos ingeridos**, así que la reserva ciega está vacía. Si conseguís uno,
-  no lo abras: va directo a `raw/examenes/_reservado/` para el simulacro previo al 7/12.
-
-## Carpetas del wiki
-
-- `temas/` — una página por unidad del programa: qué entra, cobertura, enlaces.
-- `fuentes/` — una ficha por fuente ingerida: qué es, qué cubre, cuán confiable es.
-- `conceptos/` — fallback: páginas de tipos que no tienen carpeta propia declarada.
-- El resto (`definiciones/`, `teoremas/`, …) las crea `/ingest` a demanda, con el nombre
-  plural que fija `plantillas/catalogo.md`.
+- **El parcial es con material.** No optimices para recitar: se juzga si te deja *construir* y
+  *demostrar*. `/profesor` y `/machete` priorizan aplicar sobre recordar.
+- **Ante divergencia entre apuntes, declará la convención que usás** antes de calcular. Está
+  todo en `wiki/dudas.md`; no elijas por mí.
+- **Cada función del repartido se pide en las dos formas** (λ+case y pattern-matching).
+- **La cursada no sigue el orden del temario**: empieza por U6. La numeración es del programa.
+- **Ningún repartido trae soluciones.** Toda resolución es `🧠` inferida y va marcada.
+- Si conseguís un examen entero, **no lo abras**: va a `raw/examenes/_reservado/`.
