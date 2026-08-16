@@ -48,7 +48,8 @@ palabras de longitud 0, luego las de longitud 1, luego las de longitud 2, y así
 Dentro de cada `Σⁿ`, se fija un orden lexicográfico. Este procedimiento produce una enumeración
 sin repeticiones de todas las palabras finitas, por lo que `Σ*` es numerable."
 
-**Segunda vía — codificación explícita.** "Asignamos a cada símbolo
+**Segunda vía — codificación explícita.** En vez de enumerar, le asigna a cada palabra un
+número calculándolo: "Asignamos a cada símbolo
 `aᵢ` un número `i ∈ {1, …, m}`. Dada una palabra `w = a_{i₁}a_{i₂}⋯a_{i_k}`, la interpretamos
 como el número natural"
 
@@ -61,7 +62,8 @@ distintos. Por lo tanto, `φ` es inyectiva y se concluye que `Σ* ⪯ N`."
 
 Los exponentes están transcriptos contra la página rasterizada: el texto plano los pierde.
 
-**Conclusión para programas.** "Dado que todo programa puede
+**Conclusión para programas.** El paso de `Σ*` a los programas no requiere nada nuevo, solo
+observar que un programa es texto: "Dado que todo programa puede
 representarse como una palabra finita sobre un alfabeto finito, el conjunto de todos los
 programas es un subconjunto de `Σ*`. Por lo tanto, es numerable."
 

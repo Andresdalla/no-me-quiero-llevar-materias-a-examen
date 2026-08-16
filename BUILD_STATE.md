@@ -276,13 +276,56 @@ principal. Decisiones tomadas al aplicarlo:
 
 ## Limitaciones conocidas
 
-- **Typst sin verificar.** No hay binario `typst` ni `pandoc` en esta máquina, así que el
-  camino de compilación a PDF no se ejecutó nunca. Sí está verificado el fallback: `/resumen`
-  escribe el `.md`, avisa y sale con 0. Para probarlo: `brew install typst` y volver a correr
-  `scripts/build_pdf.py` sobre cualquier `.md`.
+- (saldada) ~~Typst sin verificar~~ → el 2026-08-16 se compiló `resumen-todo-completo.md`
+  (2989 líneas) a un PDF de 108 páginas con `typst`, sin avisos. `pandoc` sigue sin instalar,
+  así que ese fallback intermedio continúa sin ejercitarse.
 - **El conversor md→Typst es parcial.** Cubre títulos, listas, tablas, código, enlaces,
   imágenes, citas y ~50 comandos LaTeX de matemática. Un comando no reconocido pierde la
   barra y se emite como identificador: se ve, no rompe la compilación.
 - **Sin OCR.** Un PDF escaneado se detecta (`probable_escaneado`) y se rechaza; no hay
   camino para procesarlo.
 - (saldada) ~~Fase 5 · `quiz-log.md` faltaba en el paso 8 de `/nueva-materia`~~ → agregado.
+
+## Reglas de redacción (2026-08-16, a pedido del usuario)
+
+El sistema escribía fichas, no apuntes. Medido sobre el resumen: **62% de los bloques eran una
+sola oración**, mediana de 21 palabras, y solo 6 de 238 pasaban las 60 palabras. El patrón era
+`**Etiqueta.** "cita literal"` repetido — párrafos visualmente, bullets funcionalmente.
+
+**Cuatro causas, todas verificadas antes de tocar nada:**
+
+1. `/resumen` retenía el 51% de las citas del wiki pero solo el 39% de la prosa propia,
+   cortando oraciones a mitad de su cláusula explicativa.
+2. El ejemplo de `plantillas/catalogo.md` que el modelo imita en cada `/ingest` era lo más
+   terse del repo: una oración por sección, varias sin verbo conjugado.
+3. Los comentarios guía de las plantillas pedían fragmentos ("Un caso que cumple la definición").
+4. **La regla de fidelidad castigaba explicar**: transcribir era gratis, explicar costaba una
+   línea de burocracia en `## Procedencia`. Esa es la causa de fondo, y se arregló con una
+   oración — el contenido sintetizado pasó de "permitido pero declarable" a **esperado**.
+
+**Decisiones del usuario**: registro "prosa con andamiaje" (la cita se embebe en una oración
+que dice qué hace); guía larga en `global/metodo/redaccion.md` siguiendo el precedente de
+`evidencia.md`; y migrar el contenido existente, no solo las reglas.
+
+**Qué se hizo**: guía nueva + sección en `CLAUDE.md`; ejemplo canónico del catálogo reescrito
+y el resto marcado explícitamente como esqueletos estructurales que **no** son modelo de prosa;
+las 15 plantillas piden apertura de página y oraciones en vez de fragmentos; reglas de
+escritura en `/resumen`, `/ingest` y `/archivar`, con exención declarada en `/machete` y
+`/cards`; chequeo 13 en `/lint`. Las 29 páginas de contenido del wiki migradas en tres lotes.
+
+**Red de seguridad**: un verificador de invariancia de citas (en el job dir, no en `scripts/`)
+que rastrea las ~1700 citas y spans de código del wiki y falla si alguna desaparece o cambia.
+Atrapó cuatro alteraciones reales durante la migración: tres mayúsculas iniciales bajadas al
+embeber una cita y dos puntos finales movidos fuera de la comilla. De ahí salieron dos reglas
+nuevas de la guía — no se toca ni una letra de la cita, y las comillas dobles quedan reservadas
+para lo transcripto.
+
+**Resultado**: bloques de una sola oración 62% → 38%; mediana 21 → 38 palabras; la prosa del
+wiki que llega al resumen pasa de 39% a 103% (el resumen agrega sus propias aperturas).
+
+**Dos páginas partidas** por el tope de 150 líneas, las dos ya sobre el tope antes de esta
+migración: `definiciones/funcion` (161) → `comparativas/notacion-de-funciones`, y
+`construcciones/emparejamiento-de-cantor` (154) → `comparativas/formulas-de-cantor`.
+
+**No migradas a propósito**: `fuentes/` (fichas de metadatos) y `examenes/` (transcripción
+literal de consignas con formato de campos fijo). Reescribirlas sería dañino.

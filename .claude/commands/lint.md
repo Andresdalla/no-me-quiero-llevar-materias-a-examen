@@ -115,11 +115,18 @@ Para cada tipo activo, aplicá su regla de `plantillas/catalogo.md`. Las más re
 
 Dos síntomas de que la regla de redacción no se aplicó (`global/metodo/redaccion.md`).
 
-Etiqueta en negrita seguida de una cita, sin verbo que las una:
+**Párrafos que son solo una etiqueta en negrita y una cita**, sin una palabra propia alrededor:
 
 ```bash
-grep -rcE '^\*\*[^*]+\.\*\*[[:space:]]*["«`]' $M/wiki --include='*.md' | grep -v ':0$'
+grep -rnE '^\*\*[^*]+\.\*\*[[:space:]]*["«`]' $M/wiki --include='*.md'
 ```
+
+El `grep` es el primer filtro y **sobre-reporta**: hay que descartar a mano dos casos que no
+son falta. Primero, cuando la etiqueta es la numeración de la propia fuente (`**Teorema 4.**`,
+`**Definición 12.**`, `**Proposición 7.**`, `**Observación 2.**`, `**Ejercicio 1.**`,
+`**Ejemplo 3.2.**`): citar un resultado por su número es correcto y además útil. Segundo,
+cuando después de cerrar la cita sigue prosa propia en el mismo párrafo — ahí la cita no está
+flotando. Solo queda como hallazgo lo que es etiqueta inventada + cita + nada.
 
 Páginas donde más de la mitad de los párrafos de cuerpo son de ≤12 palabras:
 

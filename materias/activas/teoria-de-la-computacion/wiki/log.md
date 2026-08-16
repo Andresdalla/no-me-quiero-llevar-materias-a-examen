@@ -16,3 +16,5 @@
 2026-08-16 · redacción · 29 páginas migradas al registro en prosa · dos páginas partidas por el tope
   de 150 líneas: definiciones/funcion → comparativas/notacion-de-funciones, y
   construcciones/emparejamiento-de-cantor → comparativas/formulas-de-cantor
+2026-08-16 · /resumen todo completo · 31 páginas del wiki · regenerado con el registro en
+  prosa · PDF compilado con typst (108 páginas)
