@@ -51,7 +51,7 @@ en `wiki/dudas.md`.
 | numerable | `A ∼ N` (biyección) | se lista sin repetir |
 | contable | `A ⪯ N` (inyección total) | se lista, quizás repitiendo |
 
-⚠️ **Esta pareja de términos no es universal.** En mucha bibliografía "contable" (*countable*)
+🧠 **Esta pareja de términos no es universal.** En mucha bibliografía "contable" (*countable*)
 significa lo que acá se llama numerable, y se usa "numerable" para *countably infinite*. En
 esta materia **valen las Definiciones 15 y 16 de la cátedra**, y son las que se evalúan.
 

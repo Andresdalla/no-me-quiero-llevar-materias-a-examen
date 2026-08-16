@@ -69,7 +69,7 @@ arriba de la barra y conclusión abajo:
 
 🧠 `rz` no tiene premisas: por eso la barra está vacía arriba. Esa es la marca de un caso base.
 
-⚠️ La extracción de texto destruye estas barras horizontales. Están transcriptas contra la
+🧠 La extracción de texto destruye estas barras horizontales. Están transcriptas contra la
 página rasterizada, no contra el texto plano.
 
 ## Relacionado

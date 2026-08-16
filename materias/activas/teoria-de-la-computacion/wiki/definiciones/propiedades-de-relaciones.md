@@ -26,7 +26,7 @@ Todas sobre `R ⊆ A × A`, es decir relaciones **binarias**.
 
 **De equivalencia.** ✅ [revision-conjuntos p.7] "Si R es reflexiva, simétrica y transitiva."
 
-⚠️ El apunte escribe "Antisimétcia" y "Asimétcia" en los títulos. Es un error de tipeo de la
+🧠 El apunte escribe "Antisimétcia" y "Asimétcia" en los títulos. Es un error de tipeo de la
 fuente; las fórmulas están bien.
 
 ## Notación

@@ -10,7 +10,7 @@
 
 ## Tipos activos
 
-7 de 8. El slot libre lo decide `/reperfilar`. Reglas de verificación en `plantillas/catalogo.md`.
+7 de 8; el slot libre lo decide `/reperfilar`. Reglas en `plantillas/catalogo.md`.
 
 | Tipo | Por qué está |
 |---|---|
@@ -24,12 +24,14 @@
 
 `/reperfilar` a las **8 ingestas** (van 5).
 
+**Estructurales, fuera de los 8**: `fuente` (`fuentes/`) y `examen` (`examenes/`). No son tipos
+de contenido ni están en `plantillas/catalogo.md`; se declaran acá para `/lint`.
+
 ## Evidencia de evaluación
 
 13 consignas reales de 4 fechas (feb 2026, set/jul/may 2025), en `wiki/examenes/patron.md`.
 **Sirven para los verbos, no para ponderar**: salen de un apunte sobre conjuntos, así que el
-100% en U6 es sesgo de la fuente. 11 de 13 son de respuesta cerrada (múltiple opción o V/F).
-Reserva ciega **vacía**: no hay ningún examen sin abrir.
+100% en U6 es sesgo de la fuente. 11 de 13 son de respuesta cerrada. Reserva ciega **vacía**.
 
 ## Vocabulario y notación de la cátedra
 
@@ -45,16 +47,14 @@ Reserva ciega **vacía**: no hay ningún examen sin abrir.
 
 - `repartido` = guía · `defensa de práctico` = evaluación oral · `coordinables` = equipolentes
 - `algoritmo` = pieza de código (Copello **reserva** "función" para el objeto matemático)
-- `Z`, `S n` = cero y sucesor · `λ-notation y case` vs `Pattern-Matching y guardas`
-- `paso corto` = reducción · `paso largo` = evaluación
+- `Z`, `S n` = cero y sucesor · `paso corto` = reducción · `paso largo` = evaluación
 
 ## Reglas propias
 
-- **El parcial es con material.** No optimices para recitar: se juzga si te deja *construir* y
-  *demostrar*. `/profesor` y `/machete` priorizan aplicar sobre recordar.
-- **Ante divergencia entre apuntes, declará la convención que usás** antes de calcular. Está
-  todo en `wiki/dudas.md`; no elijas por mí.
-- **Cada función del repartido se pide en las dos formas** (λ+case y pattern-matching).
+- **El parcial es con material.** No optimices para recitar: `/profesor` y `/machete`
+  priorizan aplicar y construir sobre recordar.
+- **Ante divergencia entre apuntes, declará qué convención usás** antes de calcular (`wiki/dudas.md`).
+- **Cada función del repartido se pide en las dos formas**: `λ-notation y case` y `Pattern-Matching y guardas`.
 - **La cursada no sigue el orden del temario**: empieza por U6. La numeración es del programa.
-- **Ningún repartido trae soluciones.** Toda resolución es `🧠` inferida y va marcada.
-- Si conseguís un examen entero, **no lo abras**: va a `raw/examenes/_reservado/`.
+- **Ningún repartido trae soluciones**: toda resolución es `🧠` inferida y va marcada. Si
+  conseguís un examen entero, **no lo abras**: va a `raw/examenes/_reservado/`.

@@ -32,7 +32,7 @@ relación binaria en A"
 | `R<` | la relación "menor" sobre `ℕ`, ejemplo recurrente del apunte |
 | `Z`, `S n` | cero y sucesor: los constructores de `ℕ` de la cátedra |
 
-⚠️ Ojo con `Z`: en este apunte **no** son los enteros, es el constructor del **cero**. `S (S Z)`
+🧠 Ojo con `Z`: en este apunte **no** son los enteros, es el constructor del **cero**. `S (S Z)`
 es el 2.
 
 ## Ejemplo

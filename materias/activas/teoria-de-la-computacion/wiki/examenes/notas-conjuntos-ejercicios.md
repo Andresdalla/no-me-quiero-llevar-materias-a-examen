@@ -12,11 +12,11 @@ actualizado: 2026-08-15
 
 ✅ [notas-conjuntos p.10] Título de la sección: "Ejercicios de exámenes anteriores".
 
-⚠️ **No son exámenes completos.** Son consignas sueltas que la cátedra seleccionó y publicó
+🧠 **No son exámenes completos.** Son consignas sueltas que la cátedra seleccionó y publicó
 como material de estudio. Sirven para saber **cómo pregunta**, no cuánto pesa cada unidad: no
 hay puntajes ni estructura de examen. Ninguna trae resolución oficial.
 
-⚠️ Al venir dentro de un apunte de estudio, **estas consignas ya están "vistas"**: no pueden
+🧠 Al venir dentro de un apunte de estudio, **estas consignas ya están "vistas"**: no pueden
 usarse como simulacro ciego previo al parcial. La reserva ciega sigue vacía.
 
 Las de múltiple opción están en [[examenes/mayo-2025-multiple-opcion]].

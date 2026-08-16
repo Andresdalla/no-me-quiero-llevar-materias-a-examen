@@ -13,7 +13,7 @@ actualizado: 2026-08-15
 ✅ [notas-conjuntos p.11] "(Examen mayo 2025) Múltiple opción". 8 preguntas, 4 opciones cada
 una. **Sin clave de respuestas.** Transcripción literal de enunciados y opciones.
 
-⚠️ Ninguna resolución es oficial. Las marcas 🧠 de abajo son inferidas.
+🧠 Ninguna resolución es oficial. Las marcas 🧠 de abajo son inferidas.
 
 | # | Consigna ✅ [notas-conjuntos p.11-12] | Opciones | Wiki |
 |---|---|---|---|

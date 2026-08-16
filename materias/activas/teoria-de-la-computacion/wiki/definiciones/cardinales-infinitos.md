@@ -47,7 +47,7 @@ verdadera; existen modelos donde es falsa."
 | `ℵ₁` | menor cardinal estrictamente mayor que `ℵ₀` |
 | `\|P(N)\|` = `\|R\|` | el cardinal del continuo |
 
-⚠️ `ℵ₁` y "el cardinal del continuo" **no son lo mismo por definición**. Que coincidan es
+🧠 `ℵ₁` y "el cardinal del continuo" **no son lo mismo por definición**. Que coincidan es
 exactamente lo que afirma la hipótesis del continuo, y es indecidible. Escribir `|R| = ℵ₁` como
 si fuera un hecho es el error que esta sección existe para evitar.
 

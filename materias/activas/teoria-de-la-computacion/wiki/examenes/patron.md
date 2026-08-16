@@ -1,6 +1,6 @@
 # Patrón de evaluación · 13 consignas de 4 fechas
 
-⚠️ **Sesgo de la fuente, leer antes que la tabla.** Estas consignas no salen de exámenes
+🧠 **Sesgo de la fuente, leer antes que la tabla.** Estas consignas no salen de exámenes
 completos: salen de la sección 11 de un apunte **sobre conjuntos y numerabilidad**
 ([[fuentes/notas-conjuntos]]), donde la cátedra seleccionó preguntas de ese tema. Que el 100%
 caiga en U6 es un artefacto de la selección, **no** evidencia de que el parcial sea todo U6.
@@ -41,7 +41,7 @@ enunciados sutiles, no solo escribir pruebas largas.
   (set 2025 ×2, may 2025 q8). Aparecen en 3 de las 4 fechas.
 - **Recurrente**: la **trampa por vacuidad o por caso límite** — `Q` que parece no numerable,
   `Bool → Bool` que parece infinito, `|P(A)| = 6` que parece razonable.
-- **Nunca**, aunque están en el programa: U1-U5 y U7-U10. ⚠️ Ver el sesgo de arriba: es la
+- **Nunca**, aunque están en el programa: U1-U5 y U7-U10. 🧠 Ver el sesgo de arriba: es la
   selección del apunte, no una ausencia real.
 - **Novedad en la fecha más reciente** (feb 2026): las dos consignas son verdadero/falso sobre
   **preservación de propiedades bajo operaciones** (sobreyección desde `N`; diferencia de

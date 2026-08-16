@@ -43,7 +43,7 @@ tienen exactamente la misma cantidad de ramas. Traducir es mecánico:
   sea el argumento de otra (no necesita nombre).
 - 🧠 Usá **pattern-matching** cuando haya muchos constructores: se lee por casos y no se te
   pierde ninguno.
-- ⚠️ En el parcial y en las defensas, **asumí que te piden las dos** salvo que diga otra cosa:
+- 🧠 En el parcial y en las defensas, **asumí que te piden las dos** salvo que diga otra cosa:
   es la consigna literal del repartido.
 
 ## Los cuatro ejemplos resueltos por la cátedra

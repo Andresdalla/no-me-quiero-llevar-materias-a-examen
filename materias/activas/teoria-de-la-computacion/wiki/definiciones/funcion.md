@@ -54,7 +54,7 @@ términos **inyección / sobreyección / biyección** como "inyectiva/sobreyecti
 total**". O sea, *inyectiva* y *inyección* no son sinónimos ahí. En el parcial con material,
 tené a mano de qué apunte viene la notación que estés usando.
 
-⚠️ Las dos fuentes definen **inyectiva** de forma distinta pero equivalente:
+🧠 Las dos fuentes definen **inyectiva** de forma distinta pero equivalente:
 `revision-conjuntos` p.9 usa `(∀x, y ∈ A)(x ≠ y ⇒ f(x) ≠ f(y))`; ✅ [notas-conjuntos p.2]
 **Definición 8** usa `f(a₁) = f(a₂) ⇒ a₁ = a₂`. Son contrarrecíprocas: no hay contradicción,
 pero conviene saber demostrar con las dos.

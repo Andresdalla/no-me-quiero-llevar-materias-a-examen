@@ -3,7 +3,7 @@ id: teoria-de-la-computacion/teoremas/propiedades-de-conjuntos-infinitos
 tipo: teorema
 tema: U6
 fuentes: [numerabilidad-diag p.7]
-estado: completo
+estado: sin-demo
 dominio: 0
 actualizado: 2026-08-15
 ---

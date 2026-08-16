@@ -30,7 +30,7 @@ REPASO DE HASKELL". 3 páginas.
 ## Cuán confiable es
 
 - **Consignas y código resuelto: alta.** Es material de cátedra, transcripto textual.
-- **Soluciones: no las trae.** ⚠️ El repartido da solo 4 funciones resueltas (`not`, `sumi`,
+- **Soluciones: no las trae.** 🧠 El repartido da solo 4 funciones resueltas (`not`, `sumi`,
   `length`, `cantNodos`) como modelo. Las otras 15 son consignas sin respuesta oficial.
   Cualquier resolución en este wiki es `🧠` inferida y está marcada como tal.
 - 🧠 No es material teórico: es un repaso de prerrequisito (Fundamentos), no una fuente sobre

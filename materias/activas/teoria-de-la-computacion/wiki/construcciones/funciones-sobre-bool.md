@@ -87,7 +87,7 @@ pero la fuente no dice qué operación es. Sobre `Bool -> Bool -> Bool` lo natur
 implicación, y en Haskell estándar `>>` es otra cosa (secuenciación monádica). No lo resuelvo
 hasta confirmarlo en clase. Anotado en `wiki/dudas.md`.
 
-⚠️ En el PDF, `(||)` aparece tipografiado con barras dobles de matemática (`(‖‖)`). Es el
+🧠 En el PDF, `(||)` aparece tipografiado con barras dobles de matemática (`(‖‖)`). Es el
 `(||)` de Haskell.
 
 ## Relacionado

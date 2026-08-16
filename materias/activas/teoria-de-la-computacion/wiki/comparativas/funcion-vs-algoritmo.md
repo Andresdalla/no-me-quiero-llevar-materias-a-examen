@@ -74,7 +74,7 @@ repartido."
   tenga o no quien lo compute.
 - 🧠 Decí **algoritmo** (no "función") cuando hables de código. En esta materia "función
   Haskell" es un algoritmo, no una función.
-- ⚠️ Ojo con `notas-conjuntos`, que usa "programa" donde esta fuente dice "algoritmo", y no
+- 🧠 Ojo con `notas-conjuntos`, que usa "programa" donde esta fuente dice "algoritmo", y no
   hace la distinción terminológica explícita. Son intercambiables en la práctica, pero si la
   consigna del parcial usa una de las dos palabras, contestá con esa.
 
