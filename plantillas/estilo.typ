@@ -37,6 +37,12 @@
   )
   show heading: it => it
 
+  // La mono por defecto (DejaVu Sans Mono) no tiene los símbolos de teoría de
+  // conjuntos (⪯ ∼ ≺ ↬ ⇸): sin fallback salen como tofu dentro de `código`.
+  show raw: set text(
+    font: ("Menlo", "DejaVu Sans Mono", "DejaVu Sans", "STIX Two Math"),
+  )
+
   show raw.where(block: false): it => box(
     fill: rgb("#f0f0f3"), inset: (x: 2pt), outset: (y: 2pt), radius: 2pt, it,
   )

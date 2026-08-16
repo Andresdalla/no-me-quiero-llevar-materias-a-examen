@@ -36,13 +36,21 @@ def render_mermaid(md: str, dir_figs: Path, avisos: list[str]) -> str:
         return md
 
     dir_figs.mkdir(parents=True, exist_ok=True)
+    # Sin esto mermaid mete las etiquetas en <foreignObject> (HTML dentro del SVG),
+    # que typst no renderiza: los diagramas salen como cajas vacías.
+    cfg = dir_figs / "mermaid-config.json"
+    cfg.write_text(
+        '{"flowchart":{"htmlLabels":false},"class":{"htmlLabels":false},'
+        '"htmlLabels":false}',
+        encoding="utf-8",
+    )
     reemplazos: dict[str, str] = {}
     for n, m in enumerate(bloques, start=1):
         fuente = dir_figs / f"mermaid-{n}.mmd"
         svg = dir_figs / f"mermaid-{n}.svg"
         fuente.write_text(m.group(1), encoding="utf-8")
         cmd = ["npx", "-y", "@mermaid-js/mermaid-cli", "-i", str(fuente), "-o", str(svg),
-               "-b", "transparent"]
+               "-b", "transparent", "-c", str(cfg)]
         try:
             proc = subprocess.run(cmd, capture_output=True, text=True, timeout=300)
         except (subprocess.TimeoutExpired, OSError) as exc:
@@ -52,7 +60,9 @@ def render_mermaid(md: str, dir_figs: Path, avisos: list[str]) -> str:
             detalle = (proc.stderr or proc.stdout).strip().splitlines()
             avisos.append(f"mermaid {n}: {detalle[-1] if detalle else 'error'}")
             continue
-        reemplazos[m.group(0)] = f"![]({svg})"
+        # Ruta absoluta: typst resuelve las rutas de imagen relativas al .typ,
+        # no al CWD, y con `--root /` las absolutas son válidas.
+        reemplazos[m.group(0)] = f"![]({svg.resolve()})"
 
     for viejo, nuevo in reemplazos.items():
         md = md.replace(viejo, nuevo)
@@ -169,6 +179,21 @@ def tabla_typst(filas: list[str]) -> list[str]:
     return salida
 
 
+def inicia_bloque(linea: str) -> bool:
+    """¿La línea abre un bloque propio? Se usa para no tragarse el bloque
+    siguiente al juntar las líneas de un párrafo."""
+    l = linea.lstrip()
+    return bool(
+        l.startswith("```")
+        or (l.startswith("|") and linea.count("|") >= 2)
+        or re.match(r"^#{1,6}\s", l)
+        or re.match(r"^(---|\*\*\*|___)\s*$", l)
+        or re.match(r"^([-*+])\s+", l)
+        or re.match(r"^\d+[.)]\s+", l)
+        or l.startswith(">")
+    )
+
+
 def md_a_typst(md: str) -> str:
     md = re.sub(r"\A---\n.*?\n---\n", "", md, flags=re.S)  # frontmatter fuera
     lineas = md.split("\n")
@@ -221,12 +246,43 @@ def md_a_typst(md: str) -> str:
 
         m = re.match(r"^>\s?(.*)$", linea)
         if m:
-            salida += [f"#quote(block: true)[{inline(m.group(1))}]", ""]
+            # Una cita de varias líneas es UNA cita, no una por línea.
+            cita = [m.group(1).strip()]
+            i += 1
+            while i < len(lineas):
+                m2 = re.match(r"^>\s?(.*)$", lineas[i])
+                if not m2:
+                    break
+                cita.append(m2.group(1).strip())
+                i += 1
+            parrafos: list[str] = []
+            actual: list[str] = []
+            for c in cita:
+                if c:
+                    actual.append(c)
+                elif actual:
+                    parrafos.append(" ".join(actual))
+                    actual = []
+            if actual:
+                parrafos.append(" ".join(actual))
+            cuerpo = "#parbreak()".join(inline(p) for p in parrafos)
+            salida += [f"#quote(block: true)[{cuerpo}]", ""]
+            continue
+
+        if not linea.strip():
+            salida.append("")
             i += 1
             continue
 
-        salida.append(inline(linea) if linea.strip() else "")
+        # Párrafo: juntar las líneas del wrap suave antes de convertir. Si no,
+        # una negrita o un enlace partidos por el salto de línea nunca matchean
+        # y quedan los `**` literales en el PDF.
+        parrafo = [linea.strip()]
         i += 1
+        while i < len(lineas) and lineas[i].strip() and not inicia_bloque(lineas[i]):
+            parrafo.append(lineas[i].strip())
+            i += 1
+        salida.append(inline(" ".join(parrafo)))
 
     return "\n".join(salida) + "\n"
 
