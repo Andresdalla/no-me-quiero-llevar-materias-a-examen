@@ -38,9 +38,30 @@
 - [[definiciones/funcion]] — parcial/total, inyectiva, sobreyectiva, biyectiva
 - [[comparativas/relaciones-vs-funciones]] — notación paralela y la trampa de `∘`
 
-**Fuente**
+**Cardinalidad y numerabilidad**
 
-- [[fuentes/revision-conjuntos]] — ficha del apunte, con sus tres erratas
+- [[definiciones/comparacion-de-cardinalidades]] — `⪯` y equipolencia `∼`
+- [[definiciones/conjunto-infinito]] — infinito = se codifica en una parte propia
+- [[definiciones/numerable-y-contable]] — las dos definiciones que se confunden
+- [[teoremas/subconjunto-infinito-de-n-es-numerable]] — el teorema que las une
+- [[teoremas/z-es-numerable]] · [[construcciones/emparejamiento-de-cantor]] — los ejemplos
+- [[definiciones/cardinales-infinitos]] — `ℵ₀`, `ℵ₁`, hipótesis del continuo (extra)
+
+**El argumento central de la materia**
+
+- [[teoremas/palabras-finitas-son-numerables]] — los programas son numerables
+- [[demostraciones/diagonalizacion]] — las funciones `N → N` no lo son
+- [[teoremas/existen-funciones-no-computables]] — la conclusión
+
+**Exámenes**
+
+- [[examenes/patron]] — cómo pregunta la cátedra
+- [[examenes/notas-conjuntos-ejercicios]] · [[examenes/mayo-2025-multiple-opcion]]
+
+**Fuentes**
+
+- [[fuentes/notas-conjuntos]] — notas de Acuña 2026, la fuente más confiable
+- [[fuentes/revision-conjuntos]] — ficha del apunte de láminas, con sus tres erratas
 
 ## U7 · Indecidibilidad
 

@@ -1,0 +1,71 @@
+---
+id: teoria-de-la-computacion/teoremas/existen-funciones-no-computables
+tipo: teorema
+tema: U6
+fuentes: [notas-conjuntos p.7, notas-conjuntos p.8]
+estado: completo
+dominio: 0
+actualizado: 2026-08-15
+---
+
+# Existen funciones no computables
+
+## Enunciado
+
+✅ [notas-conjuntos p.7] **Teorema 4.** "Existen funciones `f : N → N` que no son computables
+por ningún programa."
+
+🧠 Es el resultado al que apunta todo el apunte. ✅ [notas-conjuntos p.1] la motivación lo
+anticipa: "si el conjunto de los programas es numerable y el conjunto de las funciones no lo
+es, entonces necesariamente existen funciones que no pueden ser calculadas por ningún
+programa."
+
+## Hipótesis
+
+- El conjunto de programas es numerable ✅ [notas-conjuntos p.7] — ver
+  [[teoremas/palabras-finitas-son-numerables]].
+- ✅ [notas-conjuntos p.7] "A cada programa se le asocia, **a lo sumo**, una función
+  `f : N → N` que dicho programa computa."
+- 🧠 De ahí sale el paso clave: el conjunto de funciones **computables** es numerable, porque
+  se inyecta en el de programas.
+
+## Demostración
+
+Ver [[demostraciones/diagonalizacion]]. Técnica: diagonalización, por contradicción.
+
+✅ [notas-conjuntos p.8] "Dado que el conjunto de funciones computables es numerable, se
+concluye que existen funciones que no son computables."
+
+## Cuándo se aplica
+
+🧠 Es el primer resultado de **imposibilidad** del curso, y el patrón se repite después en el
+problema de la terminación y en el teorema de Rice (U7). El molde es siempre el mismo: contar
+cuántos programas hay, contar cuántos objetos hay que computar, y mostrar que no alcanzan.
+
+✅ [notas-conjuntos p.8] "Este argumento no depende del lenguaje de programación utilizado. La
+conclusión es completamente general y expresa una limitación matemática intrínseca del cómputo:
+siempre existirán funciones que no pueden ser calculadas por ningún algoritmo."
+
+✅ [notas-conjuntos p.10] Y no necesita maquinaria pesada: "basta con observar que
+`ℵ₀ < |P(N)|`. Esta desigualdad es suficiente para demostrar que existen funciones no
+computables. La hipótesis del continuo no es necesaria para este argumento".
+
+## Errores típicos
+
+- 🧠 **Creer que el teorema exhibe una función no computable concreta.** No lo hace: es un
+  argumento de conteo, puramente **existencial**. Sabés que hay, no cuál es. Las funciones no
+  computables concretas (terminación) vienen después, en U7.
+- 🧠 **Pensar que es una limitación de un lenguaje o de una máquina.** No depende del lenguaje:
+  eso es lo que el apunte subraya dos veces.
+- 🧠 **Confundir "no computable" con "difícil de computar".** No es una cuestión de costo — eso
+  es U8 (P y NP). Acá directamente no existe programa.
+- 🧠 **Saltear el "a lo sumo una función" por programa.** Es lo que permite inyectar funciones
+  computables en programas. Si un programa computara muchas funciones, el conteo no cerraría.
+
+## Relacionado
+
+- [[demostraciones/diagonalizacion]] — el argumento
+- [[teoremas/palabras-finitas-son-numerables]] — que los programas son numerables
+- [[definiciones/cardinales-infinitos]] — `ℵ₀ < |P(N)|`
+- [[definiciones/numerable-y-contable]]
+- [[fuentes/notas-conjuntos]]

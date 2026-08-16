@@ -39,9 +39,9 @@
 - temas: auto-intérpretes; máquina de Turing universal; programas como datos, programas almacenados; consecuencias sobre el desarrollo de la computadora; otros auto-intérpretes
 
 ## U6 · Cardinalidad y numerabilidad
-- cobertura: parcial
-- fuentes: [revision-conjuntos]
-- paginas: [definiciones/conjunto, comparativas/formas-de-definir-conjuntos, definiciones/operaciones-con-conjuntos, definiciones/relacion, definiciones/propiedades-de-relaciones, definiciones/ordenes, teoremas/transitividad-de-r-menor, demostraciones/transitividad-de-r-menor, definiciones/operaciones-con-relaciones, definiciones/funcion, comparativas/relaciones-vs-funciones, fuentes/revision-conjuntos]
+- cobertura: cubierto
+- fuentes: [revision-conjuntos, notas-conjuntos]
+- paginas: [definiciones/conjunto, comparativas/formas-de-definir-conjuntos, definiciones/operaciones-con-conjuntos, definiciones/relacion, definiciones/propiedades-de-relaciones, definiciones/ordenes, teoremas/transitividad-de-r-menor, demostraciones/transitividad-de-r-menor, definiciones/operaciones-con-relaciones, definiciones/funcion, comparativas/relaciones-vs-funciones, definiciones/comparacion-de-cardinalidades, definiciones/conjunto-infinito, definiciones/numerable-y-contable, teoremas/subconjunto-infinito-de-n-es-numerable, teoremas/z-es-numerable, construcciones/emparejamiento-de-cantor, teoremas/palabras-finitas-son-numerables, teoremas/existen-funciones-no-computables, demostraciones/diagonalizacion, definiciones/cardinales-infinitos, examenes/notas-conjuntos-ejercicios, examenes/mayo-2025-multiple-opcion, fuentes/revision-conjuntos, fuentes/notas-conjuntos]
 - temas: limitaciones de la computabilidad; el argumento de cardinalidad; introducción a la teoría de cardinalidad de conjuntos: conjuntos finitos e infinitos, numerabilidad, diagonalización
 
 ## U7 · Indecidibilidad
