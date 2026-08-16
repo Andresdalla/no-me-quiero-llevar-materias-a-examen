@@ -10,37 +10,44 @@ actualizado: 2026-08-15
 
 # Definición de `⪯` y de equipolencia
 
+Comparar tamaños de conjuntos infinitos necesita dos relaciones, no una: un "menor o igual" y
+una igualdad. Ninguna de las dos se define contando, porque no se puede — las dos se definen
+exhibiendo una función con cierta propiedad. Esta página es la que hace posible todo el resto
+de U6.
+
 ## Enunciado
 
-**Por qué hace falta.** "este razonamiento deja de ser válido cuando
-se consideran conjuntos infinitos. La razón es que una inclusión estricta ya no implica
-necesariamente una diferencia de cardinalidad."
+Lo primero es entender por qué hace falta maquinaria nueva. Para conjuntos finitos, si uno
+está estrictamente contenido en otro es más chico, y listo; pero "este razonamiento deja de ser
+válido cuando se consideran conjuntos infinitos. La razón es que una inclusión estricta ya no
+implica necesariamente una diferencia de cardinalidad."
 
-**Definición 12.** "Sean A y B conjuntos. Se dice que `A ⪯ B` si
-existe una función total e inyectiva `f : A → B`."
+La relación "menor o igual" es la **Definición 12.** "Sean A y B conjuntos. Se dice que
+`A ⪯ B` si existe una función total e inyectiva `f : A → B`." Inyectiva alcanza, y el apunte
+explica por qué: "Esta relación expresa que los elementos de A pueden codificarse dentro de B
+sin colisiones." Si `A` entra adentro de `B` sin pisarse, `B` no puede ser más chico.
 
-"Esta relación expresa que los elementos de A pueden codificarse
-dentro de B sin colisiones."
+La igualdad correspondiente pide lo mismo en las dos direcciones a la vez, o sea una biyección.
+**Definición 13.** "Sean A y B conjuntos. Se dice que A y B son *equipolentes*, y se escribe
+`A ∼ B`, si y sólo si existe una función biyectiva y total `f : A → B`."
 
-**Definición 13.** "Sean A y B conjuntos. Se dice que A y B son
-*equipolentes*, y se escribe `A ∼ B`, si y sólo si existe una función biyectiva y total
-`f : A → B`."
-
-**Proposición 2.** "Si `A ⊆ B`, entonces `A ⪯ B`."
-
-**Proposición 3.** "`A ∼ B`, si `A ⪯ B` y `B ⪯ A`."
+Con eso ya se pueden enunciar las dos proposiciones que se usan todo el tiempo. La primera dice
+que la inclusión es un caso particular de `⪯` — **Proposición 2.** "Si `A ⊆ B`, entonces
+`A ⪯ B`." La segunda es la que permite reemplazar una biyección difícil por dos inyecciones
+fáciles: **Proposición 3.** "`A ∼ B`, si `A ⪯ B` y `B ⪯ A`."
 
 La Proposición 3 es el **teorema de Schröder-Bernstein**, y el apunte lo nombra en la
 demostración: "si existen funciones inyectivas totales `f : A → B` y `g : B → A`, entonces por
-el teorema de Schroder-Bernstein existe una biyección entre A y B".
+el teorema de Schroder-Bernstein existe una biyección entre A y B". No lo demuestra, así que
+en el parcial se invoca por nombre.
 
 ### Las dos fuentes DEFINEN `∼` distinto
 
-Coinciden en `⪯`: **Definición 2.1.** "Diremos que A es de menor o
-igual tamaño que B —lo cual se escribirá `A ⪯ B`— si y sólo si existe una función total
-inyectiva de A en B." Es literalmente la Definición 12 de `notas-conjuntos`.
+En `⪯` no hay problema, las dos fuentes dicen lo mismo. **Definición 2.1.** "Diremos que A es
+de menor o igual tamaño que B —lo cual se escribirá `A ⪯ B`— si y sólo si existe una función
+total inyectiva de A en B." Es literalmente la Definición 12 de `notas-conjuntos`.
 
-Pero difieren en `∼`:
+La divergencia está en `∼`, y es de las que cambian qué hay que escribir en una demostración:
 
 | Fuente | Definición de `A ∼ B` |
 |---|---|
@@ -66,24 +73,25 @@ En el parcial: si te piden probar `A ∼ B`, aclará con qué definición trabaj
 
 ## Ejemplo
 
-"`N \ {0} ⊊ N`, pero ambos conjuntos tienen el mismo tamaño, ya que la
-función `f(n) = n + 1` define una biyección entre ellos."
+El ejemplo canónico es sacarle un elemento a `N` y ver que no se achica: "`N \ {0} ⊊ N`, pero
+ambos conjuntos tienen el mismo tamaño, ya que la función `f(n) = n + 1` define una biyección
+entre ellos." Es el ejemplo que hay que tener en la punta de la lengua, porque es el
+contraejemplo a "la parte es más chica que el todo" y todo U6 se apoya en él.
 
-Demostración de la Proposición 2: "Consideremos la función identidad
-`i : A → B` dada por `i(a) = a` para todo `a ∈ A`. La función está bien definida porque
-`A ⊆ B`, es total y es inyectiva. Por lo tanto, `A ⪯ B`."
-
-Este es el ejemplo que hay que tener en la punta de la lengua: es el contraejemplo a "la
-parte es más chica que el todo", y todo U6 se apoya en él.
+La Proposición 2, en cambio, se demuestra con la función más aburrida que hay, y eso es
+justamente lo que la hace fácil de recordar: "Consideremos la función identidad `i : A → B`
+dada por `i(a) = a` para todo `a ∈ A`. La función está bien definida porque `A ⊆ B`, es total y
+es inyectiva. Por lo tanto, `A ⪯ B`."
 
 ## Contraejemplo
 
-**Observación 2.** "En el caso finito, si `A ⊊ B`, entonces
-necesariamente `A ≁ B`. En el caso infinito, esto puede fallar: puede ocurrir que `A ⊊ B` y,
-sin embargo, `A ∼ B`."
+Lo que falla acá no es un conjunto sino un razonamiento, y la fuente lo señala en la
+**Observación 2.** "En el caso finito, si `A ⊊ B`, entonces necesariamente `A ≁ B`. En el caso
+infinito, esto puede fallar: puede ocurrir que `A ⊊ B` y, sin embargo, `A ∼ B`."
 
-O sea: `A ⊊ B` **no** es contraejemplo de `A ∼ B` cuando hay infinitos. Es exactamente el
-paso que se falla en el parcial.
+O sea: `A ⊊ B` **no** es contraejemplo de `A ∼ B` cuando hay infinitos. Es exactamente el paso
+que se falla en el parcial, porque la intuición finita se cuela sin que uno la note — y el
+ejemplo de arriba, `N \ {0}` contra `N`, es la prueba de que se cuela mal.
 
 ## Confusiones frecuentes
 

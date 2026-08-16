@@ -16,28 +16,35 @@ cátedra: no des por hecho que entra al parcial.
 
 ## Enunciado
 
-"El menor cardinal infinito se denota por `ℵ₀` (alef cero) y
-corresponde al tamaño del conjunto de los números naturales."
+Hasta acá "numerable" y "no numerable" alcanzaban para todo. Los cardinales le ponen nombre a
+los tamaños y permiten preguntarse si hay algo **entre** los dos, que es donde la cosa se
+vuelve interesante.
 
-"Un conjunto tiene cardinal `ℵ₀` si y sólo si es numerable. En
-particular, `|N| = |Z| = |Q| = ℵ₀`."
+El piso de los infinitos es el de los naturales: "El menor cardinal infinito se denota por
+`ℵ₀` (alef cero) y corresponde al tamaño del conjunto de los números naturales." Y es
+exactamente la noción que ya venías usando con otro nombre, porque "Un conjunto tiene cardinal
+`ℵ₀` si y sólo si es numerable. En particular, `|N| = |Z| = |Q| = ℵ₀`."
 
-"El símbolo `ℵ₁` se utiliza para denotar el menor cardinal
-estrictamente mayor que `ℵ₀`."
+El siguiente escalón se define por su posición, no por un conjunto concreto: "El símbolo `ℵ₁`
+se utiliza para denotar el menor cardinal estrictamente mayor que `ℵ₀`." Retené que hasta acá
+`ℵ₁` es una definición vacía de contenido: sabemos dónde está, no qué es.
 
-"El argumento de diagonalización muestra que `|P(N)| > |N|`." Y
-"`|P(N)| = |R|`, por lo que el conjunto de los números reales tiene una cardinalidad
-estrictamente mayor que la de los naturales. Este cardinal se denomina **el cardinal del
-continuo**."
+Por otro lado sí hay un tamaño mayor conocido y con nombre: "El argumento de diagonalización
+muestra que `|P(N)| > |N|`." A eso se le suma que "`|P(N)| = |R|`, por lo que el conjunto de
+los números reales tiene una cardinalidad estrictamente mayor que la de los naturales. Este
+cardinal se denomina **el cardinal del continuo**."
 
-**Hipótesis del continuo.** "afirma que no existen cardinales
-intermedios entre `ℵ₀` y `|R|`, es decir, `|R| = ℵ₁`. Equivalentemente, todo subconjunto
-infinito de `R` es o bien numerable o bien tiene la misma cardinalidad que `R`."
+Tenemos entonces dos cosas definidas por caminos distintos —el escalón siguiente y el tamaño
+de los reales— y la pregunta obvia es si coinciden. Eso es lo que dice la **hipótesis del
+continuo**, que "afirma que no existen cardinales intermedios entre `ℵ₀` y `|R|`, es decir,
+`|R| = ℵ₁`. Equivalentemente, todo subconjunto infinito de `R` es o bien numerable o bien tiene
+la misma cardinalidad que `R`."
 
-"la hipótesis del continuo **no puede demostrarse ni refutarse** a
-partir de los axiomas usuales de la teoría de conjuntos (axiomas de Zermelo-Fraenkel con el
-axioma de elección)": "existen modelos de la teoría donde la hipótesis del continuo es
-verdadera; existen modelos donde es falsa."
+Y la respuesta es que no hay respuesta: "la hipótesis del continuo **no puede demostrarse ni
+refutarse** a partir de los axiomas usuales de la teoría de conjuntos (axiomas de
+Zermelo-Fraenkel con el axioma de elección)", porque "existen modelos de la teoría donde la
+hipótesis del continuo es verdadera; existen modelos donde es falsa." No es que no se sepa
+todavía: se demostró que los axiomas no alcanzan para decidirlo.
 
 ## Notación
 
@@ -53,14 +60,18 @@ si fuera un hecho es el error que esta sección existe para evitar.
 
 ## Ejemplo
 
-Numerables: "`N`, `Z` o `Q`" — todos con cardinal `ℵ₀`.
+Los tres ejemplos de conjuntos numerables que da la fuente son "`N`, `Z` o `Q`", todos con
+cardinal `ℵ₀`. Que `Q` esté en la lista es lo llamativo: los racionales parecen muchos más que
+los naturales y sin embargo tienen el mismo cardinal.
 
 ## Contraejemplo
 
-No numerables: "`R`, o `N ⟶ N`".
+Del otro lado quedan los no numerables: "`R`, o `N ⟶ N`". Son los que no se pueden poner en
+biyección con `N` por más que se intente, y en los dos casos la prueba es la misma técnica.
 
 `N ⟶ N` (el conjunto de funciones de `N` en `N`) es el que aparece en
-[[demostraciones/diagonalizacion]]: no es numerable, y esa es toda la fuerza del argumento.
+[[demostraciones/diagonalizacion]]: no es numerable, y esa es toda la fuerza del argumento —
+como los programas sí son numerables, tiene que haber funciones que ningún programa calcula.
 
 ## Confusiones frecuentes
 

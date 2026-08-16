@@ -37,6 +37,7 @@
 
 - [[definiciones/funcion]] — parcial/total, inyectiva, sobreyectiva, biyectiva
 - [[comparativas/relaciones-vs-funciones]] — notación paralela y la trampa de `∘`
+- [[comparativas/notacion-de-funciones]] — las tres notaciones de la cátedra y sus conflictos
 
 **Cardinalidad y numerabilidad**
 

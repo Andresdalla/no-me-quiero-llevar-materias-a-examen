@@ -13,3 +13,4 @@
 | 2026-08-15 | `/vaciar-cola` | cola vacía: 5 archivos procesados, 0 fallidos |
 | 2026-08-15 | `/lint` | 0 críticos · corregidos: disciplina de (13 → ), 4 dudas registradas, tipos estructurales declarados, 1 `sin-demo` |
 | 2026-08-15 | `/resumen` | resumen todo completo · 32 páginas del wiki · 8 unidades sin material · sin PDF (falta typst) |
+2026-08-16 · redacción · 12 páginas migradas al registro en prosa · definiciones/funcion partida: sale comparativas/notacion-de-funciones (tope 150 líneas)

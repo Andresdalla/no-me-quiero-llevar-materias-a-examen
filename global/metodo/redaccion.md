@@ -22,6 +22,17 @@ chat: no hay saludos, ni "¡buena pregunta!", ni cierres cordiales.
 1. **Ninguna cita ni fórmula queda flotando sola.** Una oración la introduce diciendo qué
    establece, o la sigue diciendo qué consecuencia tiene. La cita se transcribe textual — eso
    no cambia — pero lo que la rodea es tuyo y es obligatorio.
+
+   **Al embeber una cita no se le toca ni una letra, ni siquiera la mayúscula inicial.** Es la
+   tentación obvia al meterla en medio de una oración, y está prohibida: acomodá la oración
+   alrededor de la cita, no la cita adentro de la oración. Si no entra, usá dos puntos —
+   `Lo que le da contenido es el axioma de extensión: "Dos conjuntos son iguales si y sólo
+   si…"` — o cortá la oración y empezá otra. El punto final también cuenta: si la fuente lo
+   tiene adentro de la comilla, ahí se queda.
+
+   **Las comillas dobles están reservadas para lo transcripto.** Para enfatizar usá cursiva o
+   negrita, nunca comillas: son la única marca visual de qué salió de la fuente y qué no, y
+   entrecomillar una palabra propia rompe esa señal.
 2. **Párrafo objetivo: 40-90 palabras, dos a cuatro oraciones.** Un párrafo de una sola
    oración vale solo cuando es un veredicto: `Prohibido parafrasear.`
 3. **Cada sección se lee de corrido.** Si dos bloques seguidos no tienen relación explícita,

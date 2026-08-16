@@ -10,22 +10,29 @@ actualizado: 2026-08-15
 
 # Definición de órdenes parciales y totales, laxos y estrictos
 
+Los órdenes no son propiedades nuevas: son **combinaciones con nombre** de las cinco de
+[[definiciones/propiedades-de-relaciones]]. Hay dos ejes independientes —laxo contra estricto,
+parcial contra total— y de cruzarlos salen las cuatro categorías. Esta página también contiene
+una contradicción real de la fuente que conviene tener presente antes del parcial.
+
 ## Enunciado
 
-**Órdenes laxos.** "Una relacion es un **orden parcial laxo** si
-es: reflexiva · antisimétrica · transitiva."
+Los **órdenes laxos** son los que admiten que un elemento se relacione consigo mismo: "Una
+relacion es un **orden parcial laxo** si es: reflexiva · antisimétrica · transitiva." Se vuelve
+total cuando además no queda ningún par sin comparar — "Es un **orden total laxo** si además
+cumple: `(∀x, y ∈ A)((x, y) ∈ R ∨ (y, x) ∈ R)`".
 
-"Es un **orden total laxo** si además cumple:
-`(∀x, y ∈ A)((x, y) ∈ R ∨ (y, x) ∈ R)`"
+Los **órdenes estrictos** cambian las dos primeras propiedades por una sola: "Una relacion es
+un **orden parcial estricto** si es: asimétrica · transitiva." La asimetría prohíbe de entrada
+que un elemento se relacione consigo mismo, así que reflexividad y antisimetría dejan de tener
+sentido acá. La condición de totalidad que agrega el apunte es literalmente la misma: "Es un
+**orden total estricto laxo** si además cumple:
+`(∀x, y ∈ A)((x, y) ∈ R ∨ (y, x) ∈ R)`".
 
-**Órdenes estrictos.** "Una relacion es un **orden parcial
-estricto** si es: asimétrica · transitiva."
-
-"Es un **orden total estricto laxo** si además cumple:
-`(∀x, y ∈ A)((x, y) ∈ R ∨ (y, x) ∈ R)`"
-
-"orden total estricto **laxo**" está transcripto literal y se contradice a sí mismo: o es
-estricto o es laxo. Es un error de tipeo de la fuente. Anotado en `wiki/dudas.md`.
+Que sea la misma condición es el problema, y se desarrolla en el contraejemplo. Antes de eso,
+un detalle menor: "orden total estricto **laxo**" está transcripto literal y se contradice a
+sí mismo, porque o es estricto o es laxo. Es un error de tipeo de la fuente. Anotado en
+`wiki/dudas.md`.
 
 ## Notación
 
@@ -41,16 +48,17 @@ estricto pide asimétrica. Todo lo demás se repite.
 
 ## Ejemplo
 
-"`R≤ = R< ∪ {(x, x) : x ∈ A}` es un orden total"
-
-Fijate en la construcción: al unirle la diagonal a `R<` la volvés reflexiva sin romper la
-transitividad. Es la receta estándar para pasar de estricto a laxo.
+El apunte da un solo ejemplo positivo y es constructivo: "`R≤ = R< ∪ {(x, x) : x ∈ A}` es un
+orden total". Fijate en la construcción más que en el resultado: al unirle la diagonal a `R<`
+la volvés reflexiva sin romper la transitividad, y el precio es perder la asimetría. Es la
+receta estándar para pasar de estricto a laxo, y funciona para cualquier orden estricto, no
+solo para `R<`.
 
 ## Contraejemplo
 
-"`R<` no es un orden total porque no es reflexiva."
-
-"`R<` no es un orden total estricto."
+Del lado negativo el apunte afirma dos cosas sobre la misma relación: "`R<` no es un orden
+total porque no es reflexiva." y "`R<` no es un orden total estricto." La primera es esperable
+—`R<` es estricta, no laxa—, pero la segunda es la que abre el problema.
 
 Acá hay un problema real de la fuente: la condición de totalidad que da el apunte,
 `(∀x, y ∈ A)((x, y) ∈ R ∨ (y, x) ∈ R)`, **evaluada en `x = y`** exige `(x, x) ∈ R`. Es decir,

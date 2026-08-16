@@ -17,6 +17,7 @@
 | `definiciones/operaciones-con-relaciones` | definicion | U6 | Relación inversa y composición; el orden se invierte |
 | `definiciones/funcion` | definicion | U6 | Función parcial y total, inyectiva, sobreyectiva, biyectiva |
 | `comparativas/relaciones-vs-funciones` | comparativa | U6 | Notación paralela y la trampa del orden de composición |
+| `comparativas/notacion-de-funciones` | comparativa | U6 | Tres apuntes, tres notaciones; función significa parcial |
 | `definiciones/comparacion-de-cardinalidades` | definicion | U6 | Preorden ⪯ y equipolencia; Schröder-Bernstein; el todo y la parte |
 | `definiciones/conjunto-infinito` | definicion | U6 | Dedekind: se codifica dentro de una parte propia |
 | `definiciones/numerable-y-contable` | definicion | U6 | Biyección con N versus inyección en N; contable más infinito |

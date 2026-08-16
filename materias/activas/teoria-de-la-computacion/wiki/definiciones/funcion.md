@@ -2,27 +2,40 @@
 id: teoria-de-la-computacion/definiciones/funcion
 tipo: definicion
 tema: U6
-fuentes: [revision-conjuntos p.9, revision-conjuntos p.10, notas-conjuntos p.2, numerabilidad-diag p.3, numerabilidad-diag p.4]
+fuentes: [revision-conjuntos p.9, revision-conjuntos p.10]
 estado: completo
 dominio: 0
-actualizado: 2026-08-15
+actualizado: 2026-08-16
 ---
 
 # Definición de función y sus propiedades
 
+Una función no es un objeto nuevo sino una relación con una restricción encima, y por eso
+hereda todo lo de [[definiciones/operaciones-con-relaciones]]. Las cuatro propiedades que se
+definen acá —total, inyectiva, sobreyectiva, biyectiva— son exactamente las que después se
+usan para comparar tamaños de conjuntos infinitos, que es a lo que va toda U6.
+
+Las tres fuentes de la materia notan esto de tres maneras distintas y en un caso hasta con
+distinto significado: eso está en [[comparativas/notacion-de-funciones]] y conviene mirarlo
+antes del parcial.
+
 ## Enunciado
 
-"Funciones · Caso especial de relaciones · Donde cada elemento del
-dominio está relacionado con **a lo sumo un** elemento del codominio"
+La definición se apoya en la de relación y le agrega una sola condición: "Funciones · Caso
+especial de relaciones · Donde cada elemento del dominio está relacionado con **a lo sumo un**
+elemento del codominio". El "a lo sumo uno" es lo que deja lugar a las parciales: si dijera
+"exactamente uno", toda función sería total por definición y no habría nada más que decir.
 
-**Parciales vs totales.** "Si están o no definidas para todos los
-elementos en el dominio" — `Total f : A → B` · `Parcial f : A ⇸ B`
+De ahí sale la primera distinción, que mira el **dominio**: si están o no definidas en todos
+sus puntos. El apunte lo enuncia como "Si están o no definidas para todos los elementos en el
+dominio", y le da un símbolo a cada caso — `Total f : A → B` · `Parcial f : A ⇸ B`.
 
-**Inyectiva.** `(∀x, y ∈ A)(x ≠ y ⇒ f(x) ≠ f(y))`
-
-**Sobreyectiva.** `(∀y ∈ B)(∃x ∈ A)(f(x) = y)`
-
-**Biyectiva.** "Si es inyectiva y sobreyectiva"
+Las otras tres propiedades miran cómo se reparte el **codominio**. Es inyectiva cuando
+`(∀x, y ∈ A)(x ≠ y ⇒ f(x) ≠ f(y))`, o sea cuando no colapsa dos entradas distintas en la misma
+salida. Es sobreyectiva cuando `(∀y ∈ B)(∃x ∈ A)(f(x) = y)`: no sobra nada del codominio.
+Biyectiva es la conjunción de las dos, "Si es inyectiva y sobreyectiva", y es la que habilita
+que exista la inversa — el punto de contacto con
+[[definiciones/comparacion-de-cardinalidades]].
 
 ## Notación
 
@@ -32,104 +45,49 @@ elementos en el dominio" — `Total f : A → B` · `Parcial f : A ⇸ B`
 | `f : A ⇸ B` | función **parcial** (flecha con barra) |
 | `f(x) = y` | equivale a `(x, y) ∈ f` |
 
-El "a lo sumo uno" del enunciado es lo que deja lugar a las parciales: si fuera "exactamente
-uno", toda función sería total por definición.
+La última fila es la que recuerda de dónde viene todo esto: escribir `f(x) = y` es una
+comodidad para no escribir el par, pero la función sigue siendo un conjunto de pares.
 
-### Las dos fuentes no usan la misma notación
-
-**Conflicto de notación entre los dos apuntes de la materia.** La propia cátedra lo
-advierte: **Observación 1.** "Tener cuidado que diferentes docentes
-pueden usar notaciones diferentes".
-
-| Concepto | `revision-conjuntos` p.9 | `notas-conjuntos` p.2 |
-|---|---|---|
-| función parcial | `f : A ⇸ B` | `f : A ↬ B` **Definición 6** |
-| función total | `f : A → B` | `f : A → B` **Definición 7** |
-| inyección (inyectiva **y total**) | — | `f : A ↪ B` **Definición 9** |
-| sobreyección (sobreyectiva **y total**) | — | `f : A →\| B` **Definición 10** |
-| biyección (biyectiva **y total**) | — | `f : A ↔ B` **Definición 11** |
-
-La diferencia importante no es el dibujo de la flecha: `notas-conjuntos` introduce los
-términos **inyección / sobreyección / biyección** como "inyectiva/sobreyectiva/biyectiva **+
-total**". O sea, *inyectiva* y *inyección* no son sinónimos ahí. En el parcial con material,
-tené a mano de qué apunte viene la notación que estés usando.
-
-Las dos fuentes definen **inyectiva** de forma distinta pero equivalente:
-`revision-conjuntos` p.9 usa `(∀x, y ∈ A)(x ≠ y ⇒ f(x) ≠ f(y))`;
-**Definición 8** usa `f(a₁) = f(a₂) ⇒ a₁ = a₂`. Son contrarrecíprocas: no hay contradicción,
-pero conviene saber demostrar con las dos.
-
-### La convención de `numerabilidad-diag`: "función" **significa** función parcial
-
-"El término función será (como hasta ahora) utilizado en el
-sentido de **función parcial** (es decir, en el sentido más general de función). Por lo tanto,
-cuando se quiera restringir el discurso a funciones totales se deberá hacer explícita mención a
-tal condición."
-
-Es una convención fuerte y no la comparten las tres fuentes. Si una consigna dice "sea
-`f : A ↬ B` una función", **no** podés asumir que es total. Al revés, `revision-conjuntos` usa
-"función" sin comprometerse.
-
-**Definición 1.3.** "Una función (parcial) de A en B es una
-relación entre A y B tal que a cada elemento de A corresponde a lo sumo uno de B." — coincide
-con las otras dos fuentes.
-
-### Notación de definida / indefinida, dominio y recorrido
-
-Esta fuente agrega vocabulario que las otras no tienen:
-
-"diremos que `f` está definida en `a`, lo cual se notará `f ↓ a` […]
-En caso contrario, diremos que `f` no está definida en `a`, y escribiremos `f ↑ a`."
-
-"Llamaremos **dominio** de una función `f` al subconjunto del
-conjunto de entrada de `f` determinado por aquellos elementos donde `f` está definida.
-Simétricamente, llamaremos **recorrido** de `f` al subconjunto del conjunto de salida
-determinado por aquellos elementos que son valores de algún elemento del dominio."
-
-**Cuidado con "dominio".** Acá el *conjunto de entrada* es `A` y el *dominio* es solo donde
-`f` está definida (para una parcial, dominio ⊊ entrada); `revision-conjuntos` p.4 llama
-"dominio" al `A` entero. Dos usos distintos de la misma palabra.
-
-Con este vocabulario las definiciones quedan más limpias:
-**Def. 1.5** "Una función es inyectiva si a elementos diferentes del
-dominio corresponden valores diferentes." · **Def. 1.6** "Una función es sobreyectiva si su
-recorrido coincide con su conjunto de salida." · **Def. 1.7** "Una función total es
-biyectiva si es inyectiva y sobreyectiva."
-
-"Cuando existe una biyección entre dos conjuntos se dice que éstos
-son **coordinables**." — sinónimo de *equipolentes*; ver [[definiciones/comparacion-de-cardinalidades]].
-
-La lectura computacional que agrega esa otra fuente: "las funciones
-parciales modelan programas que **pueden no terminar**, mientras que las funciones totales
-modelan programas que siempre producen una salida". Esa frase es el puente entre U6 y el
-problema de la terminación de U7.
+La cátedra no usa una sola notación para esto. Las divergencias entre los tres apuntes, y la
+convención de `numerabilidad-diag` donde la palabra "función" significa función **parcial**,
+están en [[comparativas/notacion-de-funciones]].
 
 ## Ejemplo
 
-Inyectiva: `f : ℕ → ℕ, f(x) = x + 1`
+Los dos ejemplos que da el apunte sobre `ℕ` son el par mínimo para separar las dos
+propiedades. `f : ℕ → ℕ, f(x) = x + 1` es inyectiva: sumarle uno a dos números distintos da
+dos resultados distintos, así que nunca colapsa dos entradas. `f : ℕ → ℕ, f(x) = x` es
+sobreyectiva, porque todo `y` es imagen de sí mismo.
 
-Sobreyectiva: `f : ℕ → ℕ, f(x) = x`
+Sobre las biyectivas el apunte enuncia dos propiedades encadenadas: "La función inversa existe
+y es total", y "Si la función es además total, entonces es sobreyectiva también". La primera
+es la que importa para U6, porque es lo que permite dar vuelta una biyección y usarla en la
+otra dirección. Para el caso más débil vale la versión con condición: "Existe la función
+inversa si y sólo si es inyectiva" — la sobreyectividad no hace falta para invertir, solo la
+inyectividad.
 
-Propiedades de las biyectivas: "La función inversa existe y es
-total" · "Si la función es además total, entonces es sobreyectiva también"
-
-Propiedad de las inyectivas: "Existe la función inversa si y sólo
-si es inyectiva"
-
-Operaciones: "Al ser casos especiales de relaciones heredan todas
-las operaciones de relaciones". "La unión no es cerrada, esto es, a veces el resultado deja de
-ser función". "La inversa sólo es cerrada cuando la función es inyectiva."
+Como "Al ser casos especiales de relaciones heredan todas las operaciones de relaciones", todo
+lo de [[definiciones/operaciones-con-relaciones]] se puede aplicar acá. Lo que no se hereda es
+la clausura: "La unión no es cerrada, esto es, a veces el resultado deja de ser función",
+porque unir dos funciones puede relacionar una entrada con dos salidas. La otra operación
+heredada tiene su propia condición: "La inversa sólo es cerrada cuando la función es
+inyectiva." Es exactamente lo que evita el mismo problema al dar vuelta los pares.
 
 ## Contraejemplo
 
 `f : ℕ → ℕ, f(x) = x + 1` **no es sobreyectiva**: ningún `x` da `f(x) = 0`. Sirve de
-contraejemplo justo del ejemplo de al lado, que sí lo es.
+contraejemplo justo del ejemplo de al lado, que sí lo es, y muestra que las dos propiedades
+son independientes — la misma función cumple una y falla la otra.
 
-La unión de dos funciones que no es función: `f = {(1, 2)}` y `g = {(1, 3)}` son funciones,
-pero `f ∪ g = {(1, 2), (1, 3)}` relaciona el `1` con dos elementos. Es el caso al que apunta
-"la unión no es cerrada".
+El caso de la unión que deja de ser función se ve con dos funciones de un solo par:
+`f = {(1, 2)}` y `g = {(1, 3)}` son funciones, pero `f ∪ g = {(1, 2), (1, 3)}` relaciona el `1`
+con dos elementos y por lo tanto viola el "a lo sumo uno" del enunciado. Es el caso al que
+apunta "la unión no es cerrada".
 
 ## Confusiones frecuentes
+
+Las dos primeras son la misma confusión: no tener presente sobre qué conjunto cuantifica cada
+propiedad.
 
 - **Inyectiva vs sobreyectiva.** Inyectiva mira el **dominio** (no repetir salidas);
  sobreyectiva mira el **codominio** (cubrirlo entero). Se confunden porque las dos empiezan
@@ -144,18 +102,16 @@ pero `f ∪ g = {(1, 2), (1, 3)}` relaciona el `1` con dos elementos. Es el caso
 
 ## Relacionado
 
+- [[comparativas/notacion-de-funciones]] — las tres notaciones de la cátedra y sus conflictos
 - [[comparativas/relaciones-vs-funciones]] — la tabla de notación paralela
 - [[definiciones/relacion]] · [[definiciones/operaciones-con-relaciones]]
 - [[definiciones/comparacion-de-cardinalidades]] — para qué se usan inyectiva y biyectiva en U6
-- [[fuentes/revision-conjuntos]] · [[fuentes/notas-conjuntos]]
+- [[fuentes/revision-conjuntos]]
 
 ## Procedencia
 
-- **Enunciado** — revision-conjuntos p.9, p.10
+- **Enunciado** — revision-conjuntos p.9, p.10 · incluye comentario del sistema
 - **Notación** — sin cita: comentario del sistema
-- **Notación › Las dos fuentes no usan la misma notación** — notas-conjuntos p.2 · incluye comentario del sistema · duda: Conflicto de notación entre los dos apuntes de la materia
-- **Notación › La convención de `numerabilidad-diag`: "función" significa función parcial** — numerabilidad-diag p.3 · incluye comentario del sistema · duda registrada en `dudas.md`
-- **Notación › Notación de definida / indefinida, dominio y recorrido** — numerabilidad-diag p.3, p.4 · notas-conjuntos p.2 · incluye comentario del sistema · duda registrada en `dudas.md`
-- **Ejemplo** — revision-conjuntos p.9, p.10
+- **Ejemplo** — revision-conjuntos p.9, p.10 · incluye comentario del sistema
 - **Contraejemplo** — sin cita: comentario del sistema
 - **Confusiones frecuentes** — sin cita: comentario del sistema
