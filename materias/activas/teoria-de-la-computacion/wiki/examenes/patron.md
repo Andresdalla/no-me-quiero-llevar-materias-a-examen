@@ -73,6 +73,8 @@ Ninguna quedó en `HUECO` total: las tres son `parcial`.
 
 ## Procedencia
 
-- **Verbos recurrentes** — sin cita: comentario del sistema
-- **Constantes, ausencias y novedades** — sin cita: comentario del sistema
-- **Qué le pide esto al wiki** — sin cita: comentario del sistema
+Archivo **derivado**: no transcribe fuentes, agrega lo que ya está transcripto en las páginas
+de examen de esta carpeta.
+
+- **Todo el archivo** — recuento sobre [[examenes/mayo-2025-multiple-opcion]] y
+  [[examenes/notas-conjuntos-ejercicios]] · la lectura de qué implica es del sistema

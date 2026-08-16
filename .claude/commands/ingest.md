@@ -92,11 +92,16 @@ ACTUALIZA definiciones/lenguaje-regular  U2  ← p.31 (agrega contraejemplo)
 
 Copiá la plantilla del tipo desde `plantillas/paginas/<tipo>.md` y completala. Reglas duras:
 
+- **El cuerpo va limpio**: sin emojis y sin citas intercaladas.
 - **Literal se transcribe**: definiciones, teoremas, enunciados, fórmulas, valores numéricos
-  van textuales, con `✅ [<fuente_id> p.N]`. La página `p.N` sale de los marcadores
-  `<!-- p.N -->` de `texto.md`. Prohibido parafrasear.
-- **Síntesis se marca `🧠`**: intuiciones, conexiones, ejemplos propios.
-- **Contradicción con otra fuente → `⚠️`** en la página **y** entrada en `wiki/dudas.md`.
+  van textuales. Prohibido parafrasear.
+- **Toda página cierra con `## Procedencia`**, una línea por sección: `<fuente_id> p.N`, o
+  `sin cita: comentario del sistema`. La página `p.N` sale de los marcadores `<!-- p.N -->`
+  de `texto.md`.
+- **Contradicción con otra fuente**: la sección agrega `duda: <frase>` en su línea de
+  Procedencia **y** se anota en `wiki/dudas.md`.
+- Si una sección mezcla transcripción y comentario a un grano más fino del que podés
+  atribuir, partila en subsecciones.
 - Frontmatter completo, `actualizado` con la fecha de hoy, `id` en la forma
   `<materia>/<carpeta-plural>/<slug>`.
 - Enlaces internos `[[carpeta/slug]]`; entre materias, forma completa.
@@ -116,8 +121,8 @@ Referencialas con ruta relativa desde la página.
 
 ## 9. Pasada de verificación
 
-Elegí **3 afirmaciones marcadas `✅` al azar** entre las que acabás de escribir y buscá cada
-una en `.cache/<hash8>/texto.md`:
+Elegí **3 afirmaciones al azar** de secciones con fuente entre las que acabás de escribir, y
+buscá cada una en `.cache/<hash8>/texto.md`:
 
 ```bash
 grep -n "<fragmento textual>" .cache/<hash8>/texto.md
@@ -186,7 +191,8 @@ Una entrada por consigna en `wiki/examenes/<fuente_id>.md`:
 
 ```markdown
 ## e2024p1-q3
-**Consigna:** [transcripción literal] ✅ [parcial-2024-1 p.2]
+**Consigna:** [transcripción literal]
+**Fuente:** parcial-2024-1 p.2
 **Unidad:** U3          **Puntaje:** 20/100
 **Tipo:** demostrar     **Verbo:** "probar que ... no es regular"
 **Bloom:** aplicar
@@ -198,7 +204,7 @@ Una entrada por consigna en `wiki/examenes/<fuente_id>.md`:
 - La consigna se transcribe **literal**, palabra por palabra. Es lo único que dice cómo
   escriben las preguntas.
 - `Resolución: oficial` solo si el PDF trae la solución de la cátedra. Si la resolvés vos,
-  es `inferida` y va marcada `🧠`. **Nunca presentes una resolución inferida como verificada**:
+  es `inferida`. **Nunca presentes una resolución inferida como verificada**:
   estudiar una solución equivocada es peor que no tener ninguna.
 - `Estado_wiki` sale de contrastar contra `mapa.md`: `HUECO` si el wiki no tiene con qué
   responderla. Cada `HUECO` genera una entrada en `wiki/dudas.md`.

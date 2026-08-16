@@ -17,7 +17,7 @@ actualizado: <YYYY-MM-DD>
 <!-- Bloque ```mermaid``` con sequenceDiagram. -->
 
 ## Garantías
-<!-- Qué promete el protocolo, con ✅. -->
+<!-- Qué promete el protocolo. La fuente va en Procedencia. -->
 
 ## Supuestos
 <!-- Qué asume del canal, de los actores, del entorno. -->
@@ -27,3 +27,7 @@ actualizado: <YYYY-MM-DD>
 
 ## Relacionado
 <!-- [[tipo/slug]] dentro de la materia · [[materia/tipo/slug]] entre materias. -->
+
+## Procedencia
+<!-- Una línea por sección: `- **Sección** — fuente-id p.N` · `sin cita: comentario del
+     sistema` · `incluye comentario del sistema` · `duda: …` (que además va a dudas.md). -->

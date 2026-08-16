@@ -38,19 +38,21 @@ grep -roh "\[\[[^]]*\]\]" $M/wiki | sort -u
 Para cada `[[carpeta/slug]]`, verificá que exista `$M/wiki/<carpeta>/<slug>.md`.
 Para los `[[materia/carpeta/slug]]`, verificá contra esa otra materia.
 
-### 4. Páginas sin ninguna marca `✅`
+### 4. Páginas sin ninguna fuente en su procedencia
 ```bash
-grep -rL "✅" $M/wiki --include='*.md'
+EXCL='index|mapa|log|dudas|programa|patron'   # índices y derivados: no transcriben fuentes
+grep -rL "^## Procedencia" $M/wiki --include='*.md' | grep -vE "$EXCL"
+grep -rLE "^- \*\*.+\*\* — [a-z0-9-]+ p\." $M/wiki --include='*.md' | grep -vE "$EXCL"
 ```
-**Este es el chequeo más importante**: una página sin ✅ no tiene ni una afirmación
-rastreable a una fuente. Riesgo de alucinación horneada.
+**Este es el chequeo más importante**: una página cuya procedencia no nombra ninguna fuente
+no tiene una sola afirmación rastreable. Riesgo de alucinación horneada.
 
-### 5. `⚠️` sin entrada en `dudas.md`
+### 5. Dudas sin entrada en `dudas.md`
 ```bash
-grep -rl "⚠️" $M/wiki --include='*.md'
+grep -rl "· duda" $M/wiki --include='*.md'
 ```
-Cada página con `⚠️` tiene que estar nombrada en `$M/wiki/dudas.md`. Si no está, la
-contradicción se está perdiendo.
+Cada página cuya procedencia menciona una duda tiene que estar nombrada en
+`$M/wiki/dudas.md`. Si no está, la contradicción se está perdiendo.
 
 ### 6. Páginas de más de 150 líneas
 ```bash
@@ -115,7 +117,7 @@ Una tabla, ordenada por severidad:
 
 ```
 🔴 CRÍTICO  2 consignas ya tomadas sin cubrir     → e2024p1-q5 (U6), e2023p2-q1 (U7)
-🔴 CRÍTICO  4 páginas sin ninguna marca ✅        → conceptos/…, teoremas/…
+🔴 CRÍTICO  4 páginas sin ninguna fuente          → conceptos/…, teoremas/…
 🔴 CRÍTICO  U5 sin material · parcial en 6 días
 🟡 REVISAR  3 enlaces rotos                       → [[teoremas/rice]]
 🟡 REVISAR  2 páginas >150 líneas

@@ -52,12 +52,12 @@ que aparece en `patron.md` o tiene tarjetas primero.
 
 ### Qué pusiste mal
 
-Lo que escribiste y contradice al wiki, **con la cita `✅` correcta al lado**. Sin suavizar:
+Lo que escribiste y contradice al wiki, **con la cita correcta al lado**. Sin suavizar:
 si el enunciado que escribiste invierte los cuantificadores, eso se dice.
 
 ```
 - Escribiste "para toda partición xyz"; es "existe una partición".
-  ✅ [sipser-cap1 p.77] "…puede escribirse s = xyz cumpliendo…"
+  Dice: "…puede escribirse s = xyz cumpliendo…" (sipser-cap1 p.77)
 ```
 
 ### Qué agregaste que no está en ninguna fuente

@@ -11,10 +11,14 @@ actualizado: <YYYY-MM-DD>
 # Números de <tema>
 
 ## Valores
-<!-- Tabla con unidad explícita. Cada valor con su ✅ [fuente p.N]. -->
+<!-- Tabla con unidad explícita. Cada valor necesita fuente; si vienen de distintas, partí en subsecciones. -->
 
 ## Orden de magnitud
 <!-- La regla mnemotécnica, no una repetición de la tabla. -->
 
 ## Relacionado
 <!-- [[tipo/slug]] dentro de la materia · [[materia/tipo/slug]] entre materias. -->
+
+## Procedencia
+<!-- Una línea por sección: `- **Sección** — fuente-id p.N` · `sin cita: comentario del
+     sistema` · `incluye comentario del sistema` · `duda: …` (que además va a dudas.md). -->

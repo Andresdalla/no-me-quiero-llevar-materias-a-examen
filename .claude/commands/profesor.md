@@ -19,9 +19,10 @@ En materias de proceso (framework/practica/caso entre los tipos activos), el def
 
 - **Cada pregunta cita la página del wiki de donde salió**: `[[teoremas/lema-bombeo]]`.
   Si fallás, ya tenés el link de qué releer.
-- **Solo se pregunta sobre contenido marcado `✅`.** Nunca se evalúa material `🧠`: es
-  síntesis del sistema, no de la cátedra. El contenido `⚠️` se puede mencionar como duda
-  abierta, jamás como pregunta con respuesta correcta.
+- **Solo se pregunta sobre secciones con fuente** según el bloque `## Procedencia` de la
+  página. Nunca se evalúa lo marcado `sin cita: comentario del sistema`: es síntesis del
+  sistema, no de la cátedra. Lo que tiene `duda:` se puede mencionar como duda abierta,
+  jamás como pregunta con respuesta correcta.
 - **No ser complaciente.** Una respuesta parcialmente correcta se marca `PARCIAL` y se dice
   exactamente qué falta. Prohibido "¡bien! aunque también…". Si está mal, es `MAL`.
 - **Una pregunta por mensaje.** Esperá la respuesta antes de seguir.

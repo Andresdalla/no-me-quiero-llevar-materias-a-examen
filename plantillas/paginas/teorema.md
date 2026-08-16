@@ -11,7 +11,7 @@ actualizado: <YYYY-MM-DD>
 # <Nombre del teorema>
 
 ## Enunciado
-<!-- Textual + ✅ [fuente p.N]. Un teorema parafraseado es un teorema roto. -->
+<!-- Textual. Un teorema parafraseado es un teorema roto. La fuente va en Procedencia. -->
 
 ## Hipótesis
 <!-- Una por ítem. Cada premisa del 'si … entonces' va separada. -->
@@ -27,3 +27,7 @@ actualizado: <YYYY-MM-DD>
 
 ## Relacionado
 <!-- [[tipo/slug]] dentro de la materia · [[materia/tipo/slug]] entre materias. -->
+
+## Procedencia
+<!-- Una línea por sección: `- **Sección** — fuente-id p.N` · `sin cita: comentario del
+     sistema` · `incluye comentario del sistema` · `duda: …` (que además va a dudas.md). -->

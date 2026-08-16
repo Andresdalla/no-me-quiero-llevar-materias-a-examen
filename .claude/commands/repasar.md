@@ -55,7 +55,7 @@ Para cada una, en este orden exacto:
 2. El usuario responde.
 3. **Pedí la confianza 1-5 ANTES de revelar la respuesta.** Después de ver la respuesta no
    mide nada: ya sabe si acertó.
-4. Mostrá la respuesta con su cita `✅`.
+4. Mostrá la respuesta con su cita.
 5. El usuario se autocalifica: `ok` · `parcial` · `fallo`.
 
 Ante `parcial` o `fallo`:

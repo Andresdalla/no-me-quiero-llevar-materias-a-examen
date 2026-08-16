@@ -16,7 +16,7 @@ El motivo es económico: los mapas de 5 materias son ~1000 líneas; las páginas
 tokens. Un mapa alcanza para detectar una conexión, y confirmarla es tarea tuya cuando
 estudies, no del comando.
 
-Única excepción: si una conexión candidata es `⚠️ tensión`, podés abrir **como máximo una
+Única excepción: si una conexión candidata es de `tensión`, podés abrir **como máximo una
 página por materia** para confirmar que la contradicción existe antes de escribirla.
 
 ```bash
@@ -36,9 +36,9 @@ Buscá en los mapas:
 
 | Marca | Significa | Cuándo escribir la página |
 |---|---|---|
-| `⚡ fuerte` | Una materia usa directamente el resultado de la otra | siempre |
-| `○ media` | Analogía útil, no dependencia | si ayuda a recordar |
-| `⚠️ tensión` | Se contradicen o usan el término con sentidos incompatibles | **siempre, es lo más valioso** |
+| `fuerte` | Una materia usa directamente el resultado de la otra | siempre |
+| `media` | Analogía útil, no dependencia | si ayuda a recordar |
+| `tensión` | Se contradicen o usan el término con sentidos incompatibles | **siempre, es lo más valioso** |
 
 Las tensiones son oro para un final oral: es exactamente donde el tribunal pregunta.
 
@@ -49,7 +49,7 @@ Mostrá la lista completa clasificada y esperá el OK. Nada se escribe sin confi
 ```
 ⚡ fuerte   teoria-computacion/construcciones/afd-minimo ←→ compiladores/mecanismos/lexer
 ○ media    arquitectura/mecanismos/cache ←→ bases-datos/mecanismos/buffer-pool
-⚠️ tensión ing-software/practicas/estimacion ←→ gestion/frameworks/cascada
+tensión  ing-software/practicas/estimacion ←→ gestion/frameworks/cascada
 ```
 
 ## 4. Escribir la página puente
@@ -72,7 +72,11 @@ actualizado: 2026-08-15
 - [[teoria-computacion/construcciones/afd-minimo]]
 - [[compiladores/mecanismos/lexer]]
 
-🧠 Estudiar la minimización sirve dos veces: acá se ve por qué el lexer generado es chico.
+Estudiar la minimización sirve dos veces: acá se ve por qué el lexer generado es chico.
+
+## Procedencia
+
+- **Todo** — sin cita: comentario del sistema (una puente no transcribe fuentes: enlaza).
 ```
 
 Reglas duras:
@@ -80,7 +84,8 @@ Reglas duras:
 - Si una página puente pasa de 15 líneas, ese contenido **pertenece a una materia**: movelo
   a la materia que corresponda y dejá el enlace.
 - Los enlaces van siempre en forma completa `[[materia/carpeta/slug]]`.
-- Toda afirmación tuya sobre la relación va marcada `🧠`: no salió de ninguna fuente.
+- Toda afirmación sobre la relación es del sistema, no de una fuente: la puente cierra con
+  una línea de Procedencia que lo dice.
 
 ## 5. Términos colisionados
 

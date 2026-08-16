@@ -26,7 +26,7 @@ frená.
 - Con `todo` y más de ~40 páginas: generá **por unidad** y concatená al final. No cargues
   las 40 juntas.
 - Si alguna unidad del alcance tiene `cobertura: sin-material`, el resumen la incluye igual
-  con la línea `⚠️ Sin material ingerido para esta unidad.` No la omitas en silencio.
+  con la línea `Sin material ingerido para esta unidad.` No la omitas en silencio.
 
 ## 3. Perfiles
 
@@ -40,7 +40,7 @@ frená.
 
 Para `guia-parcial`, la probabilidad sale de los parciales viejos ingeridos: buscá en
 `manifest.jsonl` las fuentes cuyo `fuente_id` empiece con `parcial-` o `final-`, y ordená los
-temas por cuántas veces aparecen. Encabezá cada sección con `tomado N veces ✅ [parcial-… p.N]`.
+temas por cuántas veces aparecen. Encabezá cada sección con `tomado N veces (parcial-…, parcial-…)`.
 Si no hay parciales ingeridos, decilo en la primera línea del resumen y ordená por unidad.
 Si existe `wiki/examenes/patron.md`, el orden sale de ahí: es la misma cuenta, ya hecha.
 
@@ -66,7 +66,7 @@ formato de tres listas de `/resumen-ciego`.
 El resumen `completo`, con preguntas intercaladas después de cada bloque, en cita:
 
 ```markdown
-✅ [sipser-cap1 p.77] Si A es regular, existe p tal que toda s ∈ A con |s| ≥ p…
+Si A es regular, existe p tal que toda s ∈ A con |s| ≥ p…
 
 > **¿Por qué vale?** ¿Qué propiedad del autómata obliga a que exista ese p?
 > **¿Y si sacamos una hipótesis?** ¿Qué pasa con el enunciado si |s| < p?
@@ -78,16 +78,19 @@ Reglas de las preguntas:
   sirve; "¿por qué la partición la elige el adversario?" sí.
 - Una o dos por bloque, no más. Un resumen con más preguntas que contenido no se lee.
 - **No las respondas.** Si el usuario quiere la respuesta, pregunta.
-- Las preguntas son tuyas, no de la fuente: van en cita, nunca marcadas `✅`.
+- Las preguntas son tuyas, no de la fuente: van en cita, y la procedencia de esa sección
+  las declara como comentario del sistema.
 
 ## 4. Reglas de escritura
 
-- **Las marcas se preservan tal cual**: `✅ [fuente p.N]`, `🧠`, `⚠️`. Un resumen sin
+- **El cuerpo va limpio** —sin emojis ni citas intercaladas— y cada unidad cierra con su
+  bloque `## Procedencia`, agregando las líneas de las páginas que entraron. Un resumen sin
   trazabilidad no sirve para estudiar: si no podés verificarlo, no lo estudiás.
 - Los enunciados literales se copian **de la página del wiki**, que ya los transcribió de la
   fuente. No los reescribas: cada reescritura es una oportunidad de introducir un error.
-- Todo lo que agregues para hilar el resumen va marcado `🧠`.
-- Los `⚠️` se listan juntos al final, bajo `## Dudas abiertas`, con enlace a `dudas.md`.
+- Todo lo que agregues para hilar el resumen va declarado en Procedencia como comentario
+  del sistema.
+- Las dudas se listan juntas al final, bajo `## Dudas abiertas`, con enlace a `dudas.md`.
 - Cerrá con `## Origen`: lista de las páginas del wiki usadas, para poder volver.
 
 ## 5. Salida
@@ -113,4 +116,4 @@ informalo y seguí.
 ## Al terminar, decí exactamente
 
 Ruta del `.md` y del `.pdf`, cuántas páginas del wiki entraron, cuántas unidades del alcance
-quedaron sin material, y cuántos `⚠️` arrastra.
+quedaron sin material, y cuántas dudas abiertas arrastra.

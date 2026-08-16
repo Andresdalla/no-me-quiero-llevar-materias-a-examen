@@ -32,21 +32,31 @@ Este archivo se carga en cada sesión. Respetalo literalmente.
 ## Regla dual de fidelidad — defensa contra alucinaciones
 
 - **Contenido literal** (definiciones, teoremas, enunciados formales, fórmulas,
-  especificaciones, valores numéricos): **transcribilo textual** de la fuente, con cita
-  `[fuente-id p.N]`. Prohibido parafrasear.
+  especificaciones, valores numéricos): **transcribilo textual** de la fuente.
+  Prohibido parafrasear.
 - **Contenido sintetizado** (intuiciones, explicaciones, conexiones, ejemplos propios,
-  comparaciones): libre, pero **marcado**.
+  comparaciones): libre, pero **declarado como tal**.
 
-Marcadores inline obligatorios:
+**El cuerpo del texto va limpio: sin emojis y sin citas intercaladas.** La atribución vive en
+un bloque `## Procedencia` al final de cada página, una línea por sección o subsección:
 
-| Marca | Significa |
-|---|---|
-| `✅ [apunte-cap3 p.14]` | Verificado contra la fuente: literal o cita directa. |
-| `🧠` | Inferencia o síntesis tuya. No está así en ninguna fuente. |
-| `⚠️` | Contradicción entre fuentes o duda sin resolver. Va también a `wiki/dudas.md`. |
+```markdown
+## Procedencia
 
-Una página sin ninguna marca `✅` es sospechosa: `/lint` la reporta.
-`/profesor` solo evalúa sobre contenido `✅`, nunca sobre `🧠`.
+- **Enunciado** — sipser-cap1 p.31, p.32
+- **Notación › Conflicto entre apuntes** — notas-catedra p.2 · incluye comentario del sistema · duda: las dos fuentes usan flechas distintas
+- **Contraejemplo** — sin cita: comentario del sistema
+```
+
+Con fuente: `<fuente-id> p.N`, varias separadas por `·`. Sin respaldo: `sin cita: comentario
+del sistema`. Con ambas cosas: agregá `incluye comentario del sistema`. Con contradicción:
+`duda: <frase entera>` (o `duda registrada en dudas.md`), y además entrada en `wiki/dudas.md`.
+
+La granularidad es la del encabezado: si una sección mezcla a un grano más fino del que podés
+atribuir, **partila en subsecciones**.
+
+Una página sin ninguna línea con fuente es sospechosa: `/lint` la reporta.
+`/profesor` y `/cards` solo usan secciones cuya procedencia es una fuente.
 
 ## Namespaces
 
@@ -85,10 +95,10 @@ actualizado: 2026-08-15
 | `/nueva-materia <slug>` | Crea la materia desde `_plantilla`, perfila tipos y genera `programa.md`. |
 | `/ingest [archivo]` | Procesa **un** archivo de `ingest/` y lo vuelca al wiki. |
 | `/vaciar-cola` | Vacía la cola: `/ingest` en bucle, un commit por archivo. |
-| `/resumen <tema\|todo> [--perfil]` | Resumen por tema, preservando marcas, + PDF. |
+| `/resumen <tema\|todo> [--perfil]` | Resumen por tema, con su procedencia, + PDF. |
 | `/machete [tema]` | Una hoja, dos columnas, sin prosa. |
 | `/profesor [tema] [modo]` | Te interroga (socratico/parcial/feynman/hueco/caso) y actualiza `estado/`. |
-| `/lint [materia]` | Audita cobertura, huérfanas, links rotos, páginas sin `✅`. |
+| `/lint [materia]` | Audita cobertura, huérfanas, links rotos, páginas sin fuente. |
 | `/estado [materia]` | Tablero + una recomendación accionable. |
 | `/puentes` | Conexiones entre materias leyendo **solo** los `mapa.md`. |
 | `/reperfilar <materia>` | Audita el esquema de tipos contra el wiki real. |
@@ -105,7 +115,8 @@ actualizado: 2026-08-15
 
 - Dos vías igual de válidas: leer/reelaborar (resúmenes) y recuperar (tarjetas, profesor).
 - `/resumen` es función central. Nunca advertir contra su uso ni penalizarlo.
-- Tarjetas y preguntas **solo** desde contenido `✅`. El material `🧠` nunca se evalúa.
+- Tarjetas y preguntas **solo** desde secciones con fuente. Lo elaborado por el sistema
+  nunca se evalúa.
 - Sin scheduler: no hay colas, vencimientos, rachas ni deuda. El usuario elige qué y cuándo.
 - El sistema informa ("hace 9 días que no tocás X") y sugiere. Nunca presiona.
 - Intercalar solo ítems confundibles entre sí, nunca temas no relacionados.

@@ -252,6 +252,28 @@ Capa de estudio — `BOOTSTRAP-APRENDIZAJE.md`:
   Los `BOOTSTRAP*.md` conservan el nombre original: son la especificación recibida, no
   documentación del sistema.
 
+## Cambio de convención (2026-08-16, a pedido del usuario)
+
+Las marcas inline `✅ 🧠 ⚠️` se reemplazaron por un bloque `## Procedencia` al final de cada
+página. Motivo: los emojis intercalados vuelven molesto leer un resumen, que es el uso
+principal. Decisiones tomadas al aplicarlo:
+
+- **Alcance: todo el sistema**, no solo la salida. Dos convenciones conviviendo habrían
+  obligado a mantener un mapeo entre capas.
+- **Granularidad: por sección o subsección** (`##` / `###`), que es el grano del encabezado.
+  Es más grueso que la marca por afirmación: se pierde saber cuál de tres fuentes respalda un
+  renglón dentro de una misma sección. A cambio, el cuerpo se lee limpio. Cuando el grano no
+  alcanza, la regla es partir en subsecciones.
+- **Las defensas siguen en pie con grano de sección**: `/cards` y `/profesor` solo usan
+  secciones cuya procedencia nombra una fuente; `/lint` reporta páginas sin ninguna.
+- **Migración del contenido existente**: 37 páginas + los resúmenes generados, con un script
+  que agregó las citas por sección. 10 de 41 descripciones de duda quedaban cortadas a mitad
+  de frase al extraerlas automáticamente: esas se reemplazaron por el puntero a `dudas.md`,
+  que es donde vive la descripción completa.
+- **Archivos derivados** (`patron.md`, índices) quedan excluidos del chequeo de fuentes:
+  agregan lo que ya está transcripto en otras páginas, no transcriben.
+- Los `BOOTSTRAP*.md` conservan la convención vieja: son la especificación recibida.
+
 ## Limitaciones conocidas
 
 - **Typst sin verificar.** No hay binario `typst` ni `pandoc` en esta máquina, así que el

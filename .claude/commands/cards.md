@@ -15,14 +15,18 @@ tarjetas quedan ahí, no vencen, no te reclaman nada. `/repasar` las usa cuando 
 3. Solo esas páginas, por ruta. Nunca el directorio entero.
 4. `cards/<tema>.md` si ya existe, para no duplicar ni pisar el historial.
 
-## 2. Regla no negociable: solo desde `✅`
+## 2. Regla no negociable: solo desde secciones con fuente
 
-**Cada tarjeta sale de una afirmación marcada `✅ [fuente p.N]`, y lleva esa cita.**
+**Leé primero el bloque `## Procedencia` de la página.** Cada tarjeta sale de una sección
+cuya procedencia nombra una fuente, y la tarjeta lleva esa cita.
 
-- Contenido `🧠`: **nunca**. Memorizar una inferencia del sistema es el peor modo de falla
-  que tiene todo el repo: te aprenderías una alucinación con confianza.
-- Contenido `⚠️`: tampoco. Está en disputa; primero se resuelve en `dudas.md`.
-- Si una página del tema no tiene ninguna marca `✅`, saltala y **reportalo al final**:
+- Secciones marcadas `sin cita: comentario del sistema`: **nunca**. Memorizar una inferencia
+  del sistema es el peor modo de falla que tiene todo el repo: te aprenderías una alucinación
+  con confianza.
+- Secciones con `duda:`: tampoco. Están en disputa; primero se resuelven en `dudas.md`.
+- Secciones con fuente que dicen `incluye comentario del sistema`: se pueden usar, pero la
+  tarjeta tiene que salir de lo que respalda la fuente, no del comentario.
+- Si una página del tema no tiene ninguna sección con fuente, saltala y **reportalo al final**:
   es un hallazgo de `/lint`, no un problema de las tarjetas.
 
 ## 3. Los cuatro tipos
@@ -51,7 +55,7 @@ fuente_paginas: [teoremas/bombeo-regulares, definiciones/lenguaje-regular]
 **P:** Enunciá el lema de bombeo para lenguajes regulares.
 **R:** Si L es regular, existe p≥1 tal que toda w∈L con |w|≥p se escribe w=xyz con
 (1) |y|>0, (2) |xy|≤p, (3) ∀i≥0: xy^i z ∈ L.
-**Fuente:** ✅ [sipser-cap1 p.78]
+**Fuente:** sipser-cap1 p.78
 **Bloom:** recordar
 **Confundible_con:** [c-U3-004]
 **Visto:**
@@ -72,14 +76,15 @@ tomadas**, con el campo extra `**Origen:** examen`:
 ## c-U3-012 · aplicacion
 **P:** Probá que {a^n b^n} no es regular. (consigna real, parcial 2024-1, 20 pts)
 **R:** Aplicar el lema de bombeo: dado p, tomar s = a^p b^p …
-**Fuente:** ✅ [parcial-2024-1 p.2]
+**Fuente:** parcial-2024-1 p.2
 **Bloom:** aplicar
 **Origen:** examen
 ```
 
 - La consigna se copia **literal** del archivo de examen, no se reformula.
-- Si la resolución del examen está marcada `inferida`, la tarjeta lleva `🧠` en la respuesta
-  y **no se usa para evaluar**: sirve para practicar el procedimiento, no para verificar.
+- Si la resolución del examen está marcada `inferida`, la tarjeta lleva
+  `**Resolución:** inferida` y **no se usa para evaluar**: sirve para practicar el
+  procedimiento, no para verificar.
 - `/repasar` les da prioridad alta: son literalmente lo que te van a tomar.
 - **Nunca desde el examen reservado.** Ese no se abrió.
 
@@ -107,7 +112,7 @@ Rechazá la tarjeta si:
 - La respuesta está contenida en el enunciado de la pregunta.
 - La respuesta tiene más de ~4 elementos → **partila en varias**. Una tarjeta = un ítem
   recuperable.
-- No tenés una cita `✅` para respaldarla → no se crea. Sin excepción.
+- La sección de la que sale no tiene fuente en su procedencia → no se crea. Sin excepción.
 
 ## 7. Qué actualiza
 
@@ -120,5 +125,5 @@ Rechazá la tarjeta si:
 ## Al terminar, decí exactamente
 
 Cuántas tarjetas por tipo, cuántos pares `Confundible_con` quedaron ligados, qué páginas se
-saltearon por no tener contenido `✅`, y que podés repasarlas cuando quieras con
+saltearon por no tener ninguna sección con fuente, y que podés repasarlas cuando quieras con
 `/repasar <tema>` — sin sugerir cuándo.

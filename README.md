@@ -11,20 +11,30 @@ cuánto te estás creyendo que sabés.
 No es una app. No hay servidor, ni frontend, ni base de datos: son carpetas markdown, cuatro
 scripts de Python y diecisiete comandos de Claude Code.
 
-## ⚠️ Antes que nada
+## Antes que nada
 
-**El wiki puede contener errores.** Lo escribe un modelo de lenguaje leyendo tus PDFs.
-Por eso todo lleva marca:
+**El wiki puede contener errores.** Lo escribe un modelo de lenguaje leyendo tus PDFs. Por eso
+cada página cierra con un bloque **`## Procedencia`** que dice, sección por sección, de dónde
+salió lo que leíste:
 
-| Marca | Qué significa | ¿Podés estudiarlo? |
-|---|---|---|
-| `✅ [fuente p.14]` | Transcripción literal de la fuente, con página | Sí |
-| `🧠` | Inferencia del modelo. **No está en ninguna fuente** | Solo para entender, nunca para citar |
-| `⚠️` | Dos fuentes se contradicen, o hay una duda sin resolver | No, resolvelo primero |
+```markdown
+## Procedencia
 
-`🧠` y `⚠️` **no son contenido verificado**. Si vas a escribir algo en un parcial, que sea `✅`.
-Las tarjetas y las preguntas del modo profesor salen **solo** de contenido `✅`: nunca vas a
-terminar memorizando una inferencia del sistema.
+- **Enunciado** — sipser-cap1 p.31, p.32
+- **Notación › Conflicto entre apuntes** — notas-catedra p.2 · incluye comentario del sistema · duda: las dos fuentes usan flechas distintas
+- **Contraejemplo** — sin cita: comentario del sistema
+```
+
+| Lo que dice la procedencia | ¿Podés estudiarlo? |
+|---|---|
+| `<fuente> p.N` | Sí: es transcripción literal de esa página |
+| `incluye comentario del sistema` | El contenido de la fuente sí; el comentario, para entender |
+| `sin cita: comentario del sistema` | **No está en ninguna fuente.** Nunca lo cites en un parcial |
+| `duda: …` | No: hay una contradicción sin resolver. Está en `dudas.md` |
+
+El cuerpo del texto va limpio, sin emojis ni citas intercaladas. Las tarjetas y las preguntas
+del modo profesor salen **solo** de secciones con fuente: nunca vas a terminar memorizando
+una inferencia del sistema.
 
 **Corré `/lint` antes de cada parcial.** Reporta páginas sin ninguna cita, unidades del
 programa sin material y contradicciones sin resolver. Es la diferencia entre un wiki que te
@@ -113,7 +123,7 @@ Un parcial viejo es lo único que dice **qué te van a preguntar y cómo**. Se i
 | `/resumen <tema> [--perfil]` | `breve`, `completo`, `guia-parcial`, `esqueleto` (para completar vos) o `anotado` (con preguntas al margen) |
 | `/resumen-ciego <tema>` | Lo escribís de memoria y te dice qué faltó, qué está mal y qué te inventaste |
 | `/machete [tema]` | Una hoja, dos columnas, sin prosa |
-| `/cards <tema>` | Tarjetas de recuperación, solo desde contenido `✅` |
+| `/cards <tema>` | Tarjetas de recuperación, solo desde secciones con fuente |
 | `/repasar <tema>` | Sesión de recuperación con esas tarjetas, cuando vos quieras |
 | `/pre-test <tema>` | Cinco preguntas **antes** de estudiar. Vas a fallar: ese es el punto |
 

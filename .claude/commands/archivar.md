@@ -17,7 +17,7 @@ ls materias/activas/$1/ingest/ | grep -v '^_' | wc -l   # tiene que dar 0
 ```
 
 - Si queda material en la cola: avisá y ofrecé correr `/vaciar-cola` antes de congelar.
-- Corré `/lint $1` y mostrá el resultado. Archivar con 6 páginas sin `✅` congela el error
+- Corré `/lint $1` y mostrá el resultado. Archivar con 6 páginas sin fuente congela el error
   para siempre. Preguntá si quiere arreglarlo antes.
 - Preguntá la **nota final** y si la materia quedó aprobada, para registrarla en el índice.
 
@@ -27,7 +27,7 @@ ls materias/activas/$1/ingest/ | grep -v '^_' | wc -l   # tiene que dar 0
 retomar la materia de cero. Contenido, en este orden:
 
 1. **Qué es la materia en 5 líneas** y para qué sirve en las correlativas.
-2. **Los 10-15 resultados centrales**: enunciados literales con su `✅ [fuente p.N]`.
+2. **Los 10-15 resultados centrales**: enunciados literales, con su fuente en Procedencia.
 3. **Los procedimientos** que hay que saber ejecutar, en una línea cada uno, con enlace.
 4. **Vocabulario y notación de la cátedra**, del `CLAUDE.md` de la materia.
 5. **Lo que te costó**: sacado de `estado/errores.md`. Es lo que te va a volver a costar.

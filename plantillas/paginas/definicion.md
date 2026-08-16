@@ -11,7 +11,7 @@ actualizado: <YYYY-MM-DD>
 # Definición de <término>
 
 ## Enunciado
-<!-- Transcripción textual de la fuente + ✅ [fuente p.N]. Prohibido parafrasear. -->
+<!-- Transcripción textual de la fuente. Prohibido parafrasear. La fuente va en Procedencia. -->
 
 ## Notación
 <!-- Símbolos que usa la cátedra para este concepto. -->
@@ -27,3 +27,7 @@ actualizado: <YYYY-MM-DD>
 
 ## Relacionado
 <!-- [[tipo/slug]] dentro de la materia · [[materia/tipo/slug]] entre materias. -->
+
+## Procedencia
+<!-- Una línea por sección: `- **Sección** — fuente-id p.N` · `sin cita: comentario del
+     sistema` · `incluye comentario del sistema` · `duda: …` (que además va a dudas.md). -->

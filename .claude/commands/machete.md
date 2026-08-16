@@ -25,12 +25,13 @@ Priorizá, en este orden, las páginas de tipo: `numeros` → `teorema` → `def
 | Enunciados de teoremas (recortados a su condición operativa) | Demostraciones |
 | Tablas comparativas | Ejemplos largos |
 | Procedimientos en pasos numerados | Motivación e historia |
-| Valores numéricos con unidad | Contenido marcado `🧠` |
+| Valores numéricos con unidad | Contenido sin fuente |
 | Diagramas Mermaid de ≤6 nodos | Diagramas grandes |
 
-**Nada marcado `🧠` va al machete.** En el parcial no querés copiarte de una inferencia.
+**Nada sin fuente va al machete.** En el parcial no querés copiarte de una inferencia del
+sistema.
 
-Los `✅` se mantienen pero **abreviados**: `[sipser p.77]` en vez de `✅ [sipser-cap1 p.77]`.
+La procedencia se abrevia a una línea al pie: `Fuentes: sipser-cap1 p.77, p.80 · apunte p.4`.
 El machete es dos columnas a 9pt: cada carácter cuesta.
 
 ## 3. Tope de tamaño
