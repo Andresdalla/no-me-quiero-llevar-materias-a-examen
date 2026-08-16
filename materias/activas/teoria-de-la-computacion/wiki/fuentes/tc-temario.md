@@ -12,10 +12,10 @@ actualizado: 2026-08-15
 
 ## Qué es
 
-✅ [tc-temario p.1] Documento titulado "Teoría de la Computación", fechado **"Marzo 2021"**.
+Documento titulado "Teoría de la Computación", fechado **"Marzo 2021"**.
 2 páginas. Encabeza la lista con "Objetivos de aprendizaje."
 
-🧠 Es el temario oficial de la materia y la fuente única de `wiki/programa.md`.
+Es el temario oficial de la materia y la fuente única de `wiki/programa.md`.
 
 ## Qué cubre
 
@@ -27,22 +27,28 @@ dorsal contra la que se audita el wiki.
 
 - **Alta para los nombres de los temas**: es el documento de cátedra, transcripto textual.
 - **Nula como contenido**: enumera temas, no los explica. No genera páginas de concepto.
-  Ninguna definición ni teorema de este wiki puede citarlo como fuente.
-- ⚠️ **Fechado en Marzo 2021**, mientras que las notas de teoría de la cátedra son de Marzo
-  2026. Puede estar desactualizado. Anotado en `wiki/dudas.md`.
-- ⚠️ **Es una lista plana sin numerar.** El corte en unidades U1-U10 de `programa.md` es 🧠
-  síntesis propia, no de la cátedra: respeta el orden y los cortes temáticos del original,
-  pero si la cátedra publica su propia numeración hay que remapear.
+ Ninguna definición ni teorema de este wiki puede citarlo como fuente.
+- **Fechado en Marzo 2021**, mientras que las notas de teoría de la cátedra son de Marzo
+ 2026. Puede estar desactualizado. Anotado en `wiki/dudas.md`.
+- **Es una lista plana sin numerar.** El corte en unidades U1-U10 de `programa.md` es
+ síntesis propia, no de la cátedra: respeta el orden y los cortes temáticos del original,
+ pero si la cátedra publica su propia numeración hay que remapear.
 
 ## Cómo leerlo
 
-🧠 Dos cosas que el temario **no** dice y conviene tener presentes:
+Dos cosas que el temario **no** dice y conviene tener presentes:
 
 - **No es el orden de la cursada.** El primer material entregado (conjuntos, numerabilidad)
-  corresponde a U6, no a U1.
+ corresponde a U6, no a U1.
 - **No pondera.** No dice cuánto pesa cada unidad en el parcial. Eso solo se sabe con
-  exámenes viejos, que todavía no hay: por eso el perfilado es `provisional`.
+ exámenes viejos, que todavía no hay: por eso el perfilado es `provisional`.
 
 ## Relacionado
 
 - [[fuentes/repaso-haskell]] — el otro material de cátedra ingerido hasta ahora
+
+## Procedencia
+
+- **Qué es** — tc-temario p.1 · incluye comentario del sistema
+- **Cuán confiable es** — sin cita: comentario del sistema · duda registrada en `dudas.md`
+- **Cómo leerlo** — sin cita: comentario del sistema

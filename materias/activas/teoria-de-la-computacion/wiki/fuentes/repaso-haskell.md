@@ -12,10 +12,10 @@ actualizado: 2026-08-15
 
 ## Qué es
 
-✅ [repaso-haskell p.1] Repartido de ejercicios titulado "TEORÍA DE LA COMPUTACIÓN ·
+Repartido de ejercicios titulado "TEORÍA DE LA COMPUTACIÓN ·
 REPASO DE HASKELL". 3 páginas.
 
-✅ [repaso-haskell p.1] "Este repartido tiene como objetivo reencontrarnos con Haskell."
+"Este repartido tiene como objetivo reencontrarnos con Haskell."
 
 ## Qué cubre
 
@@ -30,15 +30,15 @@ REPASO DE HASKELL". 3 páginas.
 ## Cuán confiable es
 
 - **Consignas y código resuelto: alta.** Es material de cátedra, transcripto textual.
-- **Soluciones: no las trae.** 🧠 El repartido da solo 4 funciones resueltas (`not`, `sumi`,
-  `length`, `cantNodos`) como modelo. Las otras 15 son consignas sin respuesta oficial.
-  Cualquier resolución en este wiki es `🧠` inferida y está marcada como tal.
-- 🧠 No es material teórico: es un repaso de prerrequisito (Fundamentos), no una fuente sobre
-  el contenido de la materia.
+- **Soluciones: no las trae.** El repartido da solo 4 funciones resueltas (`not`, `sumi`,
+ `length`, `cantNodos`) como modelo. Las otras 15 son consignas sin respuesta oficial.
+ Cualquier resolución en este wiki es `` inferida y está marcada como tal.
+- No es material teórico: es un repaso de prerrequisito (Fundamentos), no una fuente sobre
+ el contenido de la materia.
 
 ## Rol en el perfilado
 
-🧠 Evidencia ★★★★ para el perfilado inicial: fija que la cátedra evalúa **construir
+Evidencia ★★★★ para el perfilado inicial: fija que la cátedra evalúa **construir
 definiciones de funciones**, y que las pide **en dos formas para la misma función**. De ahí
 salen los tipos activos `construccion` y `comparativa`.
 
@@ -47,3 +47,9 @@ salen los tipos activos `construccion` y `comparativa`.
 - [[comparativas/lambda-case-vs-pattern-matching]] — las dos formas que exige el repartido
 - [[construcciones/funciones-sobre-bool]] · [[construcciones/funciones-sobre-enteros]]
 - [[construcciones/funciones-sobre-listas]] · [[construcciones/funciones-sobre-arboles]]
+
+## Procedencia
+
+- **Qué es** — repaso-haskell p.1
+- **Cuán confiable es** — sin cita: comentario del sistema
+- **Rol en el perfilado** — sin cita: comentario del sistema

@@ -12,15 +12,15 @@ actualizado: 2026-08-15
 
 ## Enunciado
 
-✅ [revision-conjuntos p.4] "Relación: Cualquier subconjunto de un producto cartesiano"
+"Relación: Cualquier subconjunto de un producto cartesiano"
 
 ```
 R ⊆ A × B
 ```
 
-✅ [revision-conjuntos p.4] "A es el dominio y B el codominio"
+"A es el dominio y B el codominio"
 
-✅ [revision-conjuntos p.4] "Cuando el dominio y codominio son iguales (`R ⊆ A × A`) se llama
+"Cuando el dominio y codominio son iguales (`R ⊆ A × A`) se llama
 relación binaria en A"
 
 ## Notación
@@ -32,48 +32,48 @@ relación binaria en A"
 | `R<` | la relación "menor" sobre `ℕ`, ejemplo recurrente del apunte |
 | `Z`, `S n` | cero y sucesor: los constructores de `ℕ` de la cátedra |
 
-🧠 Ojo con `Z`: en este apunte **no** son los enteros, es el constructor del **cero**. `S (S Z)`
+Ojo con `Z`: en este apunte **no** son los enteros, es el constructor del **cero**. `S (S Z)`
 es el 2.
 
 ## Ejemplo
 
-✅ [revision-conjuntos p.5] "Ejemplo de Relación en ℕ Binaria: Menor"
+"Ejemplo de Relación en ℕ Binaria: Menor"
 
 ```
 R< ⊆ ℕ × ℕ
 R< = {(0, 1), (0, 2) . . . (1, 2) . . . }
 ```
 
-✅ [revision-conjuntos p.5] Por comprensión:
+Por comprensión:
 `R< = {(x, y) : x, y ∈ ℕ ∧ (∃z ∈ ℕ)(z > 0 ∧ x + z = y)}`
 
-✅ [revision-conjuntos p.5] Por inducción:
+Por inducción:
 
 ```
 (r1) n ∈ ℕ ⇒ (n, S n) ∈ R<
 (r2) (n, m) ∈ R< ⇒ (n, S m) ∈ R<
 ```
 
-✅ [revision-conjuntos p.5] Prueba de que `1 < 3`: por la regla base `(r1)`,
+Prueba de que `1 < 3`: por la regla base `(r1)`,
 `(S Z, S (S Z)) ∈ R<`; luego aplicando la regla inductiva `(r2)`,
 `(S Z, S (S (S Z))) ∈ R<`.
 
 ## Contraejemplo
 
-🧠 `{1, 2, 3}` no es una relación sobre `ℕ`: sus elementos son números, no pares. Una relación
+`{1, 2, 3}` no es una relación sobre `ℕ`: sus elementos son números, no pares. Una relación
 es un conjunto **de pares**.
 
-🧠 `{(1, 2), 3}` tampoco: para ser subconjunto de `ℕ × ℕ` **todos** sus elementos tienen que
+`{(1, 2), 3}` tampoco: para ser subconjunto de `ℕ × ℕ` **todos** sus elementos tienen que
 ser pares, y `3` no lo es.
 
 ## Confusiones frecuentes
 
 - **Relación vs función.** Toda función es una relación, no al revés. La restricción está en
-  [[definiciones/funcion]] y la notación paralela en [[comparativas/relaciones-vs-funciones]].
+ [[definiciones/funcion]] y la notación paralela en [[comparativas/relaciones-vs-funciones]].
 - **Codominio vs imagen.** El apunte define codominio (`B` entero) y no habla de imagen. No
-  los mezcles: el codominio se declara, la imagen se calcula.
+ los mezcles: el codominio se declara, la imagen se calcula.
 - **`(r2)` no dice "sumar 1 al primero".** Deja `n` fijo y avanza el segundo componente. Por
-  eso `R<` no es reflexiva — ver [[definiciones/propiedades-de-relaciones]].
+ eso `R<` no es reflexiva — ver [[definiciones/propiedades-de-relaciones]].
 
 ## Relacionado
 
@@ -82,3 +82,10 @@ ser pares, y `3` no lo es.
 - [[definiciones/propiedades-de-relaciones]] · [[definiciones/operaciones-con-relaciones]]
 - [[teoremas/transitividad-de-r-menor]]
 - [[fuentes/revision-conjuntos]]
+
+## Procedencia
+
+- **Enunciado** — revision-conjuntos p.4
+- **Notación** — sin cita: comentario del sistema
+- **Ejemplo** — revision-conjuntos p.5
+- **Contraejemplo** — sin cita: comentario del sistema

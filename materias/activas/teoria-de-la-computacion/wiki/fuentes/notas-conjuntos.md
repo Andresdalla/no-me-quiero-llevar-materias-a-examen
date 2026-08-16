@@ -12,10 +12,10 @@ actualizado: 2026-08-15
 
 ## Qué es
 
-✅ [notas-conjuntos p.1] "Teoría de la Computación · Notas de Teoría de Conjuntos y
+"Teoría de la Computación · Notas de Teoría de Conjuntos y
 Numerabilidad", **Diego Acuña**, **Marzo 2026**. 12 páginas, 11 secciones numeradas.
 
-🧠 Es **la fuente más importante del wiki hasta ahora**: material de cátedra, del año en curso,
+Es **la fuente más importante del wiki hasta ahora**: material de cátedra, del año en curso,
 escrito como texto continuo con definiciones y teoremas numerados. A diferencia de
 [[fuentes/revision-conjuntos]], que son láminas de repaso, esta se puede citar como autoridad.
 
@@ -39,27 +39,27 @@ escrito como texto continuo con definiciones y teoremas numerados. A diferencia 
 **Alta.** Definiciones y teoremas numerados, demostraciones completas, autor y fecha
 identificados. Dos reservas:
 
-- ⚠️ p.10 · en la consigna de febrero 2026 **falta el operador** entre `A` y `B`
-  ("entonces A ␣ B es no numerable"). Verificado contra la página rasterizada: el hueco está en
-  el PDF.
-- ⚠️ p.3 · usa `⊂` para subconjunto propio en la Definición 14 y `⊊` en la sección 3. Dos
-  símbolos para lo mismo.
-- ⚠️ La Proposición 3 está enunciada con "si" pero se demuestra en las dos direcciones.
+- p.10 · en la consigna de febrero 2026 **falta el operador** entre `A` y `B`
+ ("entonces A ␣ B es no numerable"). Verificado contra la página rasterizada: el hueco está en
+ el PDF.
+- p.3 · usa `⊂` para subconjunto propio en la Definición 14 y `⊊` en la sección 3. Dos
+ símbolos para lo mismo.
+- La Proposición 3 está enunciada con "si" pero se demuestra en las dos direcciones.
 
-**Marca su propio alcance**: ✅ [notas-conjuntos p.9] la sección 10 dice "(Extra pero muy
+**Marca su propio alcance**: la sección 10 dice "(Extra pero muy
 recomendado)". No asumir que entra al parcial.
 
-**Declara sus objetivos**: ✅ [notas-conjuntos p.1] la sección "Objetivos de aprendizaje" lista
+**Declara sus objetivos**: la sección "Objetivos de aprendizaje" lista
 cinco capacidades esperadas — es lo más cercano a una rúbrica que hay en la materia.
 
 ## Deja 14 ejercicios sin resolver
 
 Ejercicios 1-14 más los Ejemplos 2.1, 2.2, 5.1, 9.1, 9.2, 9.3 (estos seis **sí** vienen con
-solución). Toda resolución de los otros en este wiki es 🧠 inferida.
+solución). Toda resolución de los otros en este wiki es inferida.
 
 ## Nota de procesamiento
 
-🧠 Se rasterizaron selectivamente las páginas **5, 7, 10 y 11** para transcribir: la definición
+Se rasterizaron selectivamente las páginas **5, 7, 10 y 11** para transcribir: la definición
 por casos de `f(n)` en el Teorema 2, los exponentes de `φ(w)` en el Teorema 3, y las consignas
 de examen. El texto plano aplana fracciones y exponentes.
 
@@ -68,3 +68,10 @@ de examen. El texto plano aplana fracciones y exponentes.
 - [[fuentes/revision-conjuntos]] — el otro apunte de conjuntos, con el que hay divergencias de notación
 - [[fuentes/tc-temario]] — dónde cae esto en el programa (U6)
 - [[examenes/patron]]
+
+## Procedencia
+
+- **Qué es** — notas-conjuntos p.1 · incluye comentario del sistema
+- **Cuán confiable es** — notas-conjuntos p.9, p.1 · duda: p.10 · en la consigna de febrero 2026 falta el operador entre `A` y `B`
+- **Deja 14 ejercicios sin resolver** — sin cita: comentario del sistema
+- **Nota de procesamiento** — sin cita: comentario del sistema

@@ -11,3 +11,5 @@ materias/_plantilla/out/*
 __pycache__/
 .venv/
 !**/.gitkeep
+.DS_Store
+**/.obsidian/workspace.json

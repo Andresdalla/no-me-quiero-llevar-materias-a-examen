@@ -6,7 +6,7 @@
 - parcial: **7/12, 9.00** · 3 horas · **con material** · 60 pts
 - defensas de práctico (oral): 15/9 · 29/9 · 27/10 · 7/11 · 7 pts c/u, cuentan **las 3 mejores** · 21 pts
 - tarea final: entrega el último día de clases (lectura a definir) · 14 pts · actuación en clase: 5 pts
-- correlativas: previas `Fundamentos de la Computación` (🧠 inferida) · posteriores `sin datos`
+- correlativas: previas `Fundamentos de la Computación` (inferida) · posteriores `sin datos`
 
 ## Tipos activos
 
@@ -35,7 +35,7 @@ de contenido ni están en `plantillas/catalogo.md`; se declaran acá para `/lint
 
 ## Vocabulario y notación de la cátedra
 
-⚠️ **Tres apuntes, tres notaciones.** Antes de responder, mirá de qué fuente viene la consigna.
+**Tres apuntes, tres notaciones.** Antes de responder, mirá de qué fuente viene la consigna.
 
 | Concepto | `revision-conjuntos` | `notas-conjuntos` (Acuña) | `numerabilidad-diag` (Copello) |
 |---|---|---|---|
@@ -52,9 +52,9 @@ de contenido ni están en `plantillas/catalogo.md`; se declaran acá para `/lint
 ## Reglas propias
 
 - **El parcial es con material.** No optimices para recitar: `/profesor` y `/machete`
-  priorizan aplicar y construir sobre recordar.
+ priorizan aplicar y construir sobre recordar.
 - **Ante divergencia entre apuntes, declará qué convención usás** antes de calcular (`wiki/dudas.md`).
 - **Cada función del repartido se pide en las dos formas**: `λ-notation y case` y `Pattern-Matching y guardas`.
 - **La cursada no sigue el orden del temario**: empieza por U6. La numeración es del programa.
-- **Ningún repartido trae soluciones**: toda resolución es `🧠` inferida y va marcada. Si
-  conseguís un examen entero, **no lo abras**: va a `raw/examenes/_reservado/`.
+- **Ningún repartido trae soluciones**: toda resolución es `` inferida y va marcada. Si
+ conseguís un examen entero, **no lo abras**: va a `raw/examenes/_reservado/`.

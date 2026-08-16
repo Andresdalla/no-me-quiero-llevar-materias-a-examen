@@ -1,12 +1,12 @@
 # Programa
 
 <!-- Espina dorsal: el wiki se audita contra este archivo, no contra sí mismo.
-     Una entrada por unidad del temario oficial. Lo genera /nueva-materia.
+ Una entrada por unidad del temario oficial. Lo genera /nueva-materia.
 
-     El temario de cátedra (tc_temario, Marzo 2021) es una LISTA PLANA SIN NUMERAR.
-     El corte en unidades U1-U10 es 🧠 síntesis, no de la cátedra: respeta el orden y
-     los cortes temáticos del original. Los `temas` sí son textuales del temario.
-     La cursada NO sigue este orden: arranca por U6. Ver dudas.md. -->
+ El temario de cátedra (tc_temario, Marzo 2021) es una LISTA PLANA SIN NUMERAR.
+ El corte en unidades U1-U10 es síntesis, no de la cátedra: respeta el orden y
+ los cortes temáticos del original. Los `temas` sí son textuales del temario.
+ La cursada NO sigue este orden: arranca por U6. Ver dudas.md. -->
 
 ## U1 · Modelos de la noción de función computable
 - cobertura: sin-material
