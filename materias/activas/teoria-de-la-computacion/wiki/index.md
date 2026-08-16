@@ -19,6 +19,29 @@
 
 ## U6 · Cardinalidad y numerabilidad
 
+**Conjuntos**
+
+- [[definiciones/conjunto]] — pertenencia, vacío, axioma de extensión, inclusión
+- [[comparativas/formas-de-definir-conjuntos]] — extensión, comprensión, inducción
+- [[definiciones/operaciones-con-conjuntos]] — `∪`, `∩`, `P(A)`, producto cartesiano
+
+**Relaciones**
+
+- [[definiciones/relacion]] — subconjunto de un producto cartesiano; `R<`
+- [[definiciones/propiedades-de-relaciones]] — reflexiva, simétrica, transitiva y compañía
+- [[definiciones/ordenes]] — parciales y totales, laxos y estrictos
+- [[definiciones/operaciones-con-relaciones]] — inversa y composición
+- [[teoremas/transitividad-de-r-menor]] → [[demostraciones/transitividad-de-r-menor]]
+
+**Funciones**
+
+- [[definiciones/funcion]] — parcial/total, inyectiva, sobreyectiva, biyectiva
+- [[comparativas/relaciones-vs-funciones]] — notación paralela y la trampa de `∘`
+
+**Fuente**
+
+- [[fuentes/revision-conjuntos]] — ficha del apunte, con sus tres erratas
+
 ## U7 · Indecidibilidad
 
 ## U8 · Clases de complejidad algorítmica

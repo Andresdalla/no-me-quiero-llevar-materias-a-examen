@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "index.md",
+                "file": "definiciones/propiedades-de-relaciones.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "index"
+              "title": "propiedades-de-relaciones"
             }
           }
         ]
@@ -181,5 +181,23 @@
     }
   },
   "active": "80a9aa53c809069c",
-  "lastOpenFiles": []
+  "lastOpenFiles": [
+    "fuentes/revision-conjuntos.md",
+    "comparativas/relaciones-vs-funciones.md",
+    "definiciones/funcion.md",
+    "definiciones/operaciones-con-relaciones.md",
+    "construcciones/funciones-sobre-enteros.md",
+    "demostraciones/transitividad-de-r-menor.md",
+    "demostraciones",
+    "teoremas/transitividad-de-r-menor.md",
+    "teoremas",
+    "definiciones/ordenes.md",
+    "definiciones/propiedades-de-relaciones.md",
+    "definiciones/relacion.md",
+    "definiciones/operaciones-con-conjuntos.md",
+    "comparativas/formas-de-definir-conjuntos.md",
+    "definiciones/conjunto.md",
+    "definiciones",
+    "index.md"
+  ]
 }
