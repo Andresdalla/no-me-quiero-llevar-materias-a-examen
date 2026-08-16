@@ -2,7 +2,7 @@
 id: teoria-de-la-computacion/demostraciones/diagonalizacion
 tipo: demostracion
 tema: U6
-fuentes: [notas-conjuntos p.7, notas-conjuntos p.8, notas-conjuntos p.9]
+fuentes: [notas-conjuntos p.7, notas-conjuntos p.8, notas-conjuntos p.9, numerabilidad-diag p.9]
 estado: completo
 dominio: 0
 actualizado: 2026-08-15
@@ -50,6 +50,21 @@ lista sobre la diagonal `(fₙ(n))ₙ∈N`, asegurando que difiere de cada una d
 7. ✅ [notas-conjuntos p.8] "Dado que el conjunto de funciones computables es numerable, se
    concluye que existen funciones que no son computables."
 
+## La otra fuente diagonaliza sobre `P(N)`, no sobre funciones
+
+✅ [numerabilidad-diag p.9] "Usaremos una técnica usada en estos casos, llamada **método de
+diagonalización**, para demostrar que un conjunto no es numerable."
+
+El objeto construido no es una función sino un conjunto:
+`D = {j : not(T(j, j))}`, con `T` la tabla booleana de pertenencias. Desarrollo completo en
+[[teoremas/p-de-n-no-es-numerable]].
+
+🧠 **Son la misma técnica con distinto disfraz**, y conviene verlo: por
+✅ [numerabilidad-diag p.9] "`P(N) ∼ N → Bool`", diagonalizar sobre subconjuntos de `N` *es*
+diagonalizar sobre funciones `N → Bool`. La versión de `notas-conjuntos` lo hace sobre
+`N → N` y suma 1; ésta lo hace sobre `N → Bool` y niega. El esqueleto —construir algo que
+difiera de cada elemento de la lista en la posición diagonal— es idéntico.
+
 ## La misma técnica sobre `R`
 
 ✅ [notas-conjuntos p.8] **Ejemplo 9.3.** "Probar que `R` no es numerable."
@@ -81,5 +96,6 @@ cada elemento de la lista en la diagonal. Esto da una contradicción."
 - [[teoremas/existen-funciones-no-computables]] — el enunciado
 - [[teoremas/palabras-finitas-son-numerables]] — la mitad numerable del argumento
 - [[definiciones/cardinales-infinitos]] — `|P(N)| > |N|` por el mismo método
+- [[teoremas/p-de-n-no-es-numerable]] — la variante sobre `P(N)`
 - [[examenes/notas-conjuntos-ejercicios]] — dos consignas de examen sobre esta técnica
-- [[fuentes/notas-conjuntos]]
+- [[fuentes/notas-conjuntos]] · [[fuentes/numerabilidad-diag]]

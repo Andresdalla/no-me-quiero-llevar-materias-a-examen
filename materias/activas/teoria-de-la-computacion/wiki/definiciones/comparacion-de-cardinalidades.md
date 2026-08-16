@@ -2,7 +2,7 @@
 id: teoria-de-la-computacion/definiciones/comparacion-de-cardinalidades
 tipo: definicion
 tema: U6
-fuentes: [notas-conjuntos p.3]
+fuentes: [notas-conjuntos p.3, numerabilidad-diag p.4, numerabilidad-diag p.5]
 estado: completo
 dominio: 0
 actualizado: 2026-08-15
@@ -33,6 +33,27 @@ dentro de B sin colisiones."
 🧠 La Proposición 3 es el **teorema de Schröder-Bernstein**, y el apunte lo nombra en la
 demostración: "si existen funciones inyectivas totales `f : A → B` y `g : B → A`, entonces por
 el teorema de Schroder-Bernstein existe una biyección entre A y B".
+
+### ⚠️ Las dos fuentes DEFINEN `∼` distinto
+
+Coinciden en `⪯`: ✅ [numerabilidad-diag p.4] **Definición 2.1.** "Diremos que A es de menor o
+igual tamaño que B —lo cual se escribirá `A ⪯ B`— si y sólo si existe una función total
+inyectiva de A en B." Es literalmente la Definición 12 de `notas-conjuntos`.
+
+Pero difieren en `∼`:
+
+| Fuente | Definición de `A ∼ B` |
+|---|---|
+| `notas-conjuntos` Def. 13 | existe una **biyección** total `f : A → B` |
+| `numerabilidad-diag` Def. 2.2 | ✅ [p.5] "`A ⪯ B` **y** `B ⪯ A`" |
+
+🧠 No es una contradicción: las dos condiciones son equivalentes **por Schröder-Bernstein**.
+Pero cambia qué hay que probar. Con la definición de Acuña, exhibir dos inyecciones no alcanza
+hasta invocar Schröder-Bernstein (su Proposición 3). Con la de Copello, las dos inyecciones
+**son** la definición, y lo que cuesta es sacar la biyección.
+
+⚠️ En el parcial: si te piden probar `A ∼ B`, aclará con qué definición trabajás. Anotado en
+`wiki/dudas.md`.
 
 ## Notación
 
@@ -81,4 +102,5 @@ paso que se falla en el parcial.
 - [[definiciones/conjunto-infinito]] — la definición que usa `⪯` contra un subconjunto propio
 - [[definiciones/numerable-y-contable]] — `∼ N` y `⪯ N`
 - [[definiciones/funcion]] — inyectiva, sobreyectiva, total
-- [[fuentes/notas-conjuntos]]
+- [[teoremas/propiedades-de-conjuntos-infinitos]] — `⪯` es reflexiva y transitiva (`?8`)
+- [[fuentes/notas-conjuntos]] · [[fuentes/numerabilidad-diag]]

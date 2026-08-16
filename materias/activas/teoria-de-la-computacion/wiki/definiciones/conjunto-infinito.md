@@ -2,7 +2,7 @@
 id: teoria-de-la-computacion/definiciones/conjunto-infinito
 tipo: definicion
 tema: U6
-fuentes: [notas-conjuntos p.3, notas-conjuntos p.4]
+fuentes: [notas-conjuntos p.3, notas-conjuntos p.4, numerabilidad-diag p.6]
 estado: completo
 dominio: 0
 actualizado: 2026-08-15
@@ -21,6 +21,20 @@ de una parte propia de sí mismo."
 🧠 Esta es la definición de **Dedekind-infinito**. Fijate lo que **no** dice: no dice "que no
 es finito", ni "que tiene infinitos elementos". Define infinito sin contar, usando solo
 funciones — que es justo lo que hace falta cuando contar no sirve.
+
+**La otra fuente dice lo mismo, y agrega el caso finito.**
+✅ [numerabilidad-diag p.6] **Definición 3.1 (Conjuntos Infinitos y Finitos).** "Un conjunto A
+es infinito si y sólo si existe un subconjunto propio `B ⊂ A` tal que `A ⪯ B`. **Un conjunto es
+finito cuando no es infinito.**"
+
+🧠 Que las dos fuentes den la misma definición palabra por palabra la vuelve la más confiable
+del wiki: es la que hay que saber de memoria.
+
+✅ [numerabilidad-diag p.6] "La intuición detrás de la definición precedente es que un conjunto
+es infinito si puede "ser copiado" en su interior. (O sea, puede "codificarse a sí mismo".)"
+
+✅ [numerabilidad-diag p.6] Ejercicio `?13`: "Demostrar que: El conjunto vacío `∅` es finito ·
+`N` es infinito."
 
 ## Notación
 
@@ -72,4 +86,5 @@ menor cardinal infinito en [[definiciones/cardinales-infinitos]].
 
 - [[definiciones/comparacion-de-cardinalidades]] — `⪯`, la relación que usa esta definición
 - [[definiciones/numerable-y-contable]] — infinito + contable = numerable
-- [[fuentes/notas-conjuntos]]
+- [[teoremas/propiedades-de-conjuntos-infinitos]] — `N` es el infinito más chico, y el caso finito
+- [[fuentes/notas-conjuntos]] · [[fuentes/numerabilidad-diag]]

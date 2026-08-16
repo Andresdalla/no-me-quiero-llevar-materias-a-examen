@@ -49,9 +49,12 @@
 
 **El argumento central de la materia**
 
+- [[comparativas/funcion-vs-algoritmo]] — el vocabulario: empezá por acá
 - [[teoremas/palabras-finitas-son-numerables]] — los programas son numerables
 - [[demostraciones/diagonalizacion]] — las funciones `N → N` no lo son
+- [[teoremas/p-de-n-no-es-numerable]] — la misma técnica sobre `P(N)` y `N → Bool`
 - [[teoremas/existen-funciones-no-computables]] — la conclusión
+- [[teoremas/propiedades-de-conjuntos-infinitos]] — `N` es el infinito más chico
 
 **Exámenes**
 
@@ -61,6 +64,7 @@
 **Fuentes**
 
 - [[fuentes/notas-conjuntos]] — notas de Acuña 2026, la fuente más confiable
+- [[fuentes/numerabilidad-diag]] — Copello-Tasistro 2022, y en qué diverge de las notas
 - [[fuentes/revision-conjuntos]] — ficha del apunte de láminas, con sus tres erratas
 
 ## U7 · Indecidibilidad

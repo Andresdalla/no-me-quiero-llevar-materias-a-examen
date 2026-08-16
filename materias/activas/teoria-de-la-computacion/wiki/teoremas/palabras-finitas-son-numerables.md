@@ -2,7 +2,7 @@
 id: teoria-de-la-computacion/teoremas/palabras-finitas-son-numerables
 tipo: teorema
 tema: U6
-fuentes: [notas-conjuntos p.6, notas-conjuntos p.7]
+fuentes: [notas-conjuntos p.6, notas-conjuntos p.7, numerabilidad-diag p.8]
 estado: completo
 dominio: 0
 actualizado: 2026-08-15
@@ -53,6 +53,30 @@ distintos. Por lo tanto, `φ` es inyectiva y se concluye que `Σ* ⪯ N`."
 representarse como una palabra finita sobre un alfabeto finito, el conjunto de todos los
 programas es un subconjunto de `Σ*`. Por lo tanto, es numerable."
 
+## La segunda fuente da la misma prueba, sin fórmula
+
+✅ [numerabilidad-diag p.8] **Ejemplo 3.2 (Palabras).** "Dado un alfabeto finito `Σ`, el
+conjunto de las palabras sobre este alfabeto lo denominaremos mediante `Σ*`. Podemos ver que
+`Σ* ⪯ N` construyendo una inyección `f : Σ* ↪ N`. Como el alfabeto es finito lo podemos ver
+como una enumeración de `n` símbolos `Σ = {a₁, …, aₙ}`, y asignar a cada carácter un dígito
+distinto de cero en una base `n + 1`. Podemos entonces ver a cada palabra como un natural
+codificado en un sistema en base `n+1`. **Excluimos el dígito 0 para garantizar la
+inyectividad**, dado que si lo hubiéramos incluido tendríamos problemas con los ceros a la
+izquierda no significativos en palabras."
+
+🧠 Es exactamente la `φ(w)` de arriba, explicada sin escribir la fórmula: "base `n+1` sin el
+dígito 0". Las dos fuentes coinciden, y la segunda **dice el porqué** del `+1` que la primera
+solo enuncia. Si te cuesta recordar la fórmula, recordá la frase.
+
+✅ [numerabilidad-diag p.8] Y la conclusión sobre programas, encadenada: "el conjunto formado
+por los programas válidos en cierto lenguaje `Prog` esta incluido en `Σ*` y por lo tanto
+`Prog ⪯ Σ*`. […] Tenemos así que `Prog ⪯ Σ* ⪯ N`, con lo cual podemos concluir que
+`Prog ⪯ N`."
+
+🧠 Notá que esta fuente concluye `Prog ⪯ N` (**contable**), no directamente "numerable". Es más
+cuidadosa: para numerable hace falta además que `Prog` sea infinito. Ver
+[[definiciones/numerable-y-contable]].
+
 ## Cuándo se aplica
 
 🧠 Es **la mitad del argumento central de la materia**. La otra mitad es que las funciones
@@ -79,4 +103,5 @@ programas es un subconjunto de `Σ*`. Por lo tanto, es numerable."
 - [[teoremas/existen-funciones-no-computables]] — la otra mitad del argumento
 - [[definiciones/numerable-y-contable]] · [[definiciones/comparacion-de-cardinalidades]]
 - [[construcciones/emparejamiento-de-cantor]] — la misma estrategia de recorrido por bloques
-- [[fuentes/notas-conjuntos]]
+- [[comparativas/funcion-vs-algoritmo]] — por qué contar programas responde una pregunta sobre funciones
+- [[fuentes/notas-conjuntos]] · [[fuentes/numerabilidad-diag]]

@@ -26,12 +26,16 @@
 | `teoremas/palabras-finitas-son-numerables` | teorema | U6 | Sigma estrella numerable; por lo tanto los programas también |
 | `teoremas/existen-funciones-no-computables` | teorema | U6 | Argumento de conteo; existencial, no exhibe ninguna función |
 | `demostraciones/diagonalizacion` | demostracion | U6 | La técnica y dónde falla; también sobre los reales |
+| `teoremas/p-de-n-no-es-numerable` | teorema | U6 | Diagonalización sobre subconjuntos; P(N) equipolente a N→Bool |
+| `teoremas/propiedades-de-conjuntos-infinitos` | teorema | U6 | N es el infinito más chico; sin demostración en la fuente |
+| `comparativas/funcion-vs-algoritmo` | comparativa | U6 | La decisión de vocabulario de la cátedra y el argumento final |
 | `definiciones/cardinales-infinitos` | definicion | U6 | Alef cero y alef uno; hipótesis del continuo (extra) |
 | `examenes/notas-conjuntos-ejercicios` | examen | U6 | Cinco consignas reales: verdadero/falso y desarrollo |
 | `examenes/mayo-2025-multiple-opcion` | examen | U6 | Ocho preguntas de múltiple opción con sus cuatro opciones |
 | `examenes/patron` | examen | U6 | Patrón de evaluación: verbos, formatos y sesgo de la fuente |
 | `fuentes/revision-conjuntos` | fuente | U6 | Ficha del apunte de conjuntos: cobertura y tres erratas |
 | `fuentes/notas-conjuntos` | fuente | U6 | Ficha de las notas de Acuña 2026: la fuente más confiable |
+| `fuentes/numerabilidad-diag` | fuente | U6 | Ficha de Copello-Tasistro 2022: tres divergencias con Acuña |
 | `comparativas/lambda-case-vs-pattern-matching` | comparativa | U10 | Las dos formas de definir que exige la cátedra |
 | `construcciones/funciones-sobre-bool` | construccion | U10 | data Bool, not resuelta, operadores booleanos pendientes |
 | `construcciones/funciones-sobre-enteros` | construccion | U10 | Recursión sobre Integer y funciones de orden superior |

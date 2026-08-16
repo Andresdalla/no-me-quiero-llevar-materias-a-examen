@@ -2,7 +2,7 @@
 id: teoria-de-la-computacion/construcciones/emparejamiento-de-cantor
 tipo: construccion
 tema: U6
-fuentes: [notas-conjuntos p.5, notas-conjuntos p.6]
+fuentes: [notas-conjuntos p.5, notas-conjuntos p.6, numerabilidad-diag p.7, numerabilidad-diag p.8]
 estado: completo
 dominio: 0
 actualizado: 2026-08-15
@@ -84,6 +84,39 @@ pasos. Por lo tanto, toda pareja será eventualmente visitada".
 
 ✅ [notas-conjuntos p.6] Inyectiva: "a cada paso del recorrido se asigna un natural distinto,
 por lo que no se repiten valores".
+
+## ⚠️ Las dos fuentes de la materia dan fórmulas DISTINTAS
+
+Este es el conflicto más concreto del wiki. Las dos son biyecciones válidas de `N × N` en `N`,
+pero **no son la misma función**: recorren cada diagonal en sentido opuesto.
+
+✅ [numerabilidad-diag p.8] Copello-Tasistro: "quedando `f` expresada mediante la siguiente
+expresión:"
+
+```
+f(i, j) = ( Σ[k=0..i+j] k ) + i
+```
+
+✅ [notas-conjuntos p.6] Acuña: `π(i, j) = (i + j)(i + j + 1) / 2 + j`
+
+🧠 Como `Σ[k=0..s] k = s(s+1)/2`, la parte izquierda es idéntica. La diferencia es el
+sumando final: **`+ i` contra `+ j`**.
+
+| `(i, j)` | Copello `+i` | Acuña `+j` |
+|---|---|---|
+| `(0,0)` | 0 | 0 |
+| `(1,0)` | **2** | **1** |
+| `(0,1)` | **1** | **2** |
+| `(1,1)` | 4 | 4 |
+| `(2,0)` | **5** | **3** |
+
+✅ [numerabilidad-diag p.8] La tabla de Copello lo confirma: fila `0` vale `0 1 3`, fila `1`
+vale `2 4`, fila `2` vale `5`. O sea `f(1,0) = 2`, mientras que la enumeración de Acuña da
+`f(1) = (1, 0)`, o sea `π(1,0) = 1`.
+
+🧠 Ninguna está mal. Copello ordena cada diagonal empezando por `(0, s)` y bajando por `i`;
+Acuña empieza por `(s, 0)` y sube por `j`. **En el parcial: fijate qué fuente usa la consigna,
+o declará cuál convención estás usando antes de calcular.** Anotado en `wiki/dudas.md`.
 
 ## Ejercicios del apunte
 

@@ -2,7 +2,7 @@
 id: teoria-de-la-computacion/definiciones/numerable-y-contable
 tipo: definicion
 tema: U6
-fuentes: [notas-conjuntos p.4]
+fuentes: [notas-conjuntos p.4, numerabilidad-diag p.7]
 estado: completo
 dominio: 0
 actualizado: 2026-08-15
@@ -25,6 +25,24 @@ repeticiones**."
 
 ✅ [notas-conjuntos p.4] **Proposición 6.** "Si A es contable e infinito, entonces A es
 numerable."
+
+**Las dos fuentes coinciden acá.** ✅ [numerabilidad-diag p.7] **Definición 3.2.** "A es
+contable si y sólo si `A ⪯ N`." **Definición 3.3.** "A es numerable si y sólo si `A ∼ N`."
+Idénticas a las Definiciones 16 y 15 de `notas-conjuntos`. Es de lo poco que no diverge entre
+apuntes: podés confiar en estas dos.
+
+✅ [numerabilidad-diag p.7] Caracterización por listas (`?15`), útil para razonar rápido:
+
+- "A es numerable ssi existe una lista (infinita) que contiene a todos los elementos de A,
+  **sin repeticiones**."
+- "A es contable ssi existe una lista (infinita) que contiene a todos los elementos de A, **con
+  posibles repeticiones**."
+- "`N ⪯ A` ssi existe una lista (infinita) formada por elementos de A, sin repeticiones."
+
+⚠️ ✅ [numerabilidad-diag p.7] El ejercicio `?14` dice "Demostrar que si un conjunto es contable
+entonces o bien es finito o bien es **enumerable**". La palabra "enumerable" aparece una sola
+vez en todo el repartido y nunca se define: casi seguro es un desliz por "numerable". Anotado
+en `wiki/dudas.md`.
 
 ## Notación
 

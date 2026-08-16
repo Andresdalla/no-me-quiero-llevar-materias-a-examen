@@ -178,6 +178,11 @@
   },
   "active": "80a9aa53c809069c",
   "lastOpenFiles": [
+    "index.md",
+    "fuentes/numerabilidad-diag.md",
+    "comparativas/funcion-vs-algoritmo.md",
+    "teoremas/propiedades-de-conjuntos-infinitos.md",
+    "teoremas/p-de-n-no-es-numerable.md",
     "fuentes/notas-conjuntos.md",
     "examenes/mayo-2025-multiple-opcion.md",
     "examenes/notas-conjuntos-ejercicios.md",
@@ -201,11 +206,6 @@
     "demostraciones",
     "teoremas/transitividad-de-r-menor.md",
     "teoremas",
-    "definiciones/ordenes.md",
-    "definiciones/relacion.md",
-    "definiciones/operaciones-con-conjuntos.md",
-    "comparativas/formas-de-definir-conjuntos.md",
-    "definiciones/conjunto.md",
     "definiciones"
   ]
 }

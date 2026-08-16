@@ -2,7 +2,7 @@
 id: teoria-de-la-computacion/definiciones/funcion
 tipo: definicion
 tema: U6
-fuentes: [revision-conjuntos p.9, revision-conjuntos p.10, notas-conjuntos p.2]
+fuentes: [revision-conjuntos p.9, revision-conjuntos p.10, notas-conjuntos p.2, numerabilidad-diag p.3, numerabilidad-diag p.4]
 estado: completo
 dominio: 0
 actualizado: 2026-08-15
@@ -59,7 +59,48 @@ tené a mano de qué apunte viene la notación que estés usando.
 **Definición 8** usa `f(a₁) = f(a₂) ⇒ a₁ = a₂`. Son contrarrecíprocas: no hay contradicción,
 pero conviene saber demostrar con las dos.
 
-🧠 ✅ [notas-conjuntos p.2] La lectura computacional que agrega esta fuente: "las funciones
+### La convención de `numerabilidad-diag`: "función" **significa** función parcial
+
+⚠️ ✅ [numerabilidad-diag p.3] "El término función será (como hasta ahora) utilizado en el
+sentido de **función parcial** (es decir, en el sentido más general de función). Por lo tanto,
+cuando se quiera restringir el discurso a funciones totales se deberá hacer explícita mención a
+tal condición."
+
+🧠 Es una convención fuerte y no la comparten las tres fuentes. Si una consigna dice "sea
+`f : A ↬ B` una función", **no** podés asumir que es total. Al revés, `revision-conjuntos` usa
+"función" sin comprometerse.
+
+✅ [numerabilidad-diag p.3] **Definición 1.3.** "Una función (parcial) de A en B es una
+relación entre A y B tal que a cada elemento de A corresponde a lo sumo uno de B." — coincide
+con las otras dos fuentes.
+
+### Notación de definida / indefinida, dominio y recorrido
+
+Esta fuente agrega vocabulario que las otras no tienen:
+
+✅ [numerabilidad-diag p.3] "diremos que `f` está definida en `a`, lo cual se notará `f ↓ a` […]
+En caso contrario, diremos que `f` no está definida en `a`, y escribiremos `f ↑ a`."
+
+✅ [numerabilidad-diag p.3] "Llamaremos **dominio** de una función `f` al subconjunto del
+conjunto de entrada de `f` determinado por aquellos elementos donde `f` está definida.
+Simétricamente, llamaremos **recorrido** de `f` al subconjunto del conjunto de salida
+determinado por aquellos elementos que son valores de algún elemento del dominio."
+
+⚠️ **Cuidado con "dominio".** Acá el *conjunto de entrada* es `A` y el *dominio* es solo la
+parte donde `f` está definida: para una parcial, dominio ⊊ entrada. `revision-conjuntos` p.4
+en cambio llama "dominio" al `A` entero. Son dos usos distintos de la misma palabra.
+
+🧠 Con este vocabulario las definiciones quedan más limpias:
+✅ [numerabilidad-diag p.3] **Def. 1.5** "Una función es inyectiva si a elementos diferentes del
+dominio corresponden valores diferentes." · **Def. 1.6** "Una función es sobreyectiva si su
+recorrido coincide con su conjunto de salida." · ✅ [p.4] **Def. 1.7** "Una función total es
+biyectiva si es inyectiva y sobreyectiva."
+
+✅ [numerabilidad-diag p.4] "Cuando existe una biyección entre dos conjuntos se dice que éstos
+son **coordinables**." — sinónimo de *equipolentes*; ver
+[[definiciones/comparacion-de-cardinalidades]].
+
+🧠 ✅ [notas-conjuntos p.2] La lectura computacional que agrega esa otra fuente: "las funciones
 parciales modelan programas que **pueden no terminar**, mientras que las funciones totales
 modelan programas que siempre producen una salida". Esa frase es el puente entre U6 y el
 problema de la terminación de U7.
