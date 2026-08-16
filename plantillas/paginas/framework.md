@@ -10,6 +10,9 @@ actualizado: <YYYY-MM-DD>
 
 # Framework <nombre>
 
+<!-- Dos o tres oraciones: qué es esto y por qué importa en la materia. Van acá,
+     antes del primer ##, y no se saltean. Registro: global/metodo/redaccion.md. -->
+
 ## Roles
 <!-- Tabla rol → responsabilidad. -->
 
@@ -20,7 +23,7 @@ actualizado: <YYYY-MM-DD>
 <!-- Tabla: ceremonia/fase → propósito → frecuencia. -->
 
 ## Críticas
-<!-- Qué falla cuando se adopta parcialmente. -->
+<!-- Qué falla cuando se adopta parcialmente, y por qué esa parte no era opcional. -->
 
 ## Relacionado
 <!-- [[tipo/slug]] dentro de la materia · [[materia/tipo/slug]] entre materias. -->

@@ -10,11 +10,15 @@ actualizado: <YYYY-MM-DD>
 
 # <A> vs <B>
 
+<!-- Dos o tres oraciones: qué es esto y por qué importa en la materia. Van acá,
+     antes del primer ##, y no se saltean. Registro: global/metodo/redaccion.md. -->
+
 ## Tabla
 <!-- Obligatoria. Una fila por alternativa, una columna por criterio. Nunca prosa. -->
 
 ## Criterio de decisión
-<!-- Qué dimensión define realmente la elección. -->
+<!-- Qué dimensión define realmente la elección, y por qué las otras columnas son
+     secundarias. Acá sí va prosa: la tabla de arriba es la que no la lleva. -->
 
 ## Cuándo elegir cada uno
 <!-- Una línea por alternativa, en imperativo. -->

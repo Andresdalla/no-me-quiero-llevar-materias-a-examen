@@ -10,6 +10,9 @@ actualizado: <YYYY-MM-DD>
 
 # Debate: <tema>
 
+<!-- Dos o tres oraciones: qué es esto y por qué importa en la materia. Van acá,
+     antes del primer ##, y no se saltean. Registro: global/metodo/redaccion.md. -->
+
 ## Postura A
 <!-- Con su fuente, que va en Procedencia. -->
 
@@ -17,7 +20,8 @@ actualizado: <YYYY-MM-DD>
 <!-- Con una fuente DISTINTA de la de A. Ambas van en Procedencia. -->
 
 ## Desacuerdo real
-<!-- El supuesto que separa las posturas, no un resumen de ambas. -->
+<!-- El supuesto que separa las posturas, no un resumen de ambas. Una o dos oraciones
+     que digan qué habría que saber para zanjarlo. -->
 
 ## Tu posición
 <!-- Sin fuente por definición: en Procedencia va como comentario del sistema. /profesor nunca evalúa sobre esta sección. -->

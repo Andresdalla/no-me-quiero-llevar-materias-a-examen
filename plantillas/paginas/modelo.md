@@ -10,14 +10,17 @@ actualizado: <YYYY-MM-DD>
 
 # Modelo <nombre>
 
+<!-- Dos o tres oraciones: qué es esto y por qué importa en la materia. Van acá,
+     antes del primer ##, y no se saltean. Registro: global/metodo/redaccion.md. -->
+
 ## Qué modela
-<!-- Qué parte de la realidad representa y con qué propósito. -->
+<!-- Qué parte de la realidad representa, con qué propósito, y qué se gana al abstraer. -->
 
 ## Axiomas
-<!-- Las reglas del modelo, no su historia. -->
+<!-- Las reglas del modelo, no su historia. Cada una con una línea de qué fuerza. -->
 
 ## Limitaciones
-<!-- Qué queda afuera. Obligatorio. -->
+<!-- Qué queda afuera y qué consecuencia tiene que quede afuera. Obligatorio. -->
 
 ## Críticas
 <!-- Qué se le objeta y desde qué postura. -->

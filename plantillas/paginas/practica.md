@@ -10,17 +10,20 @@ actualizado: <YYYY-MM-DD>
 
 # <Nombre de la práctica>
 
+<!-- Dos o tres oraciones: qué es esto y por qué importa en la materia. Van acá,
+     antes del primer ##, y no se saltean. Registro: global/metodo/redaccion.md. -->
+
 ## Qué es
-<!-- Definición operativa: qué se hace concretamente. -->
+<!-- Definición operativa: qué se hace concretamente, y contra qué problema. -->
 
 ## Cuándo aplica
-<!-- Condiciones bajo las que rinde. -->
+<!-- Condiciones bajo las que rinde, y por qué son esas. -->
 
 ## Cuándo NO aplica
 <!-- Obligatorio. Sin esto es dogma, y el oral pregunta acá. -->
 
 ## Antipatrón
-<!-- La forma degradada de la práctica, con su nombre. -->
+<!-- La forma degradada de la práctica, con su nombre y qué la produce. -->
 
 ## Relacionado
 <!-- [[tipo/slug]] dentro de la materia · [[materia/tipo/slug]] entre materias. -->

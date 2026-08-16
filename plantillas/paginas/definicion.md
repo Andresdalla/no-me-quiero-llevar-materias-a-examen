@@ -10,17 +10,22 @@ actualizado: <YYYY-MM-DD>
 
 # Definición de <término>
 
+<!-- Dos o tres oraciones: qué es esto y por qué importa en la materia. Van acá,
+     antes del primer ##, y no se saltean. Registro: global/metodo/redaccion.md. -->
+
 ## Enunciado
-<!-- Transcripción textual de la fuente. Prohibido parafrasear. La fuente va en Procedencia. -->
+<!-- Transcripción textual de la fuente. Prohibido parafrasear. La fuente va en Procedencia.
+     La cita no queda sola: seguila con una oración que diga qué habilita o dónde se apoya. -->
 
 ## Notación
-<!-- Símbolos que usa la cátedra para este concepto. -->
+<!-- Símbolos que usa la cátedra, y cómo se lee el enunciado de arriba con ellos. -->
 
 ## Ejemplo
-<!-- Un caso que cumple la definición. -->
+<!-- Un caso concreto, y una oración que diga qué parte de la definición ilustra. -->
 
 ## Contraejemplo
-<!-- Un caso que NO la cumple y por qué. Obligatorio. -->
+<!-- Un caso que NO la cumple, por qué falla, y qué lo separa del ejemplo de arriba.
+     Obligatorio. -->
 
 ## Confusiones frecuentes
 <!-- Con qué otro concepto se mezcla. Enlazalo con [[tipo/slug]]. -->

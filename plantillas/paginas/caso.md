@@ -10,14 +10,18 @@ actualizado: <YYYY-MM-DD>
 
 # Caso: <situación>
 
+<!-- Dos o tres oraciones: qué es esto y por qué importa en la materia. Van acá,
+     antes del primer ##, y no se saltean. Registro: global/metodo/redaccion.md. -->
+
 ## Situación
-<!-- Contexto y restricciones concretas. -->
+<!-- Contexto y restricciones concretas, escritas para que se entienda la tensión. -->
 
 ## Decisión
 <!-- Qué se decidió hacer. -->
 
 ## Justificación
-<!-- Por qué, enlazando la práctica/modelo/teorema que la sostiene. -->
+<!-- Por qué, enlazando la práctica/modelo/teorema que la sostiene, y qué criterio
+     pesó más que los otros. -->
 
 ## Qué cambiaría si…
 <!-- Al menos dos variantes con su consecuencia. Obligatorio. -->

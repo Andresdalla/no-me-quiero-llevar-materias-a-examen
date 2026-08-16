@@ -10,17 +10,21 @@ actualizado: <YYYY-MM-DD>
 
 # <Nombre del ataque>
 
+<!-- Dos o tres oraciones: qué es esto y por qué importa en la materia. Van acá,
+     antes del primer ##, y no se saltean. Registro: global/metodo/redaccion.md. -->
+
 ## Precondiciones
-<!-- Qué necesita el atacante: acceso, posición, permisos. -->
+<!-- Qué necesita el atacante —acceso, posición, permisos— y cuál es la más difícil
+     de conseguir en la práctica. -->
 
 ## Mecanismo
-<!-- Cómo se ejecuta. -->
+<!-- Cómo se ejecuta, hilado de punta a punta, no como lista de pasos sueltos. -->
 
 ## Impacto
 <!-- Qué se pierde: confidencialidad, integridad o disponibilidad. -->
 
 ## Mitigación
-<!-- Cómo se previene. -->
+<!-- Cómo se previene, y cuál de las precondiciones de arriba rompe cada mitigación. -->
 
 ## Detección
 <!-- Cómo se nota que está ocurriendo. -->

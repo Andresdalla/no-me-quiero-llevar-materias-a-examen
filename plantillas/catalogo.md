@@ -16,8 +16,12 @@ frontmatter define qué secciones son obligatorias y qué chequea `/lint`.
 4. **Todo tipo hereda la regla de fidelidad.** El cuerpo va limpio, sin emojis ni citas
    intercaladas, y toda página cierra con `## Procedencia`: una línea por sección con su
    fuente y página, o `sin cita: comentario del sistema`. Ningún tipo se la saltea.
-5. **Tope de 150 líneas por página.** Si se pasa, partila y enlazá las partes.
-6. La sección `## Relacionado` es obligatoria en todos los tipos: sin enlaces salientes la
+5. **Todo tipo hereda la regla de redacción.** Se escribe en párrafos, no en fichas: ninguna
+   cita ni fórmula queda flotando sola, y la página abre con dos o tres oraciones antes del
+   primer `##`. El registro y los pares antes/después: `global/metodo/redaccion.md`. Las
+   excepciones son las tablas de `comparativa`, `framework` y `numeros`.
+6. **Tope de 150 líneas por página.** Si se pasa, partila y enlazá las partes.
+7. La sección `## Relacionado` es obligatoria en todos los tipos: sin enlaces salientes la
    página queda huérfana y el wiki deja de ser wiki.
 
 ## Carpeta de cada tipo
@@ -62,6 +66,15 @@ El `id` es `materia/<carpeta>/<slug>` y la carpeta va en plural. Usá exactament
 | una discusión abierta entre posturas | `debate` |
 | cifras que hay que saber de memoria | `numeros` |
 
+## Cómo leer los ejemplos de abajo
+
+Cada tipo cierra con un bloque de ejemplo. **Muestran qué secciones lleva el tipo, abreviadas
+a una línea por sección. No son modelo de redacción**: una página real escrita así —etiqueta,
+cita, y nada alrededor— se rechaza por la regla 5.
+
+El único ejemplo escrito en el registro real es el de `definicion`. Miralo a él para saber
+cómo se escribe; mirá los demás para saber qué secciones van.
+
 ---
 
 ## `definicion`
@@ -72,24 +85,51 @@ El `id` es `materia/<carpeta>/<slug>` y la carpeta va en plural. Usá exactament
 
 **Regla de verificación** (`/lint`):
 - `## Enunciado` figura en `## Procedencia` con fuente y página, y es transcripción, no paráfrasis.
-- `## Ejemplo` y `## Contraejemplo` no están vacíos: una definición sin contraejemplo no se entendió.
+- El enunciado literal no queda solo: lo acompaña al menos una oración que dice qué habilita o
+  dónde se apoya. Una definición transcripta y nada más está a medio escribir.
+- `## Ejemplo` y `## Contraejemplo` no están vacíos, y cada uno dice **qué parte de la
+  definición ilustra**. Una definición sin contraejemplo no se entendió.
 - `## Confusiones frecuentes` nombra al menos otro concepto del wiki con `[[tipo/slug]]`.
 
+**Este es el ejemplo escrito en el registro real del repo.** Los demás tipos abrevian.
+
 ````markdown
+Los lenguajes regulares son la clase más chica de la jerarquía y la que se puede decidir con
+memoria constante. Casi todo U2 consiste en probar que algo entra o no entra acá.
+
 ## Enunciado
-Un lenguaje es *regular* si algún autómata finito lo reconoce.
+"Un lenguaje es *regular* si algún autómata finito lo reconoce." Lo que la definición pide es
+la existencia de **alguna** máquina, no de una en particular: para probar que un lenguaje es
+regular alcanza con exhibir un autómata, y por eso las demostraciones de este lado son
+constructivas.
+
 ## Notación
-`L(M)` denota el lenguaje reconocido por la máquina M.
+`L(M)` denota el lenguaje reconocido por la máquina M, o sea el conjunto de cadenas que M
+acepta. La definición de arriba se escribe entonces `L es regular ⇔ (∃M) L = L(M)`.
+
 ## Ejemplo
-El conjunto de cadenas con cantidad par de ceros.
+El conjunto de cadenas con cantidad par de ceros es regular, y se ve por qué: alcanza con
+recordar un bit —si vengo de una cantidad par o impar— para decidir al final. Ese bit es el
+estado, y dos estados bastan.
+
 ## Contraejemplo
-`{aⁿbⁿ : n ≥ 0}` no lo es: exigiría memoria no acotada.
+`{aⁿbⁿ : n ≥ 0}` no es regular porque exigiría memoria no acotada: hay que contar cuántas `a`
+pasaron para exigir después la misma cantidad de `b`, y ningún conjunto finito de estados
+guarda un número arbitrario. Es el contraste exacto con el ejemplo de arriba, donde lo que
+había que recordar cabía en un bit.
+
 ## Confusiones frecuentes
-No confundir con [[definicion/lenguaje-libre-contexto]].
+No confundir con [[definicion/lenguaje-libre-contexto]]: ahí la pila da la memoria que acá
+falta, y `{aⁿbⁿ}` sí entra. La otra confusión frecuente es leer la definición al revés y
+creer que sirve para probar que un lenguaje **no** es regular; para eso hace falta
+[[teorema/lema-bombeo]].
+
 ## Procedencia
-- **Enunciado** — sipser-cap1 p.31
-- **Ejemplo** — sipser-cap1 p.32
+- **Enunciado** — sipser-cap1 p.31 · incluye comentario del sistema
+- **Notación** — sipser-cap1 p.34
+- **Ejemplo** — sipser-cap1 p.32 · incluye comentario del sistema
 - **Contraejemplo** — sin cita: comentario del sistema
+- **Confusiones frecuentes** — sin cita: comentario del sistema
 ````
 
 ---
@@ -102,7 +142,7 @@ No confundir con [[definicion/lenguaje-libre-contexto]].
 
 **Regla de verificación** (`/lint`):
 - `## Enunciado` es transcripción textual y su línea de `## Procedencia` nombra fuente y página. Un teorema parafraseado es un teorema roto.
-- `## Hipótesis` lista cada condición por separado. Si el enunciado dice "si … entonces", cada premisa va como ítem.
+- `## Hipótesis` lista cada condición por separado. Si el enunciado dice "si … entonces", cada premisa va como ítem, y arriba de la lista va una línea que dice cuál es la que se suele olvidar.
 - Si `## Demostración` está vacía, el frontmatter debe decir `estado: sin-demo`; si no, `/lint` lo reporta.
 - `## Errores típicos` no vacío: casi siempre es "aplicarlo sin verificar una hipótesis".
 
@@ -224,7 +264,7 @@ flowchart LR
 **Campos obligatorios**: qué problema resuelve · cómo funciona por dentro · diagrama · costo/latencia
 
 **Regla de verificación** (`/lint`):
-- `## Qué problema resuelve` está en una oración y no repite el nombre del mecanismo.
+- `## Qué problema resuelve` describe el problema **antes** que la solución y no repite el nombre del mecanismo. Si se entiende sin saber cómo funciona el mecanismo, está bien escrito.
 - `## Costo` tiene números u órdenes de magnitud con fuente en `## Procedencia`, o dice explícitamente `sin dato en las fuentes`.
 - Hay diagrama.
 

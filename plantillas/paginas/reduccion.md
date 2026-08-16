@@ -10,14 +10,18 @@ actualizado: <YYYY-MM-DD>
 
 # Reducción de <A> a <B>
 
+<!-- Dos o tres oraciones: qué es esto y por qué importa en la materia. Van acá,
+     antes del primer ##, y no se saltean. Registro: global/metodo/redaccion.md. -->
+
 ## De A a B
-<!-- Dirección explícita: A ≤ B. Al revés es otro resultado. -->
+<!-- Dirección explícita: A ≤ B. Al revés es otro resultado, y decí por qué importa
+     acá cuál de los dos lados es el difícil. -->
 
 ## Qué implica
-<!-- Qué se concluye y qué NO se concluye. -->
+<!-- Qué se concluye y qué NO se concluye, con la razón de la asimetría. -->
 
 ## Esquema del argumento
-<!-- La transformación, paso a paso. -->
+<!-- Una oración con la idea de la transformación, y después el paso a paso. -->
 
 ## Diagrama
 <!-- Bloque ```mermaid``` del flujo de la transformación. -->

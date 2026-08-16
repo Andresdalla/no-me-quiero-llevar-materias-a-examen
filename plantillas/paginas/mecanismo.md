@@ -10,11 +10,15 @@ actualizado: <YYYY-MM-DD>
 
 # <Nombre del mecanismo>
 
+<!-- Dos o tres oraciones: qué es esto y por qué importa en la materia. Van acá,
+     antes del primer ##, y no se saltean. Registro: global/metodo/redaccion.md. -->
+
 ## Qué problema resuelve
-<!-- Una oración, sin repetir el nombre del mecanismo. -->
+<!-- El problema antes que la solución, sin repetir el nombre del mecanismo. Si se
+     entiende sin saber cómo funciona el mecanismo, está bien escrito. -->
 
 ## Cómo funciona
-<!-- El interior: estructuras, decisiones, políticas. -->
+<!-- El interior —estructuras, decisiones, políticas— hilado, no como lista de partes. -->
 
 ## Diagrama
 <!-- Bloque ```mermaid```. -->

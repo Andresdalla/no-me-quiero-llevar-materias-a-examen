@@ -10,20 +10,23 @@ actualizado: <YYYY-MM-DD>
 
 # Protocolo <nombre>
 
+<!-- Dos o tres oraciones: qué es esto y por qué importa en la materia. Van acá,
+     antes del primer ##, y no se saltean. Registro: global/metodo/redaccion.md. -->
+
 ## Actores
-<!-- Quiénes participan, antes de la secuencia. -->
+<!-- Quiénes participan y qué quiere cada uno, antes de la secuencia. -->
 
 ## Secuencia
 <!-- Bloque ```mermaid``` con sequenceDiagram. -->
 
 ## Garantías
-<!-- Qué promete el protocolo. La fuente va en Procedencia. -->
+<!-- Qué promete el protocolo y bajo qué condiciones. La fuente va en Procedencia. -->
 
 ## Supuestos
 <!-- Qué asume del canal, de los actores, del entorno. -->
 
 ## Modos de falla
-<!-- Qué pasa cuando un supuesto no se cumple. -->
+<!-- Qué pasa cuando un supuesto no se cumple: qué garantía se pierde primero. -->
 
 ## Relacionado
 <!-- [[tipo/slug]] dentro de la materia · [[materia/tipo/slug]] entre materias. -->

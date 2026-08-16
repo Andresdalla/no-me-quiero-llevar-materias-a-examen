@@ -10,17 +10,22 @@ actualizado: <YYYY-MM-DD>
 
 # Construcción de <objeto>
 
+<!-- Dos o tres oraciones: qué es esto y por qué importa en la materia. Van acá,
+     antes del primer ##, y no se saltean. Registro: global/metodo/redaccion.md. -->
+
 ## Objetivo
-<!-- Qué entra y qué sale. -->
+<!-- Qué entra, qué sale, y para qué sirve tener el objeto construido. -->
 
 ## Procedimiento
-<!-- Numerado y ejecutable a mano, sin decisiones ambiguas. -->
+<!-- Una línea arriba con la idea del procedimiento, y después los pasos numerados:
+     ejecutables a mano, sin decisiones ambiguas. -->
 
 ## Diagrama
 <!-- Bloque ```mermaid``` o figura extraída a assets/. -->
 
 ## Caso resuelto
-<!-- Una entrada concreta trabajada hasta la salida. Obligatorio. -->
+<!-- Una entrada concreta trabajada hasta la salida, diciendo en qué paso se decide lo
+     que suele salir mal. Obligatorio. -->
 
 ## Relacionado
 <!-- [[tipo/slug]] dentro de la materia · [[materia/tipo/slug]] entre materias. -->
