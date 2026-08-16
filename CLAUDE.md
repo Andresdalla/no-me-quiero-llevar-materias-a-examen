@@ -35,7 +35,9 @@ Este archivo se carga en cada sesión. Respetalo literalmente.
   especificaciones, valores numéricos): **transcribilo textual** de la fuente.
   Prohibido parafrasear.
 - **Contenido sintetizado** (intuiciones, explicaciones, conexiones, ejemplos propios,
-  comparaciones): libre, pero **declarado como tal**.
+  comparaciones): **esperado**, y declarado como tal. Una sección que es puro contenido
+  literal está a medio escribir: `incluye comentario del sistema` es la marca de una página
+  bien redactada, no la señal de una excepción que haya que justificar.
 
 **El cuerpo del texto va limpio: sin emojis y sin citas intercaladas.** La atribución vive en
 un bloque `## Procedencia` al final de cada página, una línea por sección o subsección:
@@ -57,6 +59,26 @@ atribuir, **partila en subsecciones**.
 
 Una página sin ninguna línea con fuente es sospechosa: `/lint` la reporta.
 `/profesor` y `/cards` solo usan secciones cuya procedencia es una fuente.
+
+## Reglas de redacción — se escribe para leer, no para archivar
+
+- **Ninguna cita ni fórmula queda flotando sola.** Una oración la introduce diciendo qué
+  establece, o la sigue diciendo qué consecuencia tiene. La cita va textual; lo que la rodea
+  es tuyo y es obligatorio.
+- **Escribí en párrafos, no en fichas.** Objetivo: 40-90 palabras, dos a cuatro oraciones.
+  Un párrafo de una sola oración vale solo si es un veredicto.
+- **Cada sección se lee de corrido.** Si dos bloques seguidos no tienen relación explícita,
+  falta una oración entre ellos o sobra uno de los dos.
+- **Las listas valen cuando el contenido es una lista** (hipótesis, pasos). Cada ítem es una
+  oración completa y arriba va una línea que dice qué organiza la lista.
+- **Toda página abre con dos o tres oraciones antes del primer `##`**: qué es y por qué importa.
+- **Prohibida la sobre-explicación.** Nada de `Es importante notar que`, `Cabe destacar`,
+  `En resumen`, ni repetir el encabezado, ni resumir al final lo recién dicho, ni anunciar la
+  estructura, ni hedging. **Si borrás una oración y no se pierde información, sobraba.**
+- **No aplica** a `/machete`, `/cards`, `/estado`, `/plan`, `/puentes`, a las tablas de
+  `comparativa` y `framework`, ni a `## Procedencia`: son tersos por diseño.
+
+Registro, pares antes/después y contraejemplos: `global/metodo/redaccion.md`.
 
 ## Namespaces
 

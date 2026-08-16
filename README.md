@@ -36,6 +36,10 @@ El cuerpo del texto va limpio, sin emojis ni citas intercaladas. Las tarjetas y 
 del modo profesor salen **solo** de secciones con fuente: nunca vas a terminar memorizando
 una inferencia del sistema.
 
+Las páginas se escriben en prosa, no en fichas: cada definición o fórmula va embebida en una
+oración que dice qué hace y por qué está ahí. El registro, con pares antes/después de páginas
+reales: `global/metodo/redaccion.md`.
+
 **Corré `/lint` antes de cada parcial.** Reporta páginas sin ninguna cita, unidades del
 programa sin material y contradicciones sin resolver. Es la diferencia entre un wiki que te
 salva y uno que te hace estudiar mal con confianza.

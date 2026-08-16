@@ -7,7 +7,10 @@ Preferencias transversales a todas las materias. Las respetan `/resumen`, `/mach
 
 ## Formato
 
-- <!-- ¿Preferís tablas o prosa? ¿Diagramas o texto? ¿Ejemplos antes o después de la teoría? -->
+- **Prosa explicativa, no fichas.** Las definiciones y fórmulas van embebidas en oraciones que
+  dicen qué hacen; una cita suelta con una etiqueta en negrita adelante no sirve para estudiar.
+  El registro, con pares antes/después: `global/metodo/redaccion.md`.
+- <!-- ¿Diagramas o texto? ¿Ejemplos antes o después de la teoría? -->
 
 ## Ritmo
 
