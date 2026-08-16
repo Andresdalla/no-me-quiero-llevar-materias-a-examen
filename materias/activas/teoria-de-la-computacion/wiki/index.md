@@ -46,6 +46,7 @@
 - [[definiciones/numerable-y-contable]] — las dos definiciones que se confunden
 - [[teoremas/subconjunto-infinito-de-n-es-numerable]] — el teorema que las une
 - [[teoremas/z-es-numerable]] · [[construcciones/emparejamiento-de-cantor]] — los ejemplos
+- [[comparativas/formulas-de-cantor]] — las dos fórmulas de la materia y en qué difieren
 - [[definiciones/cardinales-infinitos]] — `ℵ₀`, `ℵ₁`, hipótesis del continuo (extra)
 
 **El argumento central de la materia**

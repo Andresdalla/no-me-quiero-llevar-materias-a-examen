@@ -24,6 +24,7 @@
 | `teoremas/subconjunto-infinito-de-n-es-numerable` | teorema | U6 | Construcción del mínimo sucesivo; cierra la Proposición 6 |
 | `teoremas/z-es-numerable` | teorema | U6 | Intercalar pares e impares; biyección explícita de N |
 | `construcciones/emparejamiento-de-cantor` | construccion | U6 | Recorrido por diagonales y fórmula cerrada de Cantor |
+| `comparativas/formulas-de-cantor` | comparativa | U6 | Dos fórmulas distintas y correctas; cuál usar cuándo |
 | `teoremas/palabras-finitas-son-numerables` | teorema | U6 | Sigma estrella numerable; por lo tanto los programas también |
 | `teoremas/existen-funciones-no-computables` | teorema | U6 | Argumento de conteo; existencial, no exhibe ninguna función |
 | `demostraciones/diagonalizacion` | demostracion | U6 | La técnica y dónde falla; también sobre los reales |

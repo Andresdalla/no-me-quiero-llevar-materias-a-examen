@@ -10,6 +10,11 @@ actualizado: 2026-08-15
 
 # Relaciones vs funciones
 
+Una función **es** una relación, así que esto no compara dos cosas distintas sino dos maneras
+de escribir la misma. El problema es que las dos notaciones conviven en la materia y en un
+punto se contradicen: el orden de la composición se invierte. Esa es la trampa que esta página
+existe para señalar.
+
 ## Tabla
 
 Transcripción literal de la tabla del apunte:

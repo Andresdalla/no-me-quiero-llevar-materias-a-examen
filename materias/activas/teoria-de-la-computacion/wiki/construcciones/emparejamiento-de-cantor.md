@@ -10,6 +10,11 @@ actualizado: 2026-08-15
 
 # Construcción del emparejamiento de Cantor (`N × N` es numerable)
 
+`N × N` parece mucho más grande que `N` —es un plano contra una recta— y sin embargo tiene el
+mismo tamaño. La construcción que lo prueba es el recorrido por diagonales, y su fórmula
+cerrada es de las pocas de la materia que conviene saber de memoria porque después se reutiliza
+para `Nᵏ` y para `Q`.
+
 ## Objetivo
 
 Entra un par `(i, j) ∈ N × N`; sale un natural único. Construye la biyección que prueba que
@@ -78,45 +83,24 @@ la enumeración y nunca dice explícitamente que `π = f⁻¹`.
 
 ## Por qué es biyectiva
 
-Sobreyectiva: "toda pareja pertenece a una única diagonal determinada
+Las dos mitades se argumentan por separado y las dos se apoyan en que cada diagonal es finita.
+Que sea sobreyectiva es lo que hay que cuidar, porque es donde un recorrido mal elegido
+fallaría: "toda pareja pertenece a una única diagonal determinada
 por el valor de `i + j`, y cada diagonal es recorrida completamente en una cantidad finita de
 pasos. Por lo tanto, toda pareja será eventualmente visitada".
 
-Inyectiva: "a cada paso del recorrido se asigna un natural distinto,
-por lo que no se repiten valores".
+La inyectividad, en cambio, sale sola del hecho de estar contando: "a cada paso del recorrido
+se asigna un natural distinto, por lo que no se repiten valores".
 
-## Las dos fuentes de la materia dan fórmulas DISTINTAS
+## Antes de usar la fórmula: las dos fuentes dan fórmulas DISTINTAS
 
-Este es el conflicto más concreto del wiki. Las dos son biyecciones válidas de `N × N` en `N`,
-pero **no son la misma función**: recorren cada diagonal en sentido opuesto.
+La `π` de arriba es la de Acuña. Copello-Tasistro da otra, y **no son la misma función**:
+recorren cada diagonal en sentido opuesto, así que `π(1,0)` vale `1` en una y `2` en la otra.
+Las dos son biyecciones válidas y ninguna está mal.
 
-Copello-Tasistro: "quedando `f` expresada mediante la siguiente
-expresión:"
-
-```
-f(i, j) = ( Σ[k=0..i+j] k ) + i
-```
-
-Acuña: `π(i, j) = (i + j)(i + j + 1) / 2 + j`
-
-Como `Σ[k=0..s] k = s(s+1)/2`, la parte izquierda es idéntica. La diferencia es el
-sumando final: **`+ i` contra `+ j`**.
-
-| `(i, j)` | Copello `+i` | Acuña `+j` |
-|---|---|---|
-| `(0,0)` | 0 | 0 |
-| `(1,0)` | **2** | **1** |
-| `(0,1)` | **1** | **2** |
-| `(1,1)` | 4 | 4 |
-| `(2,0)` | **5** | **3** |
-
-La tabla de Copello lo confirma: fila `0` vale `0 1 3`, fila `1`
-vale `2 4`, fila `2` vale `5`. O sea `f(1,0) = 2`, mientras que la enumeración de Acuña da
-`f(1) = (1, 0)`, o sea `π(1,0) = 1`.
-
-Ninguna está mal. Copello ordena cada diagonal empezando por `(0, s)` y bajando por `i`;
-Acuña empieza por `(s, 0)` y sube por `j`. **En el parcial: fijate qué fuente usa la consigna,
-o declará cuál convención estás usando antes de calcular.** Anotado en `wiki/dudas.md`.
+**En el parcial: fijate qué fuente usa la consigna, o declará cuál convención estás usando
+antes de calcular.** El análisis completo, con la tabla de valores donde difieren, está en
+[[comparativas/formulas-de-cantor]]. Anotado en `wiki/dudas.md`.
 
 ## Ejercicios del apunte
 

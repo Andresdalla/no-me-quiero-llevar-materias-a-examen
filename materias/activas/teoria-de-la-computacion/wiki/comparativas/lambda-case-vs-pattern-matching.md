@@ -10,13 +10,17 @@ actualizado: 2026-08-15
 
 # λ-notation y case vs Pattern-Matching y guardas
 
+Las dos formas de escribir la misma función en Haskell. En otra materia sería una cuestión de
+gusto; acá es una consigna literal y repetida, y la pide para **cada** función del repartido:
+
 "Para cada una de las funciones de este repartido se les pedirá
 definirlas utilizando:
 - λ − notation y case.
 - Pattern-Matching y guardas."
 
 No son dos estilos entre los que elegís: la cátedra pide **las dos para la misma función**.
-La comparativa es para saber traducir de una a la otra sin pensar.
+Lo que hay que tener automatizado, entonces, no es cuál conviene sino cómo se traduce una en
+la otra sin pensar.
 
 ## Tabla
 

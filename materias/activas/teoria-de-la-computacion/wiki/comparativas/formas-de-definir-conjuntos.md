@@ -51,13 +51,16 @@ Para `R<` "podría ser teniendo definidas las operaciones de
 
 ## Las dos notaciones de una definición inductiva
 
-Con implicaciones:
+Una definición inductiva se escribe de dos maneras que dicen exactamente lo mismo, y conviene
+reconocer las dos porque el apunte alterna entre ellas sin avisar. La primera usa
+implicaciones y se lee como cualquier fórmula:
 
 ```
 (rz) Z ∈ ℕ
 (rs) n ∈ ℕ ⇒ S n ∈ ℕ
 ```
 
+La segunda es la que después se usa en las demostraciones, porque hace visible el árbol:
 "Otra forma de escribirlo" — reglas de inferencia, premisas
 arriba de la barra y conclusión abajo:
 

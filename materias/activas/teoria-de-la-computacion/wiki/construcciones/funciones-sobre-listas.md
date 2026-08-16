@@ -10,18 +10,26 @@ actualizado: 2026-08-15
 
 # Construcción de funciones recursivas sobre listas
 
+Con las listas vuelve la recursión estructural: los casos salen de los constructores del `data`
+y no de una cuenta, como pasaba en [[construcciones/funciones-sobre-enteros]]. Es el mismo
+esquema que después se aplica a árboles, con la diferencia de que acá hay una sola llamada
+recursiva por caso.
+
 ## Objetivo
 
 Entra una lista (y a veces una función); sale una función recursiva estructural: un caso por
 constructor del `data`.
 
-"Recordemos el data de las listas visto en fundamentos:
-`data [a] where {[] :: [a]; (:) :: a -> [a] -> [a]}`"
-
-"Ahora veremos el data de la siguiente forma:
-`data [a] = [] | (:) a [a]`"
+Como con `Bool`, el repartido da la declaración en las dos sintaxis. Primero la de la materia
+anterior — "Recordemos el data de las listas visto en fundamentos:
+`data [a] where {[] :: [a]; (:) :: a -> [a] -> [a]}`" — y después la corta: "Ahora veremos el
+data de la siguiente forma: `data [a] = [] | (:) a [a]`". El que importa es el segundo, y lo
+que hay que leer en él son los **dos** constructores.
 
 ## Procedimiento
+
+Todo sale de contar constructores. Los pasos 2 y 3 son los que deciden si la función es
+correcta; el 6 es el error más común cuando la función devuelve una lista en vez de un número.
 
 1. El `data` tiene **dos constructores**: `[]` y `(:)`. Entonces hay exactamente dos casos.
 2. Caso `[]`: el resultado es el **neutro** de la operación que estés acumulando

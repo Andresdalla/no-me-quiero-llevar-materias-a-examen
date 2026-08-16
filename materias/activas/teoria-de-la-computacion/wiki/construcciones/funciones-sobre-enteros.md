@@ -10,6 +10,11 @@ actualizado: 2026-08-15
 
 # Construcción de funciones recursivas sobre `Integer`
 
+Primer salto de dificultad del repartido: acá la recursión ya no sale de los constructores de
+un `data` sino de bajar de `x` a `x-1`, y aparecen las funciones que reciben otras funciones
+como argumento. El molde de dos casos sigue siendo el mismo que en
+[[construcciones/funciones-sobre-bool]].
+
 ## Objetivo
 
 Entra un `Integer` (y, en las de orden superior, una o dos funciones); sale una función
@@ -19,6 +24,9 @@ Acá aparecen por primera vez las **funciones de orden superior**, que el temari
 explícitamente en U10.
 
 ## Procedimiento
+
+El paso que hay que cuidar es el 6: es donde entra la parte de "guardas" de la consigna, que
+en las funciones sin predicado no se usa nunca.
 
 1. Firma primero. Fijate **cuántos de los argumentos son funciones**: en `sumpfi` son dos.
 2. Elegí el **caso base**: `0`. El repartido siempre recursiona bajando de `x` a `x-1`.

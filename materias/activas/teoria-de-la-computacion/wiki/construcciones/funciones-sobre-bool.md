@@ -10,20 +10,27 @@ actualizado: 2026-08-15
 
 # Construcción de funciones sobre `Bool`
 
+El caso más simple del repartido, y por eso el que conviene tener perfectamente automatizado:
+`Bool` tiene dos constructores y ninguno lleva argumentos, así que no hay recursión ni patrones
+anidados. Lo que se aprende acá es el molde que después se repite sobre enteros, listas y
+árboles.
+
 ## Objetivo
 
 Entra un `data` con dos constructores sin argumentos; sale una función definida por análisis
 de casos, en las dos formas que pide la cátedra.
 
+El repartido arranca recordando la declaración en la sintaxis de la materia anterior —
 "Recordemos el data de los booleanos visto en fundamentos:
-`data Bool where {False :: Bool; True :: Bool}`"
-
-"Ahora veremos el data de la siguiente forma:
-`data Bool = False | True`"
-
-Las dos declaran el mismo tipo. La segunda es la que usa la cátedra de acá en adelante.
+`data Bool where {False :: Bool; True :: Bool}`"— y la reescribe en la forma corta:
+"Ahora veremos el data de la siguiente forma: `data Bool = False | True`". Las dos declaran el
+mismo tipo; la segunda es la que usa la cátedra de acá en adelante.
 
 ## Procedimiento
+
+Los pasos 1 a 3 son contabilidad y no tienen misterio; el trabajo está en el 4 y el 5, que son
+las dos formas que hay que entregar, y el 6 es el que distingue una respuesta prolija de una
+que enumera casos de más.
 
 1. Escribí la **firma** primero: `f :: Bool -> Bool -> Bool`. Fija cuántos argumentos hay.
 2. Contá los constructores del `data`: `False` y `True`. Son 2.
@@ -58,7 +65,9 @@ not True = False
 not False = True
 ```
 
-Aplicando el procedimiento a `(&&)`, que el repartido deja como consigna:
+Aplicando el procedimiento a `(&&)`, que el repartido deja como consigna, se ve el paso 6 en
+acción: `False && y = False` no necesita mirar `y`, así que cubre dos filas de la tabla de
+verdad con una sola ecuación.
 
 ```haskell
 (&&) :: Bool -> Bool -> Bool
@@ -73,7 +82,8 @@ Resolución **inferida**, no oficial: el repartido no trae soluciones.
 
 ## Consignas pendientes
 
-Firmas textuales del repartido:
+Las cuatro que el repartido pide, con sus firmas textuales. Tres son rutinarias; la cuarta
+tiene un problema que se explica debajo de la tabla.
 
 | Ej. | Firma | Estado |
 |---|---|---|

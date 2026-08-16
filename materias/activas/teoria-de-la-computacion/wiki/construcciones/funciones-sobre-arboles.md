@@ -10,22 +10,31 @@ actualizado: 2026-08-15
 
 # Construcción de funciones recursivas sobre árboles binarios
 
+El último caso del repartido y el que más se equivoca, por una sola razón: el caso recursivo
+tiene **dos** llamadas en vez de una. Todo lo demás es idéntico a
+[[construcciones/funciones-sobre-listas]].
+
 ## Objetivo
 
 Entra un `Arb a`; sale una función recursiva con **dos** llamadas por caso recursivo, una por
 subárbol.
 
+El repartido vuelve a dar las dos sintaxis del `data`. La primera:
 "Dado el siguiente data que represente árboles binarios con información
 de tipo a en los nodos externos e internos, como lo veíamos en fundamentos:
-`data Arb a where {Hoja :: a -> Arb a; Nodo :: Arb a -> a -> Arb a -> Arb a}`"
-
-"Ahora veremos el data de la siguiente forma:
-`data Arb a = Hoja a | Nodo (Arb a) a (Arb a)`"
+`data Arb a where {Hoja :: a -> Arb a; Nodo :: Arb a -> a -> Arb a -> Arb a}`". Y la que se
+usa: "Ahora veremos el data de la siguiente forma:
+`data Arb a = Hoja a | Nodo (Arb a) a (Arb a)`".
 
 Clave para no equivocarse: **hay información de tipo `a` en las hojas y también en los
-nodos internos**. `Hoja` lleva un `a`; `Nodo` lleva un `a` entre sus dos subárboles.
+nodos internos**. `Hoja` lleva un `a`; `Nodo` lleva un `a` entre sus dos subárboles. Ese
+detalle es el que distingue `cantNodos` de `cantHojas` de `cantA`.
 
 ## Procedimiento
+
+El paso 3 es el que se falla: en el caso recursivo hay que combinar el valor del nodo con las
+**dos** llamadas, y olvidarse de una devuelve un resultado que parece razonable pero cuenta
+mal.
 
 1. Dos constructores → dos casos: `Hoja x` y `Nodo i x d`.
 2. Caso `Hoja x`: decidí si el valor `x` de la hoja **cuenta o no** para lo que estás

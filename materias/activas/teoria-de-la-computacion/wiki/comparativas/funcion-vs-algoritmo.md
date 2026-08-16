@@ -15,12 +15,16 @@ que, si no la tenés clara, hace que el teorema central de la materia suene a tr
 
 ## El problema
 
+La misma palabra nombra dos cosas que no tienen casi nada en común, y en una materia que
+compara cuántas hay de cada una eso es intolerable. La fuente lo plantea así:
+
 "La palabra función es usada en el contexto de la Programación con
 el significado de "pieza" o "componente" de código como, por ejemplo, cuando uno habla de
 función Haskell, C, etc. Ahora bien, en la Matemática clásica también se utiliza ese término,
 pero con un significado radicalmente distinto."
 
-"Nuestra solución para despejar esa ambigüedad será **reservar el
+La decisión que toma es reservar la palabra para el objeto matemático y bautizar de otro modo
+al código: "Nuestra solución para despejar esa ambigüedad será **reservar el
 término función para su uso matemático clásico**. En cuanto a las piezas de código ejecutable
 automáticamente que en general producen un cierto dato como resultado cuando son provistas con
 cierto dato de entrada, las llamaremos **(codificaciones de) algoritmos**."
@@ -37,7 +41,8 @@ cierto dato de entrada, las llamaremos **(codificaciones de) algoritmos**."
 
 ## Criterio de decisión
 
-"Cada algoritmo puede ser interpretado como (implementación o
+Separados los dos términos, la fuente los vuelve a conectar, y la conexión va en las dos
+direcciones: "Cada algoritmo puede ser interpretado como (implementación o
 método de cómputo de) una función. Recíprocamente, **cada función puede verse como un problema
 de programación**, a saber, el problema de diseñar o escribir un algoritmo que sirva como
 método de cómputo de la función en cuestión."
@@ -47,9 +52,14 @@ conjuntos en una pregunta sobre qué se puede programar.
 
 ## El argumento final, en la versión de esta fuente
 
+Con el vocabulario ordenado, el resultado central se puede enunciar sin ambigüedad. El
+argumento arranca dándole nombre a la correspondencia entre las dos poblaciones:
+
 "Llamemos ahora `S` a la correspondencia entre algoritmos y
 funciones en `N ↬ N` computadas por ellos. Esa correspondencia `S` es una función total,
 puesto que todo algoritmo computa una (y una sola) función."
+
+Y después supone que esa correspondencia lo cubre todo, para ver que no puede ser:
 
 "Ahora bien, si toda función en `N ↬ N` fuese computable por un
 algoritmo, `S` sería sobreyectiva. Y la solución de uno de los ejercicios precedentes nos daría
