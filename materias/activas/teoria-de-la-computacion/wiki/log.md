@@ -11,3 +11,5 @@
 | 2026-08-15 | `/ingest` | `notas-conjuntos` · 13 páginas nuevas, 1 actualizada (`definiciones/funcion`) · verificación 6/6 OK · U6 → cubierto · rasterizadas p.5,7,10,11 · **13 consignas de examen reales** de 4 fechas → `examenes/patron.md` regenerado · 5 dudas nuevas |
 | 2026-08-15 | `/ingest` | `numerabilidad-diag` · 4 páginas nuevas, 7 actualizadas · verificación 6/6 OK · rasterizadas p.8,9 · **3 divergencias reales con `notas-conjuntos`** (emparejamiento de Cantor, definición de `∼`, convención de "función") → `dudas.md` |
 | 2026-08-15 | `/vaciar-cola` | cola vacía: 5 archivos procesados, 0 fallidos |
+| 2026-08-15 | `/lint` | 0 críticos · corregidos: disciplina de ⚠️ (13 → 🧠), 4 dudas registradas, tipos estructurales declarados, 1 `sin-demo` |
+| 2026-08-15 | `/resumen` | resumen todo completo · 32 páginas del wiki · 8 unidades sin material · sin PDF (falta typst) |
