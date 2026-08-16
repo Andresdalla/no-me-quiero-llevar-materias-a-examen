@@ -31,6 +31,11 @@ Priorizá, en este orden, las páginas de tipo: `numeros` → `teorema` → `def
 **Nada sin fuente va al machete.** En el parcial no querés copiarte de una inferencia del
 sistema.
 
+**La regla de redacción del repo no rige acá.** `global/metodo/redaccion.md` pide prosa
+conectada para las páginas y los resúmenes; el machete es lo contrario por diseño y su propia
+guía lo dice: la prosa explicativa está en la columna *No entra*. No lo "mejores" agregándole
+oraciones de hilado.
+
 La procedencia se abrevia a una línea al pie: `Fuentes: sipser-cap1 p.77, p.80 · apunte p.4`.
 El machete es dos columnas a 9pt: cada carácter cuesta.
 

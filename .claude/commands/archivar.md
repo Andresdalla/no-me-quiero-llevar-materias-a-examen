@@ -24,7 +24,9 @@ ls materias/activas/$1/ingest/ | grep -v '^_' | wc -l   # tiene que dar 0
 ## 2. Generar `resumen-final.md`
 
 2-3 páginas en `$M/resumen-final.md`. No es un resumen de estudio: es lo mínimo para
-retomar la materia de cero. Contenido, en este orden:
+retomar la materia de cero. Se escribe en prosa, con el registro de
+`global/metodo/redaccion.md`: dentro de un año no vas a poder reconstruir el hilo entre
+enunciados sueltos. Contenido, en este orden:
 
 1. **Qué es la materia en 5 líneas** y para qué sirve en las correlativas.
 2. **Los 10-15 resultados centrales**: enunciados literales, con su fuente en Procedencia.

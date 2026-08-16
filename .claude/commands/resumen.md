@@ -38,6 +38,9 @@ frená.
 | `esqueleto` | igual que `completo` | la estructura, con el contenido vacío para que lo completes vos |
 | `anotado` | igual que `completo` | el resumen entero + preguntas al margen |
 
+El registro en prosa rige en todos los perfiles salvo `breve`, que por definición es una lista
+de enunciados. En `breve`, cada entrada sigue siendo una oración completa.
+
 Para `guia-parcial`, la probabilidad sale de los parciales viejos ingeridos: buscá en
 `manifest.jsonl` las fuentes cuyo `fuente_id` empiece con `parcial-` o `final-`, y ordená los
 temas por cuántas veces aparecen. Encabezá cada sección con `tomado N veces (parcial-…, parcial-…)`.
@@ -83,13 +86,29 @@ Reglas de las preguntas:
 
 ## 4. Reglas de escritura
 
+**Leé `global/metodo/redaccion.md` antes de escribir.** Un resumen se lee de punta a punta:
+es la salida donde el registro más importa.
+
+- **La prosa del wiki se arrastra entera, no se comprime.** Si una página explica por qué algo
+  vale, o cierra con una advertencia para el parcial, eso va al resumen tal como está.
+  **Resumir es elegir qué temas entran, no acortar las oraciones de los que entraron.** Este
+  es el error más caro del comando: se retiene la cita y se tira la explicación, y queda un
+  documento de citas sin nadie que las hile.
+- **Prohibido cortar una oración a la mitad de su cláusula explicativa.** Si el wiki dice
+  "Son contrarrecíprocas: no hay contradicción, pero conviene saber demostrar con las dos",
+  no se copia "Son contrarrecíprocas.". La cláusula después de los dos puntos es el contenido.
+- **Cada unidad abre con dos o tres oraciones** que dicen de qué se trata y cómo se engancha
+  con la unidad anterior. Sin eso el resumen es una pila de páginas concatenadas.
+- **Ninguna cita ni fórmula queda flotando sola.** Si al pegar una sección del wiki queda una
+  cita suelta, el hilo lo ponés vos y lo declarás en Procedencia.
 - **El cuerpo va limpio** —sin emojis ni citas intercaladas— y cada unidad cierra con su
   bloque `## Procedencia`, agregando las líneas de las páginas que entraron. Un resumen sin
   trazabilidad no sirve para estudiar: si no podés verificarlo, no lo estudiás.
 - Los enunciados literales se copian **de la página del wiki**, que ya los transcribió de la
-  fuente. No los reescribas: cada reescritura es una oportunidad de introducir un error.
+  fuente. No los reescribas: cada reescritura es una oportunidad de introducir un error. El
+  andamiaje se agrega **alrededor** de la cita, nunca adentro.
 - Todo lo que agregues para hilar el resumen va declarado en Procedencia como comentario
-  del sistema.
+  del sistema. Es la marca esperada, no una excepción a justificar.
 - Las dudas se listan juntas al final, bajo `## Dudas abiertas`, con enlace a `dudas.md`.
 - Cerrá con `## Origen`: lista de las páginas del wiki usadas, para poder volver.
 

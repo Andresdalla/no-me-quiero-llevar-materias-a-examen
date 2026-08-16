@@ -111,6 +111,35 @@ Para cada tipo activo, aplicá su regla de `plantillas/catalogo.md`. Las más re
 - `numeros` con valores sin cita.
 - `debate` con ambas posturas citando la misma fuente.
 
+### 13. Páginas escritas como fichas
+
+Dos síntomas de que la regla de redacción no se aplicó (`global/metodo/redaccion.md`).
+
+Etiqueta en negrita seguida de una cita, sin verbo que las una:
+
+```bash
+grep -rcE '^\*\*[^*]+\.\*\*[[:space:]]*["«`]' $M/wiki --include='*.md' | grep -v ':0$'
+```
+
+Páginas donde más de la mitad de los párrafos de cuerpo son de ≤12 palabras:
+
+```bash
+EXCL='index|mapa|log|dudas|programa|patron|examenes/'
+for f in $(find $M/wiki -name '*.md' | grep -vE "$EXCL"); do
+  awk -v F="$f" '
+    /^```/ {inc=!inc; next} inc {next}
+    /^## Procedencia/ {done=1} done {next}
+    /^[[:space:]]*$/ {if (b!="") {n++; if (split(b,w," ")<=12) frag++}; b=""; next}
+    /^[#|>]|^[[:space:]]*[-*+][[:space:]]|^[[:space:]]*[0-9]+\./ {b=""; next}
+    {b = b " " $0}
+    END {if (b!="") {n++; if (split(b,w," ")<=12) frag++}
+         if (n>0 && frag*2>n) printf "  %s  %d/%d bloques cortos\n", F, frag, n}' "$f"
+done
+```
+
+Es una señal, no una falta: un `numeros` o una `comparativa` pueden dar positivo con razón.
+Severidad 🟡, y la recomendación es reescribir la página, nunca borrar contenido.
+
 ## Salida
 
 Una tabla, ordenada por severidad:
@@ -121,6 +150,7 @@ Una tabla, ordenada por severidad:
 🔴 CRÍTICO  U5 sin material · parcial en 6 días
 🟡 REVISAR  3 enlaces rotos                       → [[teoremas/rice]]
 🟡 REVISAR  2 páginas >150 líneas
+🟡 REVISAR  5 páginas escritas como fichas         → definiciones/conjunto, …
 ⚪ MENOR    tipo `debate` sin instancias (12 ingestas)
 ```
 

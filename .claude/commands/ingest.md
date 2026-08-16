@@ -90,11 +90,19 @@ ACTUALIZA definiciones/lenguaje-regular  U2  ← p.31 (agrega contraejemplo)
 
 ## 7. Escribir las páginas
 
-Copiá la plantilla del tipo desde `plantillas/paginas/<tipo>.md` y completala. Reglas duras:
+Copiá la plantilla del tipo desde `plantillas/paginas/<tipo>.md` y completala.
+**Leé `global/metodo/redaccion.md` antes de escribir la primera página de la ingesta.**
+Reglas duras:
 
 - **El cuerpo va limpio**: sin emojis y sin citas intercaladas.
 - **Literal se transcribe**: definiciones, teoremas, enunciados, fórmulas, valores numéricos
   van textuales. Prohibido parafrasear.
+- **Ninguna cita ni fórmula queda flotando sola.** Una oración la introduce diciendo qué
+  establece, o la sigue diciendo qué consecuencia tiene. Transcribir y callarse deja una
+  página que no se puede estudiar: el lector tiene que reconstruir él las conexiones.
+- **La página abre con dos o tres oraciones antes del primer `##`**: qué es y por qué importa.
+- Se escribe en párrafos de 40-90 palabras, no en fichas de una línea. Las listas se reservan
+  para lo que es una lista, y llevan arriba una línea que diga qué organiza la lista.
 - **Toda página cierra con `## Procedencia`**, una línea por sección: `<fuente_id> p.N`, o
   `sin cita: comentario del sistema`. La página `p.N` sale de los marcadores `<!-- p.N -->`
   de `texto.md`.

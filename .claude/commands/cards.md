@@ -114,6 +114,9 @@ Rechazá la tarjeta si:
   recuperable.
 - La sección de la que sale no tiene fuente en su procedencia → no se crea. Sin excepción.
 
+**La regla de redacción del repo no rige acá.** Las páginas se escriben en prosa; una tarjeta
+con un párrafo de respuesta no se recupera. La respuesta va corta y recuperable.
+
 ## 7. Qué actualiza
 
 - Escribe `cards/<tema>.md`. Si el archivo ya existía: **agregá tarjetas nuevas y conservá
