@@ -10,17 +10,24 @@ actualizado: 2026-08-15
 
 # Existen funciones no computables
 
+Este es el resultado al que apunta toda la unidad, y llama la atención lo poco que hace falta
+para llegar: no aparece ninguna máquina, ningún lenguaje ni ninguna noción técnica de cómputo.
+Es un argumento de conteo puro, y esa es exactamente su fuerza.
+
 ## Enunciado
 
-**Teorema 4.** "Existen funciones `f : N → N` que no son computables
-por ningún programa."
+**Teorema 4.** "Existen funciones `f : N → N` que no son computables por ningún programa." La
+afirmación es existencial: dice que hay, no dice cuál.
 
-Es el resultado al que apunta todo el apunte. la motivación lo
-anticipa: "si el conjunto de los programas es numerable y el conjunto de las funciones no lo
-es, entonces necesariamente existen funciones que no pueden ser calculadas por ningún
-programa."
+La motivación del apunte anticipa la estrategia entera en una oración: "si el conjunto de los
+programas es numerable y el conjunto de las funciones no lo es, entonces necesariamente existen
+funciones que no pueden ser calculadas por ningún programa." Todo lo demás es justificar las
+dos premisas.
 
 ## Hipótesis
+
+Las tres se encadenan: las dos primeras se prueban aparte, y la tercera es la que las junta.
+La que más se olvida es la segunda, sin la cual el conteo no cierra.
 
 - El conjunto de programas es numerable — ver
  [[teoremas/palabras-finitas-son-numerables]].
@@ -31,10 +38,11 @@ programa."
 
 ## Demostración
 
-Ver [[demostraciones/diagonalizacion]]. Técnica: diagonalización, por contradicción.
-
-"Dado que el conjunto de funciones computables es numerable, se
-concluye que existen funciones que no son computables."
+El argumento completo, con la construcción de la función que se escapa de la lista, está en
+[[demostraciones/diagonalizacion]]: es una diagonalización dentro de una demostración por
+contradicción. Lo que queda una vez probado que las funciones `N → N` no son numerables es la
+resta: "Dado que el conjunto de funciones computables es numerable, se concluye que existen
+funciones que no son computables."
 
 ## Cuándo se aplica
 
@@ -42,13 +50,16 @@ Es el primer resultado de **imposibilidad** del curso, y el patrón se repite de
 problema de la terminación y en el teorema de Rice (U7). El molde es siempre el mismo: contar
 cuántos programas hay, contar cuántos objetos hay que computar, y mostrar que no alcanzan.
 
-"Este argumento no depende del lenguaje de programación utilizado. La
-conclusión es completamente general y expresa una limitación matemática intrínseca del cómputo:
-siempre existirán funciones que no pueden ser calculadas por ningún algoritmo."
+Conviene retener hasta dónde llega la conclusión, porque es más amplia de lo que parece:
+"Este argumento no depende del lenguaje de programación utilizado. La conclusión es
+completamente general y expresa una limitación matemática intrínseca del cómputo: siempre
+existirán funciones que no pueden ser calculadas por ningún algoritmo."
 
-Y no necesita maquinaria pesada: "basta con observar que
-`ℵ₀ < |P(N)|`. Esta desigualdad es suficiente para demostrar que existen funciones no
-computables. La hipótesis del continuo no es necesaria para este argumento".
+Y hacia el otro lado, tampoco necesita maquinaria pesada. Alcanza con la desigualdad más
+básica entre cardinales: "basta con observar que `ℵ₀ < |P(N)|`. Esta desigualdad es suficiente
+para demostrar que existen funciones no computables. La hipótesis del continuo no es necesaria
+para este argumento". Invocar la hipótesis del continuo acá —que además es indecidible— sería
+usar un martillo de más.
 
 ## Errores típicos
 

@@ -10,6 +10,10 @@ actualizado: 2026-08-15
 
 # Demostración por diagonalización
 
+La técnica más importante de U6, y la que reaparece en U7 con otro disfraz. Vale la pena
+separarla del resultado que prueba, porque lo que se evalúa es el método: la cátedra pregunta
+explícitamente bajo qué condiciones se puede aplicar.
+
 ## Qué prueba
 
 [[teoremas/existen-funciones-no-computables]] — y, de paso, que el conjunto de funciones
@@ -17,13 +21,19 @@ actualizado: 2026-08-15
 
 ## Técnica
 
-**Diagonalización**, dentro de una demostración por contradicción.
+**Diagonalización**, dentro de una demostración por contradicción. Se supone que existe una
+lista completa, se la usa para fabricar un objeto que no puede estar en ella, y la
+contradicción cae sobre la suposición inicial. El apunte lo resume así:
 
 **Observación 3.** "La construcción anterior es un ejemplo del método
 de diagonalización. La función `g` se obtiene modificando los valores de las funciones de la
 lista sobre la diagonal `(fₙ(n))ₙ∈N`, asegurando que difiere de cada una de ellas."
 
 ## Pasos
+
+Los pasos 1 a 3 montan el escenario y son rutinarios. El trabajo real está en el 4, donde se
+muestra que `g` no coincide con **ninguna** función de la lista; el resto es cerrar la
+contradicción y cobrar la conclusión.
 
 1. "Supongamos, con el fin de obtener una contradicción, que todas las
  funciones `f : N → N` son computables. Entonces podríamos enumerarlas como `f₀, f₁, f₂, …`
@@ -52,7 +62,8 @@ lista sobre la diagonal `(fₙ(n))ₙ∈N`, asegurando que difiere de cada una d
 
 ## La otra fuente diagonaliza sobre `P(N)`, no sobre funciones
 
-"Usaremos una técnica usada en estos casos, llamada **método de
+La segunda fuente presenta la misma técnica pero la aplica a otro objeto, y la enuncia en
+términos generales: "Usaremos una técnica usada en estos casos, llamada **método de
 diagonalización**, para demostrar que un conjunto no es numerable."
 
 El objeto construido no es una función sino un conjunto:
@@ -66,6 +77,9 @@ diagonalizar sobre funciones `N → Bool`. La versión de `notas-conjuntos` lo h
 difiera de cada elemento de la lista en la posición diagonal— es idéntico.
 
 ## La misma técnica sobre `R`
+
+El tercer objetivo al que se le aplica el método es el más famoso, y la solución del apunte
+muestra que basta con atacar un intervalo para concluir sobre toda la recta.
 
 **Ejemplo 9.3.** "Probar que `R` no es numerable."
 

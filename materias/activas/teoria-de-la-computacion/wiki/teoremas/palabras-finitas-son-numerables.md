@@ -10,15 +10,23 @@ actualizado: 2026-08-15
 
 # `Σ*` es numerable, y por lo tanto los programas también
 
+Este teorema es la mitad del argumento central de la materia. Parece un resultado sobre
+cadenas de texto, y lo es, pero como todo programa es una cadena de texto termina diciendo
+algo mucho más fuerte: **hay tantos programas como números naturales**, ni uno más.
+
 ## Enunciado
 
-**Teorema 3.** "Si `Σ` es un alfabeto finito, entonces el conjunto
+El resultado general es el **Teorema 3.** "Si `Σ` es un alfabeto finito, entonces el conjunto
 `Σ*` de todas las palabras finitas sobre `Σ` es numerable."
 
-**Proposición 7.** "El conjunto de los programas válidos en un
-lenguaje de programación fijo es numerable."
+Y la instancia que interesa se obtiene observando que el código fuente es texto — es la
+**Proposición 7.** "El conjunto de los programas válidos en un lenguaje de programación fijo es
+numerable."
 
 ## Hipótesis
+
+Las dos condiciones se parecen y son distintas, y confundirlas es el error típico de más
+abajo: lo finito es el alfabeto y lo finito es **cada** palabra, no la cantidad de palabras.
 
 - `Σ` es un alfabeto **finito**
 - Las palabras son **finitas**
@@ -27,9 +35,13 @@ lenguaje de programación fijo es numerable."
 
 ## Demostración
 
-**Primera vía — por longitud.** "Para cada `n ∈ N`, sea `Σⁿ` el
-conjunto de palabras de longitud exactamente `n`. Como `Σ` es finito, también lo es `Σⁿ` (de
-hecho, `|Σⁿ| = mⁿ`)." Y `Σ* = ⋃ₙ₌₀^∞ Σⁿ`.
+El apunte da dos pruebas de lo mismo. La primera enumera, la segunda codifica; conviene tener
+las dos porque en el parcial cualquiera de las dos sirve y una puede resultarte más cómoda.
+
+**Primera vía — por longitud.** La idea es partir el conjunto infinito en pedazos finitos:
+"Para cada `n ∈ N`, sea `Σⁿ` el conjunto de palabras de longitud exactamente `n`. Como `Σ` es
+finito, también lo es `Σⁿ` (de hecho, `|Σⁿ| = mⁿ`)." Y `Σ* = ⋃ₙ₌₀^∞ Σⁿ`, o sea que `Σ*` es una
+unión numerable de conjuntos finitos.
 
 "Se puede entonces enumerar `Σ*` recorriendo primero todas las
 palabras de longitud 0, luego las de longitud 1, luego las de longitud 2, y así sucesivamente.

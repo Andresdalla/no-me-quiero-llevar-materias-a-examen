@@ -10,6 +10,11 @@ actualizado: 2026-08-15
 
 # Propiedades de los conjuntos infinitos
 
+Tres afirmaciones que la definición de Dedekind de [[definiciones/conjunto-infinito]] no da
+gratis y que se usan todo el tiempo como si fueran obvias. La fuente las enuncia y no las
+demuestra, así que conviene tenerlas identificadas como resultados citables y no como pasos
+que uno pueda improvisar en el parcial.
+
 ## Enunciado
 
 **Teorema 3.1.**
@@ -19,9 +24,15 @@ actualizado: 2026-08-15
 3. "Todo conjunto finito tiene `n` elementos para cierto `n` natural. Formalmente: `A` finito
  ssi `A ∼ {1, …, n}` para cierto `n ∈ N`."
 
-"Las demostraciones constituyen un ejercicio difícil."
+Las tres apuntan a lados distintos: la primera pone un piso a los infinitos, la segunda
+propaga la infinitud hacia arriba, y la tercera es la que reconcilia la definición de Dedekind
+con la idea intuitiva de contar. Sobre las pruebas, el apunte solo dice: "Las demostraciones
+constituyen un ejercicio difícil."
 
 ## Hipótesis
+
+Cada parte pide lo suyo, y vale la pena tener presente qué noción de "infinito" está en juego,
+porque no es la intuitiva.
 
 - Parte 1: `A` infinito
 - Parte 2: `A` infinito **y** `A ⪯ B`
@@ -31,8 +42,8 @@ actualizado: 2026-08-15
 
 ## Demostración
 
-**Sin demostración en la fuente.** la cátedra las declara "un
-ejercicio difícil" y no las da.
+**Sin demostración en la fuente.** La cátedra las declara "un ejercicio difícil" y no las da,
+lo cual es una decisión y no un olvido: son resultados que se usan, no que se rehacen.
 
 La parte 1 es el mismo enunciado que `notas-conjuntos` plantea **dos veces** como ejercicio
 (Ejercicio 2 y Ejercicio 7: "Mostrar que `∀A infinito`, se cumple: `N ⪯ A`"). Ninguna de las

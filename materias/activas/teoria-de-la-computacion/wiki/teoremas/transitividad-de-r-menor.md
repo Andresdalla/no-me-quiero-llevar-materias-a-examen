@@ -10,17 +10,23 @@ actualizado: 2026-08-15
 
 # `R<` es transitiva
 
+El resultado es de los que se dan por obvios —que menor es transitiva no sorprende a nadie— y
+sin embargo es la página más importante de esta parte del wiki, porque lo que hay que aprender
+no es el enunciado sino la técnica con que se prueba.
+
 ## Enunciado
 
-"`R<` es transitiva ? Sí, demostración ?"
-
-Enunciado explícito, instanciando la definición de transitividad sobre `R<`:
+El apunte lo plantea como pregunta y responde con otra: "`R<` es transitiva ? Sí, demostración
+?" Escrito de forma explícita, es la definición de transitividad instanciada sobre `R<`:
 
 ```
 (∀x, y, z ∈ ℕ)((x, y) ∈ R< ∧ (y, z) ∈ R< ⇒ (x, z) ∈ R<)
 ```
 
 ## Hipótesis
+
+Lo único que se supone es cómo está definida `R<`, y ahí está toda la sustancia: de las tres
+definiciones posibles de [[definiciones/relacion]], acá se usa la inductiva.
 
 - `R< ⊆ ℕ × ℕ` definida **por inducción** con las reglas :
 
@@ -34,8 +40,9 @@ definición por comprensión habría que razonar sobre la existencia de `z`, y s
 
 ## Demostración
 
-Ver [[demostraciones/transitividad-de-r-menor]]. Técnica: inducción sobre el árbol de prueba
-de `(y, z) ∈ R<`.
+El desarrollo completo está en [[demostraciones/transitividad-de-r-menor]]. La técnica es
+inducción sobre el árbol de prueba de `(y, z) ∈ R<` — no sobre `y` ni sobre `z` como números,
+que es donde se cae todo el mundo.
 
 ## Cuándo se aplica
 

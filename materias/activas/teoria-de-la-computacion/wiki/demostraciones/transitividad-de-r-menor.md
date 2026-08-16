@@ -10,23 +10,27 @@ actualizado: 2026-08-15
 
 # Demostración de que `R<` es transitiva
 
+Lo que se prueba acá es trivial; lo que hay que aprender es cómo. Es la primera inducción
+estructural del curso sobre un **árbol de derivación** en vez de sobre un número, y esa
+distinción es la que se cobra en el parcial.
+
 ## Qué prueba
 
 [[teoremas/transitividad-de-r-menor]]
 
 ## Técnica
 
-**Inducción** — estructural, sobre el árbol de prueba.
-
-"Dados `(x, y) ∈ R<` y `(y, z) ∈ R<`, hacemos inducción en la
-segunda relación `R<`, esto es, en el **árbol de prueba** de `(y, z) ∈ R<`"
+**Inducción** — estructural, sobre el árbol de prueba. Lo importante no es que sea inducción
+sino **sobre qué** se induce, y el apunte lo dice sin ambigüedad: "Dados `(x, y) ∈ R<` y
+`(y, z) ∈ R<`, hacemos inducción en la segunda relación `R<`, esto es, en el **árbol de
+prueba** de `(y, z) ∈ R<`". Dos decisiones en una frase: se induce sobre el árbol, y sobre el
+de la segunda relación.
 
 ## La intuición primero
 
-"Idea de la demostración: Veamos dadas evidencias de que `1 < 3` y
-`3 < 5`, cómo podemos inferir que `1 < 5`"
-
-"Idea de la demostración: **"concatenar las demostraciones"**"
+Antes de la prueba formal el apunte trabaja un caso concreto: "Idea de la demostración: Veamos
+dadas evidencias de que `1 < 3` y `3 < 5`, cómo podemos inferir que `1 < 5`". Y resume la
+maniobra en tres palabras — "Idea de la demostración: **"concatenar las demostraciones"**".
 
 La derivación de `3 < 5` se re-ejecuta empezando desde `1` en vez de desde `3`: cada
 aplicación de `(r2)` avanza el segundo componente sin tocar el primero, así que el mismo
@@ -39,7 +43,10 @@ muestra la derivación *concatenada*) o un error de tipeo. Anotado en `wiki/duda
 
 ## Pasos
 
-Sean `(x, y) ∈ R<` y `(y, z) ∈ R<`. Inducción sobre el árbol de prueba de `(y, z) ∈ R<`.
+Sean `(x, y) ∈ R<` y `(y, z) ∈ R<`. Inducción sobre el árbol de prueba de `(y, z) ∈ R<`. Los
+dos casos son el mismo movimiento: en los dos se aplica `(r2)` sobre el par que empieza en `x`,
+y la única diferencia es de dónde sale la premisa — de la hipótesis en el caso base, de la
+hipótesis inductiva en el otro.
 
 1. **Caso base.** "Caso base: `(y, S y) ∈ R<`, entonces"
 

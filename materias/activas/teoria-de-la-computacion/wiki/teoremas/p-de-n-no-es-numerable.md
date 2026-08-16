@@ -10,28 +10,38 @@ actualizado: 2026-08-15
 
 # `P(N)` no es numerable
 
+Este es el primer conjunto de la materia que se prueba **no** numerable, y con eso queda
+establecido que hay más de un tamaño de infinito. Es la misma diagonalización que
+[[teoremas/existen-funciones-no-computables]] pero vestida de conjuntos en vez de funciones.
+
 ## Enunciado
 
-"Vamos a demostrar que el conjunto partes o potencia de `N`
-(`P(N)` o `2^N`) no es numerable."
+El apunte lo anuncia sin numerarlo como teorema: "Vamos a demostrar que el conjunto partes o
+potencia de `N` (`P(N)` o `2^N`) no es numerable."
 
-Corolario que el apunte deja anotado: "Observar que, como se puede
-ver en la tabla anterior, `P(N) ∼ N → Bool`."
+Y deja anotado un corolario que después se cobra en el examen, porque conecta este resultado
+con el mundo de las funciones: "Observar que, como se puede ver en la tabla anterior,
+`P(N) ∼ N → Bool`."
 
 ## Hipótesis
+
+No hay condiciones que verificar: el enunciado es sobre un conjunto concreto.
 
 - `P(N) = {A : A ⊆ N}`
 - Ninguna otra: es un resultado cerrado.
 
 ## Demostración
 
-Por diagonalización, ver [[demostraciones/diagonalizacion]]. En resumen:
+La técnica es la diagonalización y está desarrollada en
+[[demostraciones/diagonalizacion]]. El esqueleto es suponer que la lista existe, armar una
+tabla con ella, y construir un objeto que difiera de cada fila en su propia diagonal:
 
 "Esta técnica se basa en suponer por absurdo `P(N)` es numerable,
 entonces existe una biyección `f : N ↔ P(N)`. Luego usamos esta biyección para fabricar una
 tabla booleana, llamada `T`, donde en la columna `j` representamos el conjunto de naturales
 `f(j)`, colocando en la fila `i` el booleano `True` si `i ∈ f(j)` y `False` si `i ∉ f(j)`."
 
+Con la tabla armada, el objeto que rompe todo se define leyendo la diagonal y negándola:
 "A partir de esta tabla construimos un conjunto de naturales que
 difiere de cada conjunto `f(j)` en la diagonal (posición `(j, j)` de la tabla):"
 

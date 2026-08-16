@@ -10,11 +10,19 @@ actualizado: 2026-08-15
 
 # Todo subconjunto infinito de `N` es numerable
 
+Un enunciado modesto con una consecuencia enorme: es lo que permite, en toda la unidad,
+construir una **inyección** en vez de una biyección. Como inyectar es mucho más fácil que
+biyectar, casi todos los ejercicios de numerabilidad terminan apoyándose acá sin nombrarlo.
+
 ## Enunciado
 
-**Teorema 1.** "Todo subconjunto infinito de `N` es numerable."
+**Teorema 1.** "Todo subconjunto infinito de `N` es numerable." O sea que dentro de `N` no hay
+infinitos de tamaños distintos: cualquier pedazo infinito es del mismo tamaño que el todo.
 
 ## Hipótesis
+
+Las dos primeras son las del enunciado. La tercera no aparece enunciada como hipótesis pero la
+demostración no funciona sin ella, y conviene tenerla identificada.
 
 - `S ⊆ N`
 - `S` es infinito
@@ -22,6 +30,10 @@ actualizado: 2026-08-15
  `N`). El apunte la usa explícitamente y no la demuestra.
 
 ## Demostración
+
+La construcción es la más natural posible: ir sacando el mínimo, uno por uno. Lo único que hay
+que cuidar es que el procedimiento nunca se quede sin elementos, y de eso se encarga la
+hipótesis de infinitud.
 
 "Sea `S ⊆ N` un subconjunto infinito. Como todo subconjunto no vacío
 de `N` tiene mínimo, definimos inductivamente una sucesión estrictamente creciente `(sₙ)ₙ∈N` de
@@ -32,7 +44,8 @@ s₀ = mín(S)
 sₙ₊₁ = mín(S \ {s₀, …, sₙ})
 ```
 
-"Esto está bien definido porque S es infinito y, por lo tanto, al
+El apunte cierra verificando por separado que la construcción tiene sentido y que la función
+resultante es biyectiva: "Esto está bien definido porque S es infinito y, por lo tanto, al
 remover finitamente muchos elementos aún queda un conjunto no vacío. La función `f : N → S`
 dada por `f(n) = sₙ` es biyectiva: es inyectiva por construcción, y sobreyectiva porque todo
 elemento de S aparece en algún paso del procedimiento. Por consiguiente, S es numerable."
