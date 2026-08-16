@@ -63,7 +63,7 @@
 - temas: fundamentos de lenguajes de programación; sintaxis abstracta y concreta; semántica operacional: reducción (paso corto) y evaluación (paso largo)
 
 ## U10 · Programación funcional
-- cobertura: sin-material
-- fuentes: []
-- paginas: []
+- cobertura: parcial
+- fuentes: [repaso-haskell]
+- paginas: [comparativas/lambda-case-vs-pattern-matching, construcciones/funciones-sobre-bool, construcciones/funciones-sobre-enteros, construcciones/funciones-sobre-listas, construcciones/funciones-sobre-arboles, fuentes/repaso-haskell]
 - temas: programación funcional; pattern matching, funciones de orden superior, módulos y tipos abstractos de datos; desarrollo de intérpretes embebidos

@@ -22,3 +22,10 @@
 ## U9 · Fundamentos de lenguajes de programación
 
 ## U10 · Programación funcional
+
+- [[comparativas/lambda-case-vs-pattern-matching]] — las dos formas de definir que pide la cátedra
+- [[construcciones/funciones-sobre-bool]] — `data Bool`, `not`, operadores booleanos
+- [[construcciones/funciones-sobre-enteros]] — recursión y funciones de orden superior
+- [[construcciones/funciones-sobre-listas]] — `length`, `map`, `filter`, `zip`, plegados
+- [[construcciones/funciones-sobre-arboles]] — `data Arb`, `cantNodos`, recursión con dos ramas
+- [[fuentes/repaso-haskell]] — ficha del repartido
