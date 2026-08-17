@@ -8,6 +8,7 @@ Este archivo **solo enlaza**: el contenido vive en cada materia.
 | Slug | Materia | Cuatrimestre | Correlativas previas | Habilita | Estado |
 |---|---|---|---|---|---|
 | [`teoria-de-la-computacion`](../materias/activas/teoria-de-la-computacion/CLAUDE.md) | Teoría de la Computación (cát. Computación) | 2026-2C · m5a | Fundamentos de la Computación (sin confirmar) | sin datos | activa · alta 2026-08-15 |
+| [`ingenieria-de-software-agil-2`](../materias/activas/ingenieria-de-software-agil-2/CLAUDE.md) | Ingeniería de Software Ágil 2 (cát. Ingeniería de Software) | 2026-2C | sin datos | sin datos | activa · alta 2026-08-16 |
 
 ## Archivadas
 
