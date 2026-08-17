@@ -5,8 +5,8 @@
 
 ## U1 · Introducción a DevOps
 - cobertura: parcial
-- fuentes: [ut1-calidad-devops]
-- paginas: [modelos/principios-agiles, definiciones/calidad-de-software, modelos/iso25010, definiciones/deuda-tecnica, definiciones/devops, modelos/tres-vias, modelos/dora-core]
+- fuentes: [ut1-calidad-devops, ut1-kanban]
+- paginas: [modelos/principios-agiles, definiciones/calidad-de-software, modelos/iso25010, definiciones/deuda-tecnica, definiciones/devops, modelos/tres-vias, modelos/dora-core, modelos/tps-toyota, frameworks/kanban, practicas/limitar-el-wip, definiciones/indicadores-de-flujo, comparativas/scrum-vs-kanban]
 - temas: agilidad, entrega continua y las tres vías; la primera vía (principios del flujo); la segunda vía (principios del feedback); la tercera vía (principios del aprendizaje y la experimentación continuas); DORA's software delivery metrics: the four keys
 
 ## U2 · Prácticas de entrega continua

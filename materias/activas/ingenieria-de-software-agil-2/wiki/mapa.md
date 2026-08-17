@@ -15,3 +15,9 @@
 | `definiciones/devops` | definicion | U1 | conflicto Dev/Ops y equipo co-responsable |
 | `modelos/tres-vias` | modelo | U1 | flujo, feedback, aprendizaje y experimentación |
 | `modelos/dora-core` | modelo | U1 | capacidades predicen rendimiento y resultados |
+| `fuentes/ut1-kanban` | fuente | U1 | ficha de las láminas de Kanban y DevOps |
+| `modelos/tps-toyota` | modelo | U1 | just in time, jidoka, kaizen, enfoque pull |
+| `frameworks/kanban` | framework | U1 | seis prácticas fundamentales, tablero, políticas |
+| `practicas/limitar-el-wip` | practica | U1 | stop starting start finishing, batch size |
+| `definiciones/indicadores-de-flujo` | definicion | U1 | WIP, cycle time, lead time, ley de Little |
+| `comparativas/scrum-vs-kanban` | comparativa | U1 | cadencia fija contra flujo continuo |
