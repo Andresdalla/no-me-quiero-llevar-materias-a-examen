@@ -264,5 +264,38 @@ class TestPlantilla(unittest.TestCase):
             self.assertIsNone(hallado, f"falso positivo en: {texto} -> {hallado.group(0) if hallado else ''}")
 
 
+class TestRender(unittest.TestCase):
+    def test_reemplaza_el_marcador_por_el_json(self):
+        html = build_estudio.render({"a": 1}, "antes /*__DATOS__*/ después")
+        self.assertIn('{"a": 1}', html)
+        self.assertNotIn("/*__DATOS__*/", html)
+
+    def test_escapa_cierres_de_script_del_contenido(self):
+        """Una tarjeta que contenga </script> no puede romper la página."""
+        html = build_estudio.render({"p": "mirá esto: </script><b>"}, "/*__DATOS__*/")
+        self.assertNotIn("</script>", html)
+        self.assertIn("<\\/script>", html)
+
+
+class TestArmarDatos(unittest.TestCase):
+    def test_integra_todo_y_no_deja_referencias_externas(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            m = _materia_temporal(Path(tmp), CLAUDE_OK)
+            (m / "cards" / "U6.md").write_text(
+                (FIXTURES / "cards-ejemplo.md").read_text(encoding="utf-8"), encoding="utf-8"
+            )
+            datos = build_estudio.armar_datos(m)
+            self.assertEqual(datos["materia"]["parcial"], "2026-12-07")
+            self.assertEqual(len(datos["mazos"]["U6"]), 2)
+            self.assertEqual(datos["temas"][0]["id"], "U6")
+            self.assertTrue(datos["avisos"])
+
+            plantilla = (RAIZ / "plantillas" / "estudio.html").read_text(encoding="utf-8")
+            html = build_estudio.render(datos, plantilla)
+            hallado = SIN_EXTERNOS.search(html)
+            self.assertIsNone(hallado, f"referencia externa: {hallado.group(0) if hallado else ''}")
+            self.assertIn("axioma de extensión", html)
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -189,3 +189,74 @@ def leer_sesiones(dir_out: Path, avisos: list[str]) -> list[dict]:
             continue
         sesiones.append(datos)
     return sesiones
+
+
+# --------------------------------------------------------------------------- #
+# Armado y render
+# --------------------------------------------------------------------------- #
+def armar_datos(dir_materia: Path) -> dict:
+    avisos: list[str] = []
+    mazos = leer_mazos(dir_materia / "cards", avisos)
+    return {
+        "materia": leer_materia(dir_materia, avisos),
+        "temas": leer_temas(dir_materia, mazos, avisos),
+        "mazos": mazos,
+        "sesiones": leer_sesiones(dir_materia / "out", avisos),
+        "avisos": avisos,
+    }
+
+
+def render(datos: dict, plantilla: str) -> str:
+    """Inyecta el JSON en la plantilla.
+
+    El escape de `</` es lo que impide que una tarjeta con `</script>` adentro
+    cierre el bloque antes de tiempo y rompa la página entera.
+    """
+    bruto = json.dumps(datos, ensure_ascii=False).replace("</", "<\\/")
+    return plantilla.replace(MARCADOR, bruto)
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser(description="Genera la página de estudio de una materia.")
+    ap.add_argument("materia", help="slug de la materia, p. ej. teoria-de-la-computacion")
+    ap.add_argument("--abrir", action="store_true", help="abre el HTML en el navegador")
+    args = ap.parse_args()
+
+    dir_materia = RAIZ / "materias" / "activas" / args.materia
+    if not dir_materia.is_dir():
+        sys.exit(f"error: no existe la materia {args.materia} en materias/activas/")
+    if not PLANTILLA.is_file():
+        sys.exit(f"error: falta la plantilla {PLANTILLA}")
+
+    datos = armar_datos(dir_materia)
+    destino = dir_materia / "out" / "estudio.html"
+    destino.parent.mkdir(parents=True, exist_ok=True)
+    destino.write_text(
+        render(datos, PLANTILLA.read_text(encoding="utf-8")), encoding="utf-8"
+    )
+
+    abierto = False
+    if args.abrir:
+        abierto = webbrowser.open(destino.as_uri())
+
+    for aviso in datos["avisos"]:
+        print(f"aviso: {aviso}", file=sys.stderr)
+    print(
+        json.dumps(
+            {
+                "html": str(destino),
+                "temas": len(datos["temas"]),
+                "tarjetas": sum(len(m) for m in datos["mazos"].values()),
+                "sesiones": len(datos["sesiones"]),
+                "abierto": abierto,
+                "avisos": datos["avisos"],
+            },
+            ensure_ascii=False,
+            indent=2,
+        )
+    )
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
