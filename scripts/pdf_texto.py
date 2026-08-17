@@ -155,7 +155,7 @@ def markdown_pagina(page, mapa_niveles: dict[float, int]) -> list[str]:
 # --------------------------------------------------------------------------- #
 def candidatas_pagina(page, fitz) -> list[dict]:
     n = page.number + 1
-    area_pag = abs(page.rect.get_area()) or 1.0
+    area_pag = abs(page.rect) or 1.0
     hallazgos: list[dict] = []
 
     # 1. Imágenes embebidas.
@@ -181,7 +181,7 @@ def candidatas_pagina(page, fitz) -> list[dict]:
     # y una línea suelta (regla, subrayado) no debe disparar nada.
     trazos = [
         d for d in page.get_drawings()
-        if abs(d["rect"].get_area()) < area_pag * 0.85
+        if abs(d["rect"]) < area_pag * 0.85
     ]
     segmentos = sum(len(d.get("items", ())) for d in trazos)
     if len(trazos) >= 3 and segmentos >= 12:
