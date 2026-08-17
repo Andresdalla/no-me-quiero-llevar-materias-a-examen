@@ -7,3 +7,11 @@
 | Página | Tipo | Unidad | Qué contiene |
 |---|---|---|---|
 | `fuentes/isa2-temario` | fuente | U1-U5 | ficha del temario oficial y su bibliografía |
+| `fuentes/ut1-calidad-devops` | fuente | U1 | ficha de las láminas de calidad y DevOps |
+| `modelos/principios-agiles` | modelo | U1 | los doce principios ágiles y sus límites |
+| `definiciones/calidad-de-software` | definicion | U1 | SWEBOK, ISO 25000, calidad como noción plural |
+| `modelos/iso25010` | modelo | U1 | nueve características de calidad de producto |
+| `definiciones/deuda-tecnica` | definicion | U1 | calidad interna, interés, impacto en reparación |
+| `definiciones/devops` | definicion | U1 | conflicto Dev/Ops y equipo co-responsable |
+| `modelos/tres-vias` | modelo | U1 | flujo, feedback, aprendizaje y experimentación |
+| `modelos/dora-core` | modelo | U1 | capacidades predicen rendimiento y resultados |

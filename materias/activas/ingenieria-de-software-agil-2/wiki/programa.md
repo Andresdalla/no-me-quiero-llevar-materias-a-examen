@@ -4,9 +4,9 @@
      Una entrada por unidad del temario oficial. Lo genera /nueva-materia. -->
 
 ## U1 · Introducción a DevOps
-- cobertura: sin-material
-- fuentes: []
-- paginas: []
+- cobertura: parcial
+- fuentes: [ut1-calidad-devops]
+- paginas: [modelos/principios-agiles, definiciones/calidad-de-software, modelos/iso25010, definiciones/deuda-tecnica, definiciones/devops, modelos/tres-vias, modelos/dora-core]
 - temas: agilidad, entrega continua y las tres vías; la primera vía (principios del flujo); la segunda vía (principios del feedback); la tercera vía (principios del aprendizaje y la experimentación continuas); DORA's software delivery metrics: the four keys
 
 ## U2 · Prácticas de entrega continua

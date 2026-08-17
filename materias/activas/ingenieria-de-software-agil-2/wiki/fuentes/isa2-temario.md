@@ -48,7 +48,8 @@ es exactamente lo que miden los RATs.
 
 ## Relacionado
 
-- [[programa.md]] — las cinco unidades con su cobertura.
+- `wiki/programa.md` — las cinco unidades con su cobertura.
+- [[fuentes/ut1-calidad-devops]] — las láminas que desarrollan U1.
 - `wiki/dudas.md` — la duda abierta sobre el desfasaje 2025-1C vs. 2026-2C.
 
 ## Procedencia
