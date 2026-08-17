@@ -163,3 +163,29 @@ def leer_temas(dir_materia: Path, mazos: dict[str, list[dict]], avisos: list[str
         )
     )
     return temas
+
+
+# --------------------------------------------------------------------------- #
+# Sesiones horneadas
+# --------------------------------------------------------------------------- #
+def leer_sesiones(dir_out: Path, avisos: list[str]) -> list[dict]:
+    """Sets de preguntas que /profesor y /simulacro dejaron listos.
+
+    Un archivo ilegible o sin `items` se saltea con aviso: una sesión rota no
+    puede impedir que el resto de la página se genere.
+    """
+    sesiones: list[dict] = []
+    carpeta = dir_out / ".build" / "sesiones"
+    if not carpeta.is_dir():
+        return sesiones
+    for archivo in sorted(carpeta.glob("*.json")):
+        try:
+            datos = json.loads(archivo.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, UnicodeDecodeError) as err:
+            avisos.append(f"sesiones/{archivo.name}: no se pudo leer ({err}), se salteó")
+            continue
+        if not isinstance(datos, dict) or not datos.get("items"):
+            avisos.append(f"sesiones/{archivo.name}: sin `items`, se salteó")
+            continue
+        sesiones.append(datos)
+    return sesiones

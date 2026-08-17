@@ -5,6 +5,7 @@ uso: .venv/bin/python -m unittest discover -s tests -v
 """
 from __future__ import annotations
 
+import json
 import sys
 import tempfile
 import unittest
@@ -156,6 +157,55 @@ class TestLeerTemas(unittest.TestCase):
             )
             temas = build_estudio.leer_temas(m, {"U6": []}, [])
             self.assertEqual(next(t for t in temas if t["id"] == "U6")["ultimo"], "2026-08-15")
+
+
+SESION_OK = {
+    "comando": "simulacro",
+    "modo": None,
+    "tema": "U6",
+    "generado": "2026-08-16",
+    "minutos": 90,
+    "items": [{"id": "s-01", "enunciado": "Justificá por qué `{1,2,2} = {2,1}`.", "puntos": 10}],
+}
+
+
+class TestLeerSesiones(unittest.TestCase):
+    def _dir(self, tmp: str) -> Path:
+        d = Path(tmp) / "out" / ".build" / "sesiones"
+        d.mkdir(parents=True)
+        return d
+
+    def test_sin_carpeta_devuelve_vacio(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            self.assertEqual(build_estudio.leer_sesiones(Path(tmp) / "out", []), [])
+
+    def test_levanta_una_sesion_valida(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            d = self._dir(tmp)
+            (d / "s1.json").write_text(json.dumps(SESION_OK), encoding="utf-8")
+            got = build_estudio.leer_sesiones(Path(tmp) / "out", [])
+            self.assertEqual(len(got), 1)
+            self.assertEqual(got[0]["tema"], "U6")
+            self.assertEqual(got[0]["items"][0]["puntos"], 10)
+
+    def test_json_roto_se_saltea_con_aviso(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            d = self._dir(tmp)
+            (d / "roto.json").write_text("{no es json", encoding="utf-8")
+            (d / "s1.json").write_text(json.dumps(SESION_OK), encoding="utf-8")
+            avisos: list[str] = []
+            got = build_estudio.leer_sesiones(Path(tmp) / "out", avisos)
+            self.assertEqual(len(got), 1)
+            self.assertTrue(any("roto.json" in a for a in avisos))
+
+    def test_sesion_sin_items_se_saltea(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            d = self._dir(tmp)
+            vacia = dict(SESION_OK, items=[])
+            (d / "vacia.json").write_text(json.dumps(vacia), encoding="utf-8")
+            avisos: list[str] = []
+            self.assertEqual(build_estudio.leer_sesiones(Path(tmp) / "out", avisos), [])
+            self.assertTrue(any("vacia.json" in a for a in avisos))
 
 
 if __name__ == "__main__":
