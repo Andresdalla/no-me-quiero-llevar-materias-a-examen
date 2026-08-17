@@ -76,8 +76,7 @@ y nada más. El diseño se retoca sin abrir Python.
   "materia": {
     "slug": "teoria-de-la-computacion",
     "nombre": "Teoría de la Computación",
-    "parcial": "2026-12-07",
-    "paginas": 44
+    "parcial": "2026-12-07"
   },
   "temas": [
     {"id": "U6", "nombre": "Cardinalidad y numerabilidad",
@@ -126,8 +125,13 @@ Bloque cercado, primera línea el comando. Para `/repasar`, una línea por tarje
 ```
 /repasar --registrar U6 2026-08-16
 c-U6-002 conf:5 fallo
+c-U6-007 conf:3 parcial
 c-U6-004 conf:4 ok
 ```
+
+La calificación es la escala de tres que ya usa `/repasar`: `ok` · `parcial` · `fallo`.
+La página no puede inventar una escala propia porque el `Visto` de `cards/*.md` se escribe
+con esos tres valores.
 
 Para `/profesor` y `/simulacro`, cada ítem abre con `## ` y su respuesta libre va debajo. El
 prefijo delimita los ítems sin que el texto escrito pueda colisionar:
@@ -160,7 +164,7 @@ Dos flags sobre comandos que ya existen, y un comando nuevo.
 
 | Comando | Archivos que anexa o actualiza |
 |---|---|
-| `/repasar --registrar` | `cards/<tema>.md` (campo `Visto`), `estado/historial.md`, `estado/calibracion.md`, `estado/repaso.md` |
+| `/repasar --registrar` | `cards/<tema>.md` (campo `Visto`), `estado/historial.md`, `estado/dominio.md`, `estado/calibracion.md` |
 | `/profesor --registrar` | `estado/quiz-log.md`, `estado/historial.md`, `estado/calibracion.md`, `estado/dominio.md`, `estado/errores.md` |
 | `/simulacro --registrar` | `estado/simulacros.md`, `estado/historial.md`, `estado/calibracion.md` |
 
