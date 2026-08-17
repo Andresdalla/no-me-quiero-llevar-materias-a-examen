@@ -220,8 +220,12 @@ class TestLeerSesiones(unittest.TestCase):
 
 
 # Solo contextos de carga: que una tarjeta mencione una URL en su texto no es
-# una referencia externa, pero un src/href/@import/url() sí lo es.
-SIN_EXTERNOS = re.compile(r'src="\s*http|href="\s*http|@import|url\(\s*[\'"]?http|//cdn')
+# una referencia externa, pero un src/href/@import/url() que apunta afuera sí.
+SIN_EXTERNOS = re.compile(
+    r"""(?:src|href)\s*=\s*['"]?\s*(?:https?:)?//"""
+    r"""|@import"""
+    r"""|url\(\s*['"]?\s*(?:https?:)?//"""
+)
 
 
 class TestPlantilla(unittest.TestCase):
@@ -238,6 +242,26 @@ class TestPlantilla(unittest.TestCase):
     def test_tiene_los_anclajes_que_busca_el_js(self):
         for ancla in ("id=\"temas\"", "id=\"comandos\"", "id=\"panel\"", "id=\"avisos\""):
             self.assertIn(ancla, self.html)
+
+    def test_sin_externos_detecta_referencias_de_carga_en_cualquier_forma(self):
+        deben_matchear = (
+            '<script src="https://cdn.example.com/x.js">',
+            "<script src='http://x/y.js'>",
+            "<link href=https://x/y.css>",
+            '<style>@import "x.css"</style>',
+            "background:url(//fonts.example.com/f.woff)",
+        )
+        for texto in deben_matchear:
+            self.assertIsNotNone(SIN_EXTERNOS.search(texto), f"no detectó: {texto}")
+
+        no_deben_matchear = (
+            '<a href="#temas">',
+            "url(#gradiente)",
+            "La fuente está en https://example.com/paper.pdf",
+        )
+        for texto in no_deben_matchear:
+            hallado = SIN_EXTERNOS.search(texto)
+            self.assertIsNone(hallado, f"falso positivo en: {texto} -> {hallado.group(0) if hallado else ''}")
 
 
 if __name__ == "__main__":
