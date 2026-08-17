@@ -75,3 +75,91 @@ def leer_mazos(dir_cards: Path, avisos: list[str]) -> dict[str, list[dict]]:
             archivo.read_text(encoding="utf-8"), f"cards/{archivo.name}", avisos
         )
     return mazos
+
+
+# --------------------------------------------------------------------------- #
+# Materia y temas
+# --------------------------------------------------------------------------- #
+TITULO = re.compile(r"^#\s+(.+?)\s*\(`", re.M)
+CUATRIMESTRE = re.compile(r"^-\s*cuatrimestre:\s*(\d{4})", re.M)
+FECHA_PARCIAL = re.compile(r"^-\s*parcial:.*?\b(\d{1,2})/(\d{1,2})\b", re.M)
+UNIDAD_PROGRAMA = re.compile(r"^##\s+(U\d+)\s*·\s*(.+?)\s*$", re.M)
+FILA_MAPA = re.compile(r"^\|[^|]*\|[^|]*\|\s*(U\d+)\s*\|", re.M)
+FILA_DOMINIO = re.compile(r"^\|\s*(U\d+)[^|]*\|\s*([0-5])\s*\|", re.M)
+FILA_HISTORIAL = re.compile(r"^\|\s*(\d{4}-\d{2}-\d{2})\s*\|\s*(U\d+)\s*\|", re.M)
+
+
+def _texto(archivo: Path) -> str:
+    return archivo.read_text(encoding="utf-8") if archivo.is_file() else ""
+
+
+def leer_materia(dir_materia: Path, avisos: list[str]) -> dict:
+    """Nombre y fecha de parcial desde el CLAUDE.md de la materia.
+
+    La fecha viene como `- parcial: **7/12, …**` (día/mes) y el año sale de
+    `- cuatrimestre: 2026-2C`. Si no se puede armar, queda None y el
+    encabezado omite la cuenta regresiva en vez de inventar un número.
+    """
+    texto = _texto(dir_materia / "CLAUDE.md")
+    titulo = TITULO.search(texto)
+    parcial = None
+    fecha, anio = FECHA_PARCIAL.search(texto), CUATRIMESTRE.search(texto)
+    if fecha and anio:
+        try:
+            parcial = date(int(anio.group(1)), int(fecha.group(2)), int(fecha.group(1))).isoformat()
+        except ValueError:
+            avisos.append(
+                f"fecha de parcial ilegible ({fecha.group(1)}/{fecha.group(2)}), "
+                "se omite la cuenta regresiva"
+            )
+    elif texto:
+        avisos.append("no se pudo leer `- parcial:` del CLAUDE.md de la materia")
+    return {
+        "slug": dir_materia.name,
+        "nombre": titulo.group(1) if titulo else dir_materia.name,
+        "parcial": parcial,
+    }
+
+
+def leer_temas(dir_materia: Path, mazos: dict[str, list[dict]], avisos: list[str]) -> list[dict]:
+    """Une programa, mapa, dominio e historial en la lista del sidebar.
+
+    Orden: primero los temas con tarjetas, por dominio ascendente (sin medir
+    va primero, porque no hay nada que informar sobre él) y a igual dominio
+    el que hace más días que no se toca. Al final, los temas sin tarjetas,
+    por número de unidad. No es una cola: es un orden de presentación.
+    """
+    programa = dict(UNIDAD_PROGRAMA.findall(_texto(dir_materia / "wiki" / "programa.md")))
+    paginas: dict[str, int] = {}
+    for unidad in FILA_MAPA.findall(_texto(dir_materia / "wiki" / "mapa.md")):
+        paginas[unidad] = paginas.get(unidad, 0) + 1
+    dominio = {u: int(d) for u, d in FILA_DOMINIO.findall(_texto(dir_materia / "estado" / "dominio.md"))}
+    ultimo: dict[str, str] = {}
+    for fecha, unidad in FILA_HISTORIAL.findall(_texto(dir_materia / "estado" / "historial.md")):
+        if fecha > ultimo.get(unidad, ""):
+            ultimo[unidad] = fecha
+
+    ids = sorted(set(programa) | set(paginas) | set(mazos), key=lambda u: int(u[1:]))
+    if not ids:
+        avisos.append("no se encontró ninguna unidad en programa.md ni en mapa.md")
+
+    temas = [
+        {
+            "id": u,
+            "nombre": programa.get(u, ""),
+            "dominio": dominio.get(u),
+            "ultimo": ultimo.get(u),
+            "tarjetas": len(mazos.get(u, [])),
+            "paginas": paginas.get(u, 0),
+        }
+        for u in ids
+    ]
+    temas.sort(
+        key=lambda t: (
+            t["tarjetas"] == 0,
+            -1 if t["dominio"] is None else t["dominio"],
+            t["ultimo"] or "",
+            int(t["id"][1:]),
+        )
+    )
+    return temas
