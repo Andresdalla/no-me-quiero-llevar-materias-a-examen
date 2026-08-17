@@ -6,6 +6,7 @@ uso: .venv/bin/python -m unittest discover -s tests -v
 from __future__ import annotations
 
 import json
+import re
 import sys
 import tempfile
 import unittest
@@ -216,6 +217,27 @@ class TestLeerSesiones(unittest.TestCase):
             got = build_estudio.leer_sesiones(Path(tmp) / "out", avisos)
             self.assertEqual(len(got), 1)
             self.assertTrue(any("carpeta.json" in a for a in avisos))
+
+
+# Solo contextos de carga: que una tarjeta mencione una URL en su texto no es
+# una referencia externa, pero un src/href/@import/url() sí lo es.
+SIN_EXTERNOS = re.compile(r'src="\s*http|href="\s*http|@import|url\(\s*[\'"]?http|//cdn')
+
+
+class TestPlantilla(unittest.TestCase):
+    def setUp(self):
+        self.html = (RAIZ / "plantillas" / "estudio.html").read_text(encoding="utf-8")
+
+    def test_tiene_el_marcador_de_datos(self):
+        self.assertIn("/*__DATOS__*/", self.html)
+
+    def test_no_tiene_referencias_externas(self):
+        hallado = SIN_EXTERNOS.search(self.html)
+        self.assertIsNone(hallado, f"referencia externa: {hallado.group(0) if hallado else ''}")
+
+    def test_tiene_los_anclajes_que_busca_el_js(self):
+        for ancla in ("id=\"temas\"", "id=\"comandos\"", "id=\"panel\"", "id=\"avisos\""):
+            self.assertIn(ancla, self.html)
 
 
 if __name__ == "__main__":
