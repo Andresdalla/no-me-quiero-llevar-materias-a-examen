@@ -181,7 +181,7 @@ def leer_sesiones(dir_out: Path, avisos: list[str]) -> list[dict]:
     for archivo in sorted(carpeta.glob("*.json")):
         try:
             datos = json.loads(archivo.read_text(encoding="utf-8"))
-        except (json.JSONDecodeError, UnicodeDecodeError) as err:
+        except (json.JSONDecodeError, UnicodeDecodeError, OSError) as err:
             avisos.append(f"sesiones/{archivo.name}: no se pudo leer ({err}), se salteó")
             continue
         if not isinstance(datos, dict) or not datos.get("items"):

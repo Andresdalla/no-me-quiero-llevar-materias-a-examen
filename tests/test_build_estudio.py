@@ -207,6 +207,16 @@ class TestLeerSesiones(unittest.TestCase):
             self.assertEqual(build_estudio.leer_sesiones(Path(tmp) / "out", avisos), [])
             self.assertTrue(any("vacia.json" in a for a in avisos))
 
+    def test_archivo_ilegible_se_saltea_con_aviso(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            d = self._dir(tmp)
+            (d / "carpeta.json").mkdir()
+            (d / "s1.json").write_text(json.dumps(SESION_OK), encoding="utf-8")
+            avisos: list[str] = []
+            got = build_estudio.leer_sesiones(Path(tmp) / "out", avisos)
+            self.assertEqual(len(got), 1)
+            self.assertTrue(any("carpeta.json" in a for a in avisos))
+
 
 if __name__ == "__main__":
     unittest.main()
