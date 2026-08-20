@@ -95,6 +95,165 @@ body.sesion #sidebar{overflow:hidden;padding:0;border-right:0}
 <script id="datos" type="application/json">/*__DATOS__*/</script>
 <script>
 const DATOS = JSON.parse(document.getElementById('datos').textContent);
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? '').replace(/[&<>]/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+const hoy = () => new Date().toISOString().slice(0, 10);
+
+/* `código entre backticks` → <code>, que es lo único que el markdown de las
+   tarjetas usa de verdad. No se interpreta nada más: el resto va escapado. */
+const marcar = (s) => esc(s).replace(/`([^`]+)`/g, '<code>$1</code>');
+
+/* ---------------- sidebar ---------------- */
+function pintarSidebar() {
+  $('marca').textContent = DATOS.materia.nombre;
+  const tarjetas = Object.values(DATOS.mazos).reduce((a, m) => a + m.length, 0);
+  $('cuenta').textContent = `${DATOS.temas.length} temas · ${tarjetas} tarjetas`;
+
+  $('temas').innerHTML = DATOS.temas.map((t) => {
+    const dom = t.dominio === null ? '—' : `${t.dominio}/5`;
+    if (!t.tarjetas) {
+      return `<div class="rl mudo" title="sin tarjetas todavía">
+        <span>${esc(t.id)}</span><span class="n">—</span></div>`;
+    }
+    return `<button class="rl" data-tema="${esc(t.id)}" onclick="abrirRepaso('${esc(t.id)}')">
+      <span>${esc(t.id)} · dominio ${dom}</span><span class="n">${t.tarjetas}</span></button>`;
+  }).join('');
+
+  const tema = (DATOS.temas.find((t) => t.tarjetas) || {}).id || '';
+  const slug = DATOS.materia.slug;
+  const cmds = [
+    `/repasar ${tema} --materia ${slug}`,
+    `/profesor ${tema} hueco`,
+    `/simulacro ${slug} --unidades ${tema}`,
+    `/machete ${tema}`,
+    `/estado ${slug}`,
+  ];
+  $('comandos').innerHTML = cmds.map((c) =>
+    `<button class="rl mudo" style="cursor:pointer"
+       onclick="copiar(${JSON.stringify(c)}, this)">${esc(c.split(' ')[0])}</button>`
+  ).join('');
+
+  $('avisos').innerHTML = DATOS.avisos.length
+    ? `<strong>Al generar esta página:</strong><ul>${
+        DATOS.avisos.map((a) => `<li>${esc(a)}</li>`).join('')}</ul>`
+    : '';
+}
+
+/* ---------------- portapapeles ---------------- */
+function copiar(texto, boton) {
+  navigator.clipboard.writeText(texto).then(() => {
+    const antes = boton.textContent;
+    boton.textContent = 'copiado ✓';
+    setTimeout(() => { boton.textContent = antes; }, 1400);
+  });
+}
+
+/* ---------------- orden del mazo ---------------- */
+/* Intercala solo los grupos ligados por Confundible_con. Fuera de esos grupos
+   no se mezcla: el intercalado sirve cuando los ítems compiten entre sí. */
+function ordenar(mazo) {
+  const porId = new Map(mazo.map((t) => [t.id, t]));
+  const usadas = new Set();
+  const grupos = [];
+  for (const t of mazo) {
+    if (usadas.has(t.id)) continue;
+    const grupo = [t];
+    usadas.add(t.id);
+    for (const id of t.confundible) {
+      const otra = porId.get(id);
+      if (otra && !usadas.has(otra.id)) { grupo.push(otra); usadas.add(otra.id); }
+    }
+    grupos.push(grupo);
+  }
+  /* Una tarjeta de cada grupo por ronda: los confundibles quedan separados por
+     el resto de los grupos, ni pegados ni lejísimos. */
+  const salida = [];
+  const largo = grupos.reduce((m, g) => Math.max(m, g.length), 0);
+  for (let ronda = 0; ronda < largo; ronda++) {
+    for (const g of grupos) if (g[ronda]) salida.push(g[ronda]);
+  }
+  return salida;
+}
+
+/* ---------------- sesión de repaso ---------------- */
+let sesion = null;
+
+function abrirRepaso(tema) {
+  sesion = { tema, cola: ordenar(DATOS.mazos[tema] || []), i: 0, conf: null, res: [] };
+  document.body.classList.add('sesion');
+  pintarTarjeta();
+}
+
+function pintarTarjeta() {
+  const t = sesion.cola[sesion.i];
+  if (!t) return pintarCierre();
+  $('panel').innerHTML = `
+    <div class="tarjeta">
+      <div class="cab">
+        <span class="chip" data-tipo="${esc(t.tipo)}">${esc(t.tipo)}</span>
+        <span class="contador">${sesion.i + 1} de ${sesion.cola.length} · ${esc(sesion.tema)}</span>
+      </div>
+      <p class="pregunta">${marcar(t.p)}</p>
+      <div id="paso-conf">
+        <div class="etiqueta">Confianza antes de revelar</div>
+        <div class="seg" id="conf">
+          ${[1,2,3,4,5].map((n) => `<button onclick="elegirConf(${n},this)">${n}</button>`).join('')}
+        </div>
+      </div>
+      <div id="paso-resp" hidden>
+        <div class="respuesta">${marcar(t.r)}</div>
+        <div class="fuente">${esc(t.fuente)}</div>
+        <div class="acciones">
+          <button class="btn p" onclick="calificar('ok')">Lo sabía</button>
+          <button class="btn" onclick="calificar('parcial')">A medias</button>
+          <button class="btn" onclick="calificar('fallo')">No lo sabía</button>
+        </div>
+      </div>
+    </div>`;
+}
+
+function elegirConf(n, boton) {
+  sesion.conf = n;
+  [...boton.parentElement.children].forEach((b) => b.classList.remove('on'));
+  boton.classList.add('on');
+  $('paso-conf').hidden = true;
+  $('paso-resp').hidden = false;
+}
+
+function calificar(resultado) {
+  sesion.res.push({ id: sesion.cola[sesion.i].id, conf: sesion.conf, resultado });
+  sesion.i += 1;
+  sesion.conf = null;
+  pintarTarjeta();
+}
+
+function pintarCierre() {
+  const cuenta = (r) => sesion.res.filter((x) => x.resultado === r).length;
+  const bloque = [`/repasar --registrar ${sesion.tema} ${hoy()}`]
+    .concat(sesion.res.map((r) => `${r.id} conf:${r.conf} ${r.resultado}`))
+    .join('\n');
+  $('panel').innerHTML = `
+    <div class="tarjeta">
+      <div class="cab">
+        <span class="chip">sesión terminada</span>
+        <span class="contador">${sesion.res.length} tarjetas · ${esc(sesion.tema)}</span>
+      </div>
+      <p class="pregunta">${cuenta('ok')} ok · ${cuenta('parcial')} parcial · ${cuenta('fallo')} fallo</p>
+      <div class="etiqueta">Pegá esto en Claude Code para que quede registrado.</div>
+      <div class="acciones">
+        <button class="btn p" onclick="copiar(${JSON.stringify(bloque)}, this)">Copiar resultado</button>
+        <button class="btn" onclick="salir()">Volver</button>
+      </div>
+    </div>`;
+}
+
+function salir() {
+  document.body.classList.remove('sesion');
+  sesion = null;
+  $('panel').innerHTML = '';
+}
+
+pintarSidebar();
 </script>
 </body>
 </html>

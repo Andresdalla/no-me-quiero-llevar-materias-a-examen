@@ -4,7 +4,9 @@
 
 - cuatrimestre: `<AAAA-#C>` · schema_version: 1 · perfilado: `provisional | definitivo`
 - evaluación: `<escrito | oral | múltiple choice | proyecto>`
-- parcial 1: `<fecha>` · parcial 2: `<fecha>` · recuperatorio: `<fecha>` · final: `<fecha>`
+
+<!-- Sin fechas de parcial. Si igual querés anotarlas acá son dato de referencia:
+     ningún comando cuenta días que faltan ni prioriza por proximidad. -->
 - correlativas: previas `<...>` · posteriores `<...>`
 
 ## Tipos activos

@@ -18,11 +18,11 @@ Si imprime `YA EXISTE`, frená y avisá. No sobrescribas una materia existente.
 
 ## 2. Pedir los datos de cursada
 
-Preguntá en **un solo mensaje** y esperá la respuesta:
+Preguntá en **un solo mensaje** y esperá la respuesta. **No preguntes fechas de parcial,
+recuperatorio ni final**: este sistema no gestiona calendario.
 
 - Nombre completo de la materia y cátedra.
 - Cuatrimestre y año (ej. `2026-2C`).
-- Fechas: parcial 1, parcial 2, recuperatorio, final.
 - Modalidad de evaluación: escrito · oral · múltiple choice · proyecto (puede ser mixta).
 - Correlativas que ya cursó y que dependen de esta.
 
@@ -95,8 +95,8 @@ En `materias/activas/$1/CLAUDE.md`, máximo 60 líneas:
 ```markdown
 # <Nombre completo> (`$1`)
 
-- cuatrimestre: 2026-2C · schema_version: 1 · perfilado: definitivo|provisional
-- evaluación: <modalidad> · parcial 1: <fecha> · parcial 2: <fecha> · final: <fecha>
+- cuatrimestre: 2026-2C · schema_version: 2 · perfilado: definitivo|provisional
+- evaluación: <modalidad>
 
 ## Tipos activos
 | Tipo | Alias de cátedra | Por qué |

@@ -6,7 +6,7 @@ argument-hint: [materia]
 # /lint $1
 
 Auditoría. **Reporta; no corrige nada sin confirmación explícita.**
-Corrélo antes de cada parcial y cada 5 ingestas.
+Corrélo cada 5 ingestas, y cuando quieras saber en qué estado real está el wiki.
 
 Trabajá con `grep`/`ls` sobre el árbol. **No abras las páginas** salvo para confirmar un
 hallazgo concreto, y en ese caso solo las señaladas.
@@ -19,7 +19,8 @@ hallazgo concreto, y en ese caso solo las señaladas.
 ```bash
 grep -A1 "^## U" $M/wiki/programa.md | grep -B1 "cobertura: sin-material"
 ```
-Reportá cada unidad y, si hay fecha de parcial cerca, marcala 🔴.
+Reportá cada unidad. **La severidad no depende de ninguna fecha**: una unidad sin material
+es igual de crítica en marzo que en diciembre.
 
 ### 2. Páginas huérfanas (sin enlaces entrantes)
 Listá los slugs y buscá quién los enlaza:
@@ -101,7 +102,7 @@ ls $M/raw/examenes/_reservado/ 2>/dev/null | wc -l
 
 Si hay **2 o más exámenes procesados y la reserva está vacía**, reportalo: el próximo
 simulacro no va a medir nada porque ya viste todas las consignas. Sugerí reservar el más
-reciente.
+reciente. Es un problema de medición, no de calendario: no lo ates a ninguna fecha.
 
 ### 12. Reglas de verificación por tipo
 Para cada tipo activo, aplicá su regla de `plantillas/catalogo.md`. Las más rendidoras:
@@ -154,7 +155,7 @@ Una tabla, ordenada por severidad:
 ```
 🔴 CRÍTICO  2 consignas ya tomadas sin cubrir     → e2024p1-q5 (U6), e2023p2-q1 (U7)
 🔴 CRÍTICO  4 páginas sin ninguna fuente          → conceptos/…, teoremas/…
-🔴 CRÍTICO  U5 sin material · parcial en 6 días
+🔴 CRÍTICO  2 unidades sin material                → U5, U8
 🟡 REVISAR  3 enlaces rotos                       → [[teoremas/rice]]
 🟡 REVISAR  2 páginas >150 líneas
 🟡 REVISAR  5 páginas escritas como fichas         → definiciones/conjunto, …

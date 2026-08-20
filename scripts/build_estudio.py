@@ -6,9 +6,11 @@ out/.build/sesiones/, y los inyecta como un único bloque JSON dentro de
 plantillas/estudio.html. El resultado abre con doble click, sin servidor y
 sin conexión.
 
-Degrada con elegancia: una tarjeta malformada se saltea con aviso, un tema sin
-tarjetas aparece igual, y una fecha de parcial ilegible solo quita la cuenta
-regresiva. Nunca falla entero.
+Sirve tanto a las materias con temario, cuyos temas son unidades `U1..Un`,
+como a las de programa emergente, cuyos ejes son slugs (`microservicios`).
+
+Degrada con elegancia: una tarjeta malformada se saltea con aviso y un tema sin
+tarjetas aparece igual. Nunca falla entero.
 
 uso: .venv/bin/python scripts/build_estudio.py teoria-de-la-computacion --abrir
 """
@@ -19,7 +21,6 @@ import json
 import re
 import sys
 import webbrowser
-from datetime import date
 from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
@@ -81,67 +82,92 @@ def leer_mazos(dir_cards: Path, avisos: list[str]) -> dict[str, list[dict]]:
 # Materia y temas
 # --------------------------------------------------------------------------- #
 TITULO = re.compile(r"^#\s+(.+?)\s*\(`", re.M)
-CUATRIMESTRE = re.compile(r"^-\s*cuatrimestre:\s*(\d{4})", re.M)
-FECHA_PARCIAL = re.compile(r"^-\s*parcial:.*?\b(\d{1,2})/(\d{1,2})\b", re.M)
-UNIDAD_PROGRAMA = re.compile(r"^##\s+(U\d+)\s*·\s*(.+?)\s*$", re.M)
-FILA_MAPA = re.compile(r"^\|[^|]*\|[^|]*\|\s*(U\d+)\s*\|", re.M)
-FILA_DOMINIO = re.compile(r"^\|\s*(U\d+)[^|]*\|\s*([0-5])\s*\|", re.M)
-FILA_HISTORIAL = re.compile(r"^\|\s*(\d{4}-\d{2}-\d{2})\s*\|\s*(U\d+)\s*\|", re.M)
+
+# Un identificador de tema es `U3` (materia con temario) o `microservicios` (eje
+# emergente). Tiene que empezar con alfanumérico: si admitiera guiones al frente,
+# la fila separadora `|---|---|---|` de una tabla markdown pasaría por tema.
+TEMA = r"[^\W_][\w-]*"
+CABEZA_PROGRAMA = re.compile(rf"^##\s+({TEMA})(?:\s*·\s*(.+?))?\s*$", re.M)
+FILA_MAPA = re.compile(rf"^\|\s*`?[\w-]+/[\w-]+`?\s*\|[^|]*\|\s*({TEMA})\s*\|", re.M)
+FILA_DOMINIO = re.compile(rf"^\|\s*({TEMA})[^|]*\|\s*([0-5])\s*\|", re.M)
+FILA_HISTORIAL = re.compile(rf"^\|\s*(\d{{4}}-\d{{2}}-\d{{2}})\s*\|\s*({TEMA})\s*\|", re.M)
+UNIDAD_NUMERADA = re.compile(r"^U(\d+)$")
+
+
+def orden_tema(ident: str) -> tuple[int, int, str]:
+    """Clave de orden que mezcla unidades numeradas y ejes con slug.
+
+    Las `U<n>` van primero y por número —el orden del temario significa algo—;
+    los slugs después y alfabéticos, porque un programa emergente no tiene orden
+    propio que respetar.
+    """
+    m = UNIDAD_NUMERADA.match(ident)
+    return (0, int(m.group(1)), "") if m else (1, 0, ident)
 
 
 def _texto(archivo: Path) -> str:
     return archivo.read_text(encoding="utf-8") if archivo.is_file() else ""
 
 
-def leer_materia(dir_materia: Path, avisos: list[str]) -> dict:
-    """Nombre y fecha de parcial desde el CLAUDE.md de la materia.
+def leer_materia(dir_materia: Path) -> dict:
+    """Nombre de la materia desde su CLAUDE.md.
 
-    La fecha viene como `- parcial: **7/12, …**` (día/mes) y el año sale de
-    `- cuatrimestre: 2026-2C`. Si no se puede armar, queda None y el
-    encabezado omite la cuenta regresiva en vez de inventar un número.
+    No lee ninguna fecha de evaluación: la página de estudio no cuenta días que
+    faltan para nada.
     """
-    texto = _texto(dir_materia / "CLAUDE.md")
-    titulo = TITULO.search(texto)
-    parcial = None
-    fecha, anio = FECHA_PARCIAL.search(texto), CUATRIMESTRE.search(texto)
-    if fecha and anio:
-        try:
-            parcial = date(int(anio.group(1)), int(fecha.group(2)), int(fecha.group(1))).isoformat()
-        except ValueError:
-            avisos.append(
-                f"fecha de parcial ilegible ({fecha.group(1)}/{fecha.group(2)}), "
-                "se omite la cuenta regresiva"
-            )
-    elif texto:
-        avisos.append("no se pudo leer `- parcial:` del CLAUDE.md de la materia")
+    titulo = TITULO.search(_texto(dir_materia / "CLAUDE.md"))
     return {
         "slug": dir_materia.name,
         "nombre": titulo.group(1) if titulo else dir_materia.name,
-        "parcial": parcial,
     }
+
+
+def leer_programa(archivo: Path) -> dict[str, str]:
+    """`## U3 · Título` o `## microservicios` → `{id: título}`.
+
+    Solo cuenta un encabezado si abajo tiene una entrada de verdad, que se
+    reconoce por su línea `- fuentes:`. Sin ese filtro, un `## Bibliografía` al
+    final del programa entraría al sidebar como tema fantasma.
+    """
+    texto = _texto(archivo)
+    marcas = list(CABEZA_PROGRAMA.finditer(texto))
+    entradas: dict[str, str] = {}
+    for i, m in enumerate(marcas):
+        fin = marcas[i + 1].start() if i + 1 < len(marcas) else len(texto)
+        if "- fuentes:" in texto[m.end():fin]:
+            entradas[m.group(1)] = (m.group(2) or "").strip()
+    return entradas
 
 
 def leer_temas(dir_materia: Path, mazos: dict[str, list[dict]], avisos: list[str]) -> list[dict]:
     """Une programa, mapa, dominio e historial en la lista del sidebar.
 
+    Los temas salen del programa y de los mazos; el mapa solo aporta el conteo
+    de páginas de cada uno.
+
     Orden: primero los temas con tarjetas, por dominio ascendente (sin medir
     va primero, porque no hay nada que informar sobre él) y a igual dominio
     el que hace más días que no se toca. Al final, los temas sin tarjetas,
-    por número de unidad. No es una cola: es un orden de presentación.
+    por `orden_tema`. No es una cola: es un orden de presentación.
     """
-    programa = dict(UNIDAD_PROGRAMA.findall(_texto(dir_materia / "wiki" / "programa.md")))
+    programa = leer_programa(dir_materia / "wiki" / "programa.md")
+    ids = sorted(set(programa) | set(mazos), key=orden_tema)
+
+    # El mapa solo suma páginas a temas que ya existen. Su columna de tema
+    # también admite marcadores transversales —`todas`, `U1-U5`— que describen
+    # el alcance de una página, no un tema del sidebar.
     paginas: dict[str, int] = {}
     for unidad in FILA_MAPA.findall(_texto(dir_materia / "wiki" / "mapa.md")):
-        paginas[unidad] = paginas.get(unidad, 0) + 1
+        if unidad in programa or unidad in mazos:
+            paginas[unidad] = paginas.get(unidad, 0) + 1
     dominio = {u: int(d) for u, d in FILA_DOMINIO.findall(_texto(dir_materia / "estado" / "dominio.md"))}
     ultimo: dict[str, str] = {}
     for fecha, unidad in FILA_HISTORIAL.findall(_texto(dir_materia / "estado" / "historial.md")):
         if fecha > ultimo.get(unidad, ""):
             ultimo[unidad] = fecha
 
-    ids = sorted(set(programa) | set(paginas) | set(mazos), key=lambda u: int(u[1:]))
     if not ids:
-        avisos.append("no se encontró ninguna unidad en programa.md ni en mapa.md")
+        avisos.append("no se encontró ningún tema en programa.md ni en mapa.md")
 
     temas = [
         {
@@ -159,7 +185,7 @@ def leer_temas(dir_materia: Path, mazos: dict[str, list[dict]], avisos: list[str
             t["tarjetas"] == 0,
             -1 if t["dominio"] is None else t["dominio"],
             t["ultimo"] or "",
-            int(t["id"][1:]),
+            orden_tema(t["id"]),
         )
     )
     return temas
@@ -198,7 +224,7 @@ def armar_datos(dir_materia: Path) -> dict:
     avisos: list[str] = []
     mazos = leer_mazos(dir_materia / "cards", avisos)
     return {
-        "materia": leer_materia(dir_materia, avisos),
+        "materia": leer_materia(dir_materia),
         "temas": leer_temas(dir_materia, mazos, avisos),
         "mazos": mazos,
         "sesiones": leer_sesiones(dir_materia / "out", avisos),

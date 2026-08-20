@@ -12,7 +12,7 @@ Es la medición más cercana a la condición real, y por eso pesa más que cualq
 
 ## 1. Elegir el examen
 
-**Con `--reservado`** (unos días antes del parcial real):
+**Con `--reservado`** (cuando quieras una medición limpia, típicamente la última):
 
 ```bash
 ls materias/activas/<materia>/raw/examenes/_reservado/

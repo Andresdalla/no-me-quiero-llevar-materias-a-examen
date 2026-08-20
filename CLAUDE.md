@@ -140,6 +140,12 @@ actualizado: 2026-08-15
 - Tarjetas y preguntas **solo** desde secciones con fuente. Lo elaborado por el sistema
   nunca se evalúa.
 - Sin scheduler: no hay colas, vencimientos, rachas ni deuda. El usuario elige qué y cuándo.
+- **Las fechas de evaluación son dato de referencia, nunca insumo de prioridad.** Una materia
+  puede declararlas en su `CLAUDE.md` y ahí se quedan: ningún comando cuenta cuántos días
+  faltan, ordena por proximidad ni sube la severidad de un hallazgo porque se acerca un parcial.
+  Esto es sobre el calendario, no sobre la evaluación: la evidencia de **formato**
+  (`wiki/examenes/patron.md`, `/simulacro`, `/profesor parcial`) dice cómo evalúa la cátedra y
+  sigue valiendo entera.
 - El sistema informa ("hace 9 días que no tocás X") y sugiere. Nunca presiona.
 - Intercalar solo ítems confundibles entre sí, nunca temas no relacionados.
 - Pedir la confianza **antes** de revelar la respuesta, nunca después.
@@ -154,3 +160,5 @@ actualizado: 2026-08-15
 - **Poner contenido en `global/`.** Solo enlaces.
 - **Parafrasear un enunciado formal.** Se transcribe o no se pone.
 - **Leer el wiki entero "para tener contexto".** Ruteá por `mapa.md`.
+- **Derivar urgencia de una fecha.** Ni cuentas regresivas, ni prioridad por proximidad, ni
+  severidad que sube porque se viene un parcial.

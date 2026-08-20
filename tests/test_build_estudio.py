@@ -68,7 +68,9 @@ def _materia_temporal(raiz: Path, claude_md: str) -> Path:
     (m / "cards").mkdir()
     (m / "CLAUDE.md").write_text(claude_md, encoding="utf-8")
     (m / "wiki" / "programa.md").write_text(
-        "# Programa\n\n## U6 · Cardinalidad y numerabilidad\n## U7 · Indecidibilidad\n",
+        "# Programa\nmodo: temario\n\n"
+        "## U6 · Cardinalidad y numerabilidad\n- fuentes: []\n\n"
+        "## U7 · Indecidibilidad\n- fuentes: []\n",
         encoding="utf-8",
     )
     (m / "wiki" / "mapa.md").write_text(
@@ -88,30 +90,22 @@ CLAUDE_OK = (
 
 
 class TestLeerMateria(unittest.TestCase):
-    def test_nombre_y_fecha_de_parcial(self):
+    def test_lee_el_nombre_y_el_slug(self):
         with tempfile.TemporaryDirectory() as tmp:
             m = _materia_temporal(Path(tmp), CLAUDE_OK)
-            datos = build_estudio.leer_materia(m, [])
+            datos = build_estudio.leer_materia(m)
             self.assertEqual(datos["nombre"], "Teoría de la Computación")
-            self.assertEqual(datos["parcial"], "2026-12-07")
             self.assertEqual(datos["slug"], "materia-test")
 
-    def test_fecha_imposible_no_explota_y_avisa(self):
-        malo = CLAUDE_OK.replace("7/12", "31/2")
-        with tempfile.TemporaryDirectory() as tmp:
-            m = _materia_temporal(Path(tmp), malo)
-            avisos: list[str] = []
-            datos = build_estudio.leer_materia(m, avisos)
-            self.assertIsNone(datos["parcial"])
-            self.assertTrue(any("parcial" in a for a in avisos))
+    def test_ignora_las_fechas_de_evaluacion_del_claude_md(self):
+        """El CLAUDE.md de arriba declara un parcial: no tiene que llegar a los datos.
 
-    def test_sin_linea_de_parcial_avisa_y_sigue(self):
-        sin = "# Materia Test (`materia-test`)\n\n- cuatrimestre: 2026-2C\n"
+        Las fechas son dato de referencia de la materia, nunca insumo de la
+        página de estudio.
+        """
         with tempfile.TemporaryDirectory() as tmp:
-            m = _materia_temporal(Path(tmp), sin)
-            avisos: list[str] = []
-            self.assertIsNone(build_estudio.leer_materia(m, avisos)["parcial"])
-            self.assertTrue(avisos)
+            datos = build_estudio.leer_materia(_materia_temporal(Path(tmp), CLAUDE_OK))
+            self.assertEqual(set(datos), {"slug", "nombre"})
 
 
 class TestLeerTemas(unittest.TestCase):
@@ -158,6 +152,112 @@ class TestLeerTemas(unittest.TestCase):
             )
             temas = build_estudio.leer_temas(m, {"U6": []}, [])
             self.assertEqual(next(t for t in temas if t["id"] == "U6")["ultimo"], "2026-08-15")
+
+
+class TestProgramaEmergente(unittest.TestCase):
+    """Una materia sin temario nombra sus ejes con slug en vez de `U<n>`."""
+
+    def _materia(self, tmp: str, programa: str, mapa: str) -> Path:
+        m = _materia_temporal(Path(tmp), CLAUDE_OK)
+        (m / "wiki" / "programa.md").write_text(programa, encoding="utf-8")
+        (m / "wiki" / "mapa.md").write_text(mapa, encoding="utf-8")
+        return m
+
+    def test_los_ejes_con_slug_son_temas(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            m = self._materia(
+                tmp,
+                "# Programa\nmodo: emergente\n\n"
+                "## microservicios\n- fuentes: [fowler-cap2]\n\n"
+                "## calidad-y-atributos\n- fuentes: [clase-01]\n",
+                "| Página | Tipo | Tema | Qué contiene |\n|---|---|---|---|\n"
+                "| `conceptos/saga` | concepto | microservicios | Transacción distribuida |\n",
+            )
+            temas = build_estudio.leer_temas(m, {}, [])
+            self.assertEqual(
+                [t["id"] for t in temas], ["calidad-y-atributos", "microservicios"]
+            )
+            micro = next(t for t in temas if t["id"] == "microservicios")
+            self.assertEqual(micro["paginas"], 1)
+            self.assertEqual(micro["nombre"], "")
+
+    def test_las_unidades_numeradas_van_antes_que_los_slugs(self):
+        """Una materia puede quedar mixta durante una migración: el orden no puede explotar."""
+        with tempfile.TemporaryDirectory() as tmp:
+            m = self._materia(
+                tmp,
+                "# Programa\n\n## U10 · Décima\n- fuentes: []\n\n"
+                "## U2 · Segunda\n- fuentes: []\n\n"
+                "## microservicios\n- fuentes: []\n\n"
+                "## arquitectura\n- fuentes: []\n",
+                "| Página | Tipo | Tema | Qué contiene |\n|---|---|---|---|\n",
+            )
+            temas = build_estudio.leer_temas(m, {}, [])
+            self.assertEqual(
+                [t["id"] for t in temas], ["U2", "U10", "arquitectura", "microservicios"]
+            )
+
+    def test_la_fila_separadora_del_mapa_no_es_un_tema(self):
+        """Regresión: aceptar slugs hace que `|---|---|---|` sea candidato a tema."""
+        with tempfile.TemporaryDirectory() as tmp:
+            m = self._materia(
+                tmp,
+                "# Programa\nmodo: emergente\n\n## microservicios\n- fuentes: []\n",
+                "| Página | Tipo | Tema | Qué contiene |\n|---|---|---|---|\n"
+                "| `conceptos/saga` | concepto | microservicios | Transacción distribuida |\n",
+            )
+            self.assertEqual(
+                [t["id"] for t in build_estudio.leer_temas(m, {}, [])], ["microservicios"]
+            )
+
+    def test_un_encabezado_sin_entrada_no_es_un_tema(self):
+        """`## Bibliografía` al final del programa no es un eje de estudio."""
+        with tempfile.TemporaryDirectory() as tmp:
+            m = self._materia(
+                tmp,
+                "# Programa\nmodo: emergente\n\n"
+                "## microservicios\n- fuentes: []\n\n## Bibliografía\n- Fowler, 2019\n",
+                "| Página | Tipo | Tema | Qué contiene |\n|---|---|---|---|\n",
+            )
+            self.assertEqual(
+                [t["id"] for t in build_estudio.leer_temas(m, {}, [])], ["microservicios"]
+            )
+
+    def test_un_marcador_transversal_del_mapa_no_es_un_tema(self):
+        """La columna de tema del mapa admite `todas` y rangos: describen alcance."""
+        with tempfile.TemporaryDirectory() as tmp:
+            m = self._materia(
+                tmp,
+                "# Programa\nmodo: temario\n\n## U1 · Primera\n- fuentes: []\n",
+                "| Página | Tipo | Unidad | Qué contiene |\n|---|---|---|---|\n"
+                "| `fuentes/temario` | fuente | todas | Ficha del temario oficial |\n"
+                "| `conceptos/x` | concepto | U1-U5 | Atraviesa media materia |\n"
+                "| `conceptos/y` | concepto | U1 | Una sola unidad |\n",
+            )
+            temas = build_estudio.leer_temas(m, {}, [])
+            self.assertEqual([t["id"] for t in temas], ["U1"])
+            self.assertEqual(temas[0]["paginas"], 1)
+
+    def test_el_dominio_de_un_eje_con_slug_se_lee(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            m = self._materia(
+                tmp,
+                "# Programa\nmodo: emergente\n\n## microservicios\n- fuentes: []\n",
+                "| Página | Tipo | Tema | Qué contiene |\n|---|---|---|---|\n",
+            )
+            (m / "estado" / "dominio.md").write_text(
+                "| Tema | Dominio | Última evaluación |\n|---|---|---|\n"
+                "| microservicios | 2 | 2026-08-18 |\n",
+                encoding="utf-8",
+            )
+            (m / "estado" / "historial.md").write_text(
+                "| Fecha | Tema | Tipo | Resultado |\n|---|---|---|---|\n"
+                "| 2026-08-18 | microservicios | repaso | 9 tarjetas |\n",
+                encoding="utf-8",
+            )
+            tema = build_estudio.leer_temas(m, {}, [])[0]
+            self.assertEqual(tema["dominio"], 2)
+            self.assertEqual(tema["ultimo"], "2026-08-18")
 
 
 SESION_OK = {
@@ -263,6 +363,26 @@ class TestPlantilla(unittest.TestCase):
             hallado = SIN_EXTERNOS.search(texto)
             self.assertIsNone(hallado, f"falso positivo en: {texto} -> {hallado.group(0) if hallado else ''}")
 
+    def test_la_respuesta_nace_oculta(self):
+        """La confianza se pide antes de revelar; si el panel no nace hidden, no se cumple."""
+        self.assertIn('id="paso-resp" hidden', self.html)
+
+    def test_ofrece_los_cinco_niveles_de_confianza(self):
+        self.assertIn("[1,2,3,4,5].map", self.html)
+
+    def test_usa_la_escala_de_tres_niveles(self):
+        for grado in ("'ok'", "'parcial'", "'fallo'"):
+            self.assertIn(f"calificar({grado})", self.html)
+
+    def test_el_sidebar_se_colapsa_en_sesion(self):
+        self.assertIn("body.sesion #app", self.html)
+        self.assertIn("classList.add('sesion')", self.html)
+
+    def test_el_sidebar_no_cuenta_dias_para_ninguna_evaluacion(self):
+        """Sin cuenta regresiva: la página informa lo que hay, no lo que falta."""
+        for prohibido in ("parcial en ", "ya rendido", "materia.parcial"):
+            self.assertNotIn(prohibido, self.html)
+
 
 class TestRender(unittest.TestCase):
     def test_reemplaza_el_marcador_por_el_json(self):
@@ -285,7 +405,7 @@ class TestArmarDatos(unittest.TestCase):
                 (FIXTURES / "cards-ejemplo.md").read_text(encoding="utf-8"), encoding="utf-8"
             )
             datos = build_estudio.armar_datos(m)
-            self.assertEqual(datos["materia"]["parcial"], "2026-12-07")
+            self.assertNotIn("parcial", datos["materia"])
             self.assertEqual(len(datos["mazos"]["U6"]), 2)
             self.assertEqual(datos["temas"][0]["id"], "U6")
             self.assertTrue(datos["avisos"])

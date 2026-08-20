@@ -1,5 +1,5 @@
 ---
-description: Tablero compacto de una materia: cobertura, dominio, días al parcial y una recomendación
+description: Tablero compacto de una materia: cobertura, dominio, actividad y una recomendación
 argument-hint: [materia]
 ---
 
@@ -27,7 +27,9 @@ find $M/wiki -name '*.md' | wc -l                        # páginas
 ```
 
 Dominio promedio y temas en rojo (`≤2`) salen de `estado/dominio.md`.
-Los días al parcial salen de las fechas del `CLAUDE.md` de la materia contra la fecha de hoy.
+
+**No leas ninguna fecha de evaluación del `CLAUDE.md` de la materia.** Este tablero no cuenta
+días que faltan para nada.
 
 Para la capa de estudio:
 
@@ -52,7 +54,7 @@ Cobertura     5/8 unidades · pero solo 55% del puntaje histórico (falta U3, va
 ## Formato de salida
 
 ```
-TEORÍA DE LA COMPUTACIÓN · 2026-2C · parcial 2 en 11 días
+TEORÍA DE LA COMPUTACIÓN · 2026-2C
 
 Programa      ████████░░░░  5/8 unidades cubiertas · 1 parcial · 2 sin material
 Dominio       ███████░░░░░  2.8 / 5   (7 temas evaluados de 8)
@@ -76,18 +78,22 @@ Reglas del tablero:
 - **Nunca uses lenguaje de caducidad ni de deuda**: nada que se venza, nada que se acumule,
   nada que quede debiendo, ningún conteo de días seguidos ni interrumpidos. En este sistema
   no existe nada que caduque.
+- **Ninguna fecha de evaluación aparece en el tablero**, ni en el encabezado, ni como cuenta
+  regresiva, ni como razón de una sugerencia. Aunque la materia las declare en su `CLAUDE.md`.
 - `Calibración` se omite si no hay ninguna medición todavía. No inventes una brecha de 0.
 
 ## La sugerencia
 
 **Una sola línea.** Prioridad, de mayor a menor:
 
-1. Falta ≤7 días para un parcial y hay unidades `sin-material` → `/vaciar-cola` (ingerir ya).
-2. Sobreconfianza detectada en una unidad que entra en el próximo parcial → ese tema.
-3. Hay temas con dominio ≤2 en unidades del próximo parcial → ese tema.
+1. Sobreconfianza detectada en `calibracion.md` (confianza ≥4, acierto <60%) → ese tema.
+   Va primero porque es el error que no se ve solo: creés que está y no está.
+2. Hay temas con dominio ≤2 → el de peor dominio.
+3. Hay temas `sin-material` y hay archivos esperando en `ingest/` → `/vaciar-cola`.
 4. Pasaron ≥5 ingestas desde el último `/lint` → `/lint $1`.
-5. Falta ≤3 días para el parcial → `/machete <unidades del parcial>`.
-6. Todo verde → el tema que hace más tiempo no tocás.
+5. Todo verde → el tema que hace más tiempo no tocás.
+
+El orden es por **riesgo de no saber algo**, nunca por proximidad de una evaluación.
 
 Elegido el tema, **ofrecé las dos vías** y dejá que el usuario elija:
 
