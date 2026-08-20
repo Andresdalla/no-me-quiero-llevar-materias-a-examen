@@ -1,7 +1,7 @@
-# Plan
+# Por dónde seguir
 
-<!-- Lo genera /plan. Es una propuesta de reparto, no una agenda con obligaciones:
-     nada se marca cumplido ni incumplido, nada se arrastra, nada acumula.
-     Correr /plan de nuevo lo regenera desde cero con el estado de ese momento. -->
+<!-- Lo genera /plan. Es una lista ordenada por riesgo de no saber algo, no una agenda:
+     sin días, sin fechas, sin bloques. Nada se marca cumplido ni incumplido, nada se
+     arrastra, nada acumula. Correr /plan de nuevo lo regenera desde cero. -->
 
-Sin plan generado todavía. Corré `/plan <materia> --hasta <fecha>`.
+Sin lista generada todavía. Corré `/plan <materia>`.

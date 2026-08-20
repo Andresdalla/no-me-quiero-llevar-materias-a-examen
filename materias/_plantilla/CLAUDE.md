@@ -28,7 +28,7 @@ Máximo 8. Cada uno hereda su regla de verificación de `plantillas/catalogo.md`
 
 ## Carpetas del wiki
 
-- `temas/` — una página por unidad del programa: qué entra, cobertura, enlaces.
+- `temas/` — una página por unidad o eje del programa: qué entra, cobertura, enlaces.
 - `fuentes/` — una ficha por fuente ingerida: qué es, qué cubre, cuán confiable es.
 - `conceptos/` — fallback: páginas de tipos que no tienen carpeta propia declarada.
 - El resto de las carpetas (`definiciones/`, `teoremas/`, …) las crea `/ingest` a demanda,
