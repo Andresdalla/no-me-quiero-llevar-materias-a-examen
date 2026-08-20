@@ -1,4 +1,5 @@
 # Programa
+modo: temario
 
 <!-- Espina dorsal: el wiki se audita contra este archivo, no contra sí mismo.
      Una entrada por unidad del temario oficial. Lo genera /nueva-materia. -->

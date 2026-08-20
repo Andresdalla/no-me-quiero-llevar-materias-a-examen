@@ -43,6 +43,24 @@ está lleno de `definicion`, el esquema está mirando para otro lado.
 grep "parcial\|final" $M/manifest.jsonl
 ```
 
+### d. Ejes que crecieron torcidos — **solo en `modo: emergente`**
+
+Un programa emergente lo escribió `/ingest` de a un archivo por vez, sin ver el conjunto. Esta
+es la única pasada que lo mira entero, y el drift es esperable, no una falla de nadie.
+
+```bash
+grep -c "^## " $M/wiki/programa.md                                    # cuántos ejes
+grep -rh "^tema:" $M/wiki --include='*.md' | sort | uniq -c | sort -rn # cuánto pesa cada uno
+```
+
+Tres formas del desajuste:
+
+- **Ejes hermanos**: dos ejes que en los hechos hablan de lo mismo con distinto nombre.
+  Se fusionan bajo el que tenga más páginas.
+- **Ejes finos**: 1-2 páginas después de muchas ingestas. Entran adentro de otro.
+- **Ejes obesos**: un eje que se llevó un tercio del wiki dejó de discriminar. Se parte, y el
+  criterio de corte sale de los encabezados de sus páginas, no de tu intuición.
+
 ## 3. Proponer con costo de migración explícito
 
 Toda propuesta lleva su precio, medido, no estimado a ojo:
@@ -58,6 +76,14 @@ Formato:
 SACAR   debate      → 1 instancia en 22 ingestas · migra a comparativa · 1 archivo, 3 enlaces
 RENOMBRAR construccion → maquinas (vocabulario de la cátedra) · 9 archivos, 0 enlaces rotos
 AGREGAR ejercicio-tipo → 11 páginas repiten "Consigna/Estrategia/Trampa" · 0 migración
+FUSIONAR eje observabilidad → telemetria · 2 páginas · 2 `tema:`, 1 línea de mapa
+```
+
+Un cambio de eje se paga en `tema:` y en índices, no en carpetas: las páginas no se mueven,
+porque el eje no es el tipo.
+
+```bash
+grep -rl "^tema: observabilidad" $M/wiki --include='*.md' | wc -l
 ```
 
 Esperá el OK. Sin confirmación no se migra nada.
@@ -68,6 +94,9 @@ Por cada cambio aceptado:
 
 1. Actualizá `$M/CLAUDE.md`: tipos activos, alias, y **`schema_version` +1**.
 2. Movés los archivos a la carpeta nueva y reescribís su `tipo:` e `id:`.
+   Si el cambio es de **eje**: reescribís el `tema:` de cada página y las entradas de
+   `wiki/programa.md`, `wiki/mapa.md`, `wiki/index.md`, `estado/dominio.md` y los nombres de
+   `cards/<eje>.md`. Los archivos no se mueven de carpeta.
 3. Reapuntá **todos** los enlaces `[[...]]` que los referencian.
 4. Actualizá `wiki/mapa.md` (los ids cambiaron).
 5. Verificá que no quedaron enlaces rotos:

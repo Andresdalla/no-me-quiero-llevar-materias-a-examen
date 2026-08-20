@@ -2,7 +2,7 @@
 
 <!-- Lo completa /nueva-materia. Máximo 60 líneas: se carga en cada sesión de esta materia. -->
 
-- cuatrimestre: `<AAAA-#C>` · schema_version: 1 · perfilado: `provisional | definitivo`
+- cuatrimestre: `<AAAA-#C>` · schema_version: 2 · perfilado: `provisional | definitivo`
 - evaluación: `<escrito | oral | múltiple choice | proyecto>`
 
 <!-- Sin fechas de parcial. Si igual querés anotarlas acá son dato de referencia:

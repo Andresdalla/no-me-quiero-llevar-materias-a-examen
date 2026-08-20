@@ -142,11 +142,36 @@ grep -n "<fragmento textual>" .cache/<hash8>/texto.md
 ## 10. Actualizar los índices
 
 - `wiki/mapa.md`: una línea por página nueva, formato
-  `<carpeta>/<slug> · <tipo> · <U#> · <descripción de 8 palabras>`. Ordenado por unidad.
-- `wiki/index.md`: enlace a las páginas nuevas bajo su unidad.
+  `<carpeta>/<slug> · <tipo> · <tema> · <descripción de 8 palabras>`. Ordenado por tema.
+  El `<tema>` es la unidad (`U3`) o el eje (`microservicios`) según el modo del programa.
+- `wiki/index.md`: enlace a las páginas nuevas bajo su tema.
 - `wiki/log.md`: `<fecha> · <fuente_id> · <N> páginas nuevas, <M> actualizadas · verificación N/3`.
-- `wiki/programa.md`: subí la `cobertura` de las unidades tocadas y agregá el `fuente_id` a
-  su lista de `fuentes`. `parcial` si quedó material sin cubrir, `cubierto` si no.
+- `wiki/programa.md`: según el modo, lo de abajo.
+
+### `modo: temario`
+
+Subí la `cobertura` de las unidades tocadas y agregá el `fuente_id` a su lista de `fuentes`.
+`parcial` si quedó material sin cubrir, `cubierto` si no.
+
+### `modo: emergente`
+
+No hay unidades preexistentes ni `cobertura`: los ejes los escribís vos acá. El riesgo es que
+la taxonomía se fragmente en veinte ejes casi iguales, así que **leé la lista de ejes actual
+antes de asignarle tema a la primera página**, no después:
+
+```bash
+grep "^## " materias/activas/<materia>/wiki/programa.md
+```
+
+1. **Reusá un eje existente siempre que encaje**, sin preguntar. La duda se resuelve a favor
+   de reusar: un eje ancho de más se parte después con `/reperfilar`, veinte ejes finos no se
+   arreglan nunca.
+2. **Proponé un eje nuevo solo si nada encaja**, y **mostrale la propuesta al usuario antes de
+   escribirla**: el slug, qué páginas van adentro y por qué no entran en un eje que ya existe.
+   Esperá el OK.
+3. Slug en minúsculas, sin tildes, con guiones. Nombra un **tema**, no una fuente ni una
+   clase: `microservicios`, no `fowler-cap2` ni `clase-03`.
+4. Anexá el `fuente_id` a las `fuentes` del eje y las páginas nuevas a sus `paginas`.
 
 ## 11. Cerrar la ingesta
 

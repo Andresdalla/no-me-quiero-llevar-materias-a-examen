@@ -1,6 +1,6 @@
 # Ingeniería de Software Ágil 2 (`ingenieria-de-software-agil-2`)
 
-- cátedra: Ingeniería de Software · cuatrimestre: 2026-2C · schema_version: 1 · perfilado: provisional
+- cátedra: Ingeniería de Software · cuatrimestre: 2026-2C · schema_version: 2 · perfilado: provisional
 - evaluación: mixta por puntos, **sin examen final** · fechas: no se registran (decisión del usuario)
 - correlativas: previas sin datos · posteriores sin datos
 - `/reperfilar` a las **8 ingestas**: los tipos se eligieron sin parciales ni guías a la vista.

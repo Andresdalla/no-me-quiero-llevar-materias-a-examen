@@ -17,10 +17,11 @@ frontmatter de `cards/*.md` y el `CLAUDE.md` de la materia.
 ## Datos a juntar
 
 ```bash
-grep -c "^## U" $M/wiki/programa.md                      # unidades totales
-grep -c "cobertura: cubierto" $M/wiki/programa.md        # cubiertas
-grep -c "cobertura: parcial" $M/wiki/programa.md         # parciales
-grep -c "cobertura: sin-material" $M/wiki/programa.md    # sin material
+head -2 $M/wiki/programa.md | grep "^modo:"              # temario | emergente
+grep -c "^## " $M/wiki/programa.md                       # unidades o ejes
+grep -c "cobertura: cubierto" $M/wiki/programa.md        # cubiertas   } solo
+grep -c "cobertura: parcial" $M/wiki/programa.md         # parciales   } modo
+grep -c "cobertura: sin-material" $M/wiki/programa.md    # sin material} temario
 wc -l < $M/manifest.jsonl                                # ingestas
 tail -1 $M/wiki/log.md                                   # última actividad
 find $M/wiki -name '*.md' | wc -l                        # páginas
@@ -68,6 +69,14 @@ Sin tocar     Reducciones hace 9 días · Autómatas de pila hace 14 días
 → Sugerencia: /repasar reducciones --desde-errores   o   /resumen reducciones --perfil ciego
 ```
 
+**En `modo: emergente` no hay `cobertura` y la barra `Programa` no tiene denominador**: no
+existe el total contra el que medir. Esa fila se reemplaza por el tamaño real de lo que hay,
+sin barra y sin porcentaje:
+
+```
+Ejes          7 ejes · 34 páginas · mayor: microservicios (9) · menor: observabilidad (1)
+```
+
 Reglas del tablero:
 - Las barras son de 12 caracteres, proporcionales.
 - `Rojo` lista **solo** los temas con dominio ≤2, con su valor.
@@ -89,7 +98,8 @@ Reglas del tablero:
 1. Sobreconfianza detectada en `calibracion.md` (confianza ≥4, acierto <60%) → ese tema.
    Va primero porque es el error que no se ve solo: creés que está y no está.
 2. Hay temas con dominio ≤2 → el de peor dominio.
-3. Hay temas `sin-material` y hay archivos esperando en `ingest/` → `/vaciar-cola`.
+3. Hay archivos esperando en `ingest/` → `/vaciar-cola`. Con temario, priorizalo si además
+   hay unidades `sin-material`; en emergente, ingerir es la única forma de que el programa crezca.
 4. Pasaron ≥5 ingestas desde el último `/lint` → `/lint $1`.
 5. Todo verde → el tema que hace más tiempo no tocás.
 

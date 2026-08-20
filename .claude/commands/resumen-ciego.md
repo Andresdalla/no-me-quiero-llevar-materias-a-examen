@@ -18,7 +18,7 @@ Tiene **dos invocaciones**: la primera abre el archivo, la segunda (`--corregir`
 
 ```markdown
 ---
-tema: U3
+tema: U3                # unidad o eje, según el modo del programa
 materia: teoria-computacion
 escrito: <fecha en que lo termines>
 paginas_a_contrastar: [teoremas/lema-bombeo, definiciones/lenguaje-regular]

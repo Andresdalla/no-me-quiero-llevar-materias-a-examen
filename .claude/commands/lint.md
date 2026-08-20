@@ -15,12 +15,38 @@ hallazgo concreto, y en ese caso solo las señaladas.
 
 ## Chequeos
 
-### 1. Unidades sin material
+### 1. Espina dorsal — depende del modo del programa
+
+```bash
+head -2 $M/wiki/programa.md | grep "^modo:"
+```
+
+**`modo: temario`** — unidades sin material:
+
 ```bash
 grep -A1 "^## U" $M/wiki/programa.md | grep -B1 "cobertura: sin-material"
 ```
-Reportá cada unidad. **La severidad no depende de ninguna fecha**: una unidad sin material
-es igual de crítica en marzo que en diciembre.
+
+Reportá cada unidad. **La severidad no depende de ninguna fecha**: una unidad sin material es
+igual de crítica en marzo que en diciembre.
+
+**`modo: emergente`** — "sin material" no significa nada acá: un eje existe porque hay
+material. Lo que sí se puede auditar es si la taxonomía se está desarmando. Dos chequeos:
+
+**Páginas cuyo `tema:` no figura como eje** — deriva de taxonomía, 🟡. La página está en el
+wiki pero fuera del programa: no la encuentra `/resumen`, no la cuenta `/estado`, no aparece
+en la página de estudio.
+
+```bash
+grep -h "^## " $M/wiki/programa.md | sed 's/^## //' | sort -u   # ejes declarados
+grep -rh "^tema:" $M/wiki --include='*.md' | sed 's/^tema: *//' | sort -u
+```
+
+Lo que aparece en el segundo listado y no en el primero es el hallazgo. Descartá los
+marcadores transversales (`todas`, rangos como `U1-U5`): describen alcance, no eje.
+
+**Ejes con una sola página o una sola fuente** — candidatos a fusionar, ⚪. Un eje que nunca
+creció suele ser un eje que se creó de más; su lugar natural es adentro de otro.
 
 ### 2. Páginas huérfanas (sin enlaces entrantes)
 Listá los slugs y buscá quién los enlaza:
@@ -156,6 +182,7 @@ Una tabla, ordenada por severidad:
 🔴 CRÍTICO  2 consignas ya tomadas sin cubrir     → e2024p1-q5 (U6), e2023p2-q1 (U7)
 🔴 CRÍTICO  4 páginas sin ninguna fuente          → conceptos/…, teoremas/…
 🔴 CRÍTICO  2 unidades sin material                → U5, U8
+🟡 REVISAR  3 páginas con tema fuera del programa  → conceptos/saga (observabilidad)
 🟡 REVISAR  3 enlaces rotos                       → [[teoremas/rice]]
 🟡 REVISAR  2 páginas >150 líneas
 🟡 REVISAR  5 páginas escritas como fichas         → definiciones/conjunto, …

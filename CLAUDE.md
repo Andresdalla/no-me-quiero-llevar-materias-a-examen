@@ -88,13 +88,46 @@ Enlace dentro de la materia: `[[tipo/slug]]`. Entre materias: forma completa,
 Sin esto, `conceptos/proceso` de dos materias se fusionan: es el modo de falla número uno
 de un wiki multi-materia.
 
+## Programa: temario o emergente
+
+`wiki/programa.md` es la espina dorsal contra la que se audita el wiki. Su primera línea
+declara de dónde viene esa espina, y **`/ingest`, `/lint` y `/estado` se comportan distinto
+según el modo**.
+
+**`modo: temario`** — la materia tiene temario oficial. La espina es externa y sabe qué falta:
+
+```markdown
+## U3 · Lenguajes libres de contexto
+- cobertura: sin-material        # sin-material | parcial | cubierto
+- fuentes: []
+- paginas: []
+- temas: gramáticas, autómatas de pila, forma normal de Chomsky
+```
+
+**`modo: emergente`** — no hay temario. `programa.md` arranca sin ejes y `/ingest` lo llena de
+abajo hacia arriba con lo que encuentra en el material:
+
+```markdown
+## microservicios
+- fuentes: [fowler-cap2, clase-03]
+- paginas: [conceptos/saga, patrones/api-gateway]
+- temas: descomposición, límites de contexto, sagas
+```
+
+En modo emergente **no existe `cobertura:`**. Un eje existe porque hay material; nadie dijo
+qué entra, así que no hay forma de saber qué falta. Escribir `sin-material` ahí sería inventar
+un temario, que es la prohibición número uno de este sistema.
+
+El identificador de tema es `U3` con temario y un slug sin él. Los dos conviven: ningún
+comando ni script puede asumir que un tema se llama `U<número>`.
+
 ## Frontmatter estándar
 
 ```yaml
 ---
 id: teoria-computacion/teoremas/bombeo-regulares
 tipo: teorema
-tema: U3
+tema: U3                # `U3` con temario · `microservicios` con programa emergente
 fuentes: [sipser-cap1 p.77, apunte-catedra p.12]
 estado: completo        # esbozo | completo | verificado
 dominio: 3              # 0-5, lo actualiza /profesor
@@ -121,6 +154,7 @@ actualizado: 2026-08-15
 | `/machete [tema]` | Una hoja, dos columnas, sin prosa. |
 | `/profesor [tema] [modo]` | Te interroga (socratico/parcial/feynman/hueco/caso) y actualiza `estado/`. |
 | `/lint [materia]` | Audita cobertura, huérfanas, links rotos, páginas sin fuente. |
+| `/plan <materia>` | Lista ordenada de por dónde seguir. No es una agenda ni tiene fechas. |
 | `/estado [materia]` | Tablero + una recomendación accionable. |
 | `/puentes` | Conexiones entre materias leyendo **solo** los `mapa.md`. |
 | `/reperfilar <materia>` | Audita el esquema de tipos contra el wiki real. |

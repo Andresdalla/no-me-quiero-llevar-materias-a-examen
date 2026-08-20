@@ -1,6 +1,6 @@
 # Teoría de la Computación (`teoria-de-la-computacion`)
 
-- cuatrimestre: 2026-2C (5to semestre) · comisión m5a · schema_version: 1 · perfilado: **provisional**
+- cuatrimestre: 2026-2C (5to semestre) · comisión m5a · schema_version: 2 · perfilado: **provisional**
 - cursada: 4 h semanales · 15 semanas · teórico-práctica
 - evaluación: **mixta** (escrito con material + oral + proyecto) · 100 puntos
 - parcial: **7/12, 9.00** · 3 horas · **con material** · 60 pts

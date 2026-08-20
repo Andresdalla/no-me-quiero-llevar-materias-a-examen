@@ -30,7 +30,7 @@ recuperatorio ni final**: este sistema no gestiona calendario.
 
 Pedile que copie a `materias/activas/$1/ingest/`:
 
-1. El **temario oficial** (obligatorio: sin él no hay `programa.md`).
+1. El **temario oficial**, si existe.
 2. **Parciales y finales viejos**, si los consiguió.
 3. **Guías de ejercicios**.
 
@@ -40,8 +40,11 @@ Esperá confirmación y listá lo que llegó:
 ls -la materias/activas/$1/ingest/
 ```
 
-Si no hay temario, escribí `programa.md` con una sola unidad `U0 · sin temario` y anotá en
-`wiki/dudas.md` que falta. No lo inventes.
+**El temario no es obligatorio.** Si no hay, la materia arranca en `modo: emergente`: el
+programa se va a escribir solo desde el material que ingieras. Decíselo con esa palabra, sin
+tratarlo como una carencia — es un modo de trabajo, no un plan B. **Nunca inventes un temario**
+ni le pidas al usuario que liste de memoria las unidades: eso sería una espina falsa que
+`/lint` después auditaría como si fuera oficial.
 
 ## 4. Procesar la evidencia primero
 
@@ -75,7 +78,10 @@ Mostrá la selección con una línea de justificación por tipo y esperá el OK 
 
 ## 6. Generar `wiki/programa.md`
 
-Una entrada por unidad del temario, en este formato exacto:
+La primera línea declara el modo. Esta es la espina dorsal: el wiki se audita contra el
+programa, no contra sí mismo.
+
+**Con temario** (`modo: temario`), una entrada por unidad, en este formato exacto:
 
 ```markdown
 ## U3 · Lenguajes libres de contexto
@@ -86,7 +92,10 @@ Una entrada por unidad del temario, en este formato exacto:
 ```
 
 `cobertura` es `sin-material` | `parcial` | `cubierto`. Arranca todo en `sin-material`.
-Esta es la espina dorsal: el wiki se audita contra el programa, no contra sí mismo.
+
+**Sin temario** (`modo: emergente`), el archivo queda con la línea `modo:` y **nada más**:
+ningún eje, ningún placeholder. Los ejes los escribe `/ingest` a medida que aparece material,
+con el formato de `CLAUDE.md`. No hay `cobertura` en este modo.
 
 ## 7. Generar el `CLAUDE.md` de la materia
 
@@ -136,5 +145,6 @@ git add -A && git commit -m "materia($1): alta · <N> tipos activos · <M> unida
 
 ## Al terminar, decí exactamente
 
-Qué tipos quedaron activos, cuántas unidades tiene el programa (todas en `sin-material`) y
-que el próximo paso es copiar apuntes a `ingest/` y correr `/vaciar-cola`.
+Qué tipos quedaron activos, en qué modo quedó el programa —con temario, cuántas unidades
+(todas en `sin-material`); emergente, que arranca vacío y se llena solo— y que el próximo paso
+es copiar apuntes a `ingest/` y correr `/vaciar-cola`.

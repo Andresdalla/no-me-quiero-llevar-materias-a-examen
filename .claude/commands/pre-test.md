@@ -30,6 +30,12 @@ Usá la lista de `temas:` de esa unidad —que salió del temario oficial— par
 preguntas. Si la unidad tiene páginas en el wiki, **no las abras**: leerlas te haría preguntar
 lo que el wiki ya sabe, y acá se trata de lo que vos no sabés todavía.
 
+**En `modo: emergente` el tema puede no estar en el programa**, y es lo esperable: ahí un eje
+solo existe cuando ya hay material, así que lo que todavía no estudiaste no figura en ningún
+lado. Pedile al usuario que nombre el tema en una frase —lo que sabe que se viene, aunque sea
+por el título de la clase— y armá las cinco preguntas desde esa frase. **No inventes un
+contenido de cátedra** para rellenar: preguntá sobre el término que te dio y nada más.
+
 ## 2. Las preguntas
 
 - **5, ni más ni menos.** Es una preparación, no una evaluación.
@@ -62,4 +68,4 @@ Sin corregir con dureza y sin puntaje. No hubo nada que aprobar.
 
 Qué conceptos aparecieron que el usuario ya intuía y cuáles le resultaron completamente
 nuevos —esa distinción es útil para saber por dónde empezar— y el comando para estudiar el
-tema: `/resumen <tema>` o `/vaciar-cola` si la unidad todavía no tiene material.
+tema: `/resumen <tema>` o `/vaciar-cola` si el tema todavía no tiene material.

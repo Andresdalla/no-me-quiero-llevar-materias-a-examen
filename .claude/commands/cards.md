@@ -46,7 +46,7 @@ Escribí en `materias/activas/<materia>/cards/<tema>.md`:
 
 ```markdown
 ---
-tema: U3
+tema: U3                # unidad o eje, según el modo del programa
 generado: 2026-08-15
 fuente_paginas: [teoremas/bombeo-regulares, definiciones/lenguaje-regular]
 ---
