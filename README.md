@@ -1,15 +1,10 @@
 # no me quiero llevar materias a examen
 
-Un wiki de estudio que se construye solo a partir de tus PDFs, y después te toma examen.
-
 Es el patrón **LLM Wiki** de Andrej Karpathy adaptado a cursar la facultad: tirás apuntes,
 slides y parciales viejos en una carpeta, y el sistema los compila en páginas markdown
 interconectadas, con cada afirmación rastreable a la página del PDF de donde salió. Después
 genera resúmenes, machetes, tarjetas y simulacros, y lleva registro de qué dominás y de
 cuánto te estás creyendo que sabés.
-
-No es una app. No hay servidor, ni frontend, ni base de datos: son carpetas markdown, cuatro
-scripts de Python y diecisiete comandos de Claude Code.
 
 ## Antes que nada
 
